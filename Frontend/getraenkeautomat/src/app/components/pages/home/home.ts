@@ -25,7 +25,7 @@ export class Home {
         setTimeout(() => {
           this.ngOnInit()
           this.data.isUpdated.set(false)
-        }, this.cart.length * 20);
+        },100);
       }
     })
   }
