@@ -94,12 +94,12 @@ export class Cart {
               productAmount = product.amount - singleCartAmount.amount;
               console.log(productAmount);
               this._dataService
-                .updateProducts(product.name, product.amount, productAmount)
+                .updateProducts(product.name, product.price, productAmount)
                 .subscribe();
-              this.onPurchase.emit(true);
+              }
             }
+            this.onPurchase.emit(true);
           }
-        }
       },
     });
   }
