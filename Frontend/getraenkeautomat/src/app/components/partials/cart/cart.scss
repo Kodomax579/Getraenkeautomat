@@ -1,0 +1,114 @@
+.cartContainer {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background-color: var(--clr-light);
+  margin: var(--gap-lg);
+  border-radius: var(--rounded-md);
+  box-shadow: var(--box-shadow-lg);
+
+  .productListBox {
+    width: 100%;
+    height: 252px;
+    overflow-y: auto;
+    border-radius: 1rem 1rem 0 0;
+
+    .product {
+      display: flex;
+      padding: 6px;
+      background-color: var(--clr-light);
+      justify-content: space-between;
+      border-bottom: var(--clr-dark) solid 1px;
+
+      .productImgBox {
+        background-color: var(--clr-dark);
+        height: 34px;
+        padding: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .productname {
+        width: 128px;
+      }
+
+      .productAmount {
+        display: flex;
+
+        div {
+          width: 34px;
+          padding: var(--gap-y-sm);
+          text-align: center;
+          border-radius: var(--rounded-full);
+          background-color: gray;
+          cursor: pointer;
+        }
+      }
+
+      .productRemove {
+        color: var(--clr-light);
+        background-color: var(--clr-danger);
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: var(--rounded-sm);
+
+        &:hover {
+          color: var(--clr-light);
+        }
+      }
+
+      div {
+        margin: auto 8px;
+        padding: var(--gap-sm);
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        padding: var(--gap-sm);
+      }
+    }
+  }
+
+  .buttonContainer {
+    padding: 6px;
+    display: flex;
+    justify-content: space-around;
+
+    div {
+      padding: var(--gap-sm);
+      font-weight: 600;
+
+      &:first-child {
+        background-color: green;
+        color: var(--clr-light);
+        cursor: pointer;
+        border-radius: var(--rounded-sm);
+      }
+    }
+  }
+
+  @media (width >=40rem) {
+    width: 300px;
+  }
+
+  @media (width >=48rem) {
+    width: 400px;
+  }
+
+  @media (width >=64rem) {
+    width: 400px;
+  }
+
+  @media (width >=80rem) {
+    width: 500px;
+  }
+
+  @media (width >=96rem) {
+    width: 600px;
+  }
+}

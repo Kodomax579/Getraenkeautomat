@@ -1,0 +1,113 @@
+$clr-register: oklch(70.5% 0.213 47.604);
+$clr-login: oklch(68.5% 0.169 237.323);
+$clr-light: white;
+$clr-dark: oklch(92.3% 0.003 48.717);
+$fs-md: 1.25rem;
+$fs-lg: 1.5rem;
+
+.signInUpContainer {
+  width: 200px;
+  margin: auto;
+  justify-content: center;
+  background-color: $clr-light;
+  border-radius: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+  .headline {
+    font-size: $fs-lg;
+    display: flex;
+    text-align: center;
+    font-weight: 600;
+
+    div {
+      width: 50%;
+      padding: 8px;
+      cursor: pointer;
+      background-color: $clr-dark;
+
+      &:first-child {
+        border-top-left-radius: 1rem;
+      }
+
+      &:last-child {
+        border-top-right-radius: 1rem;
+      }
+    }
+
+    .loginH {
+      background-color: $clr-login;
+      color: $clr-light;
+    }
+
+    .registerH {
+      background-color: $clr-register;
+      color: $clr-light;
+    }
+  }
+
+  .formContainer {
+    font-size: $fs-md;
+    padding: 1rem;
+
+    form {
+      label {
+        max-width: 100%;
+      }
+
+      input {
+        font-size: $fs-md;
+        width: calc(100% - 16px);
+        margin-bottom: 8px;
+        padding: 8px;
+        border: none;
+        background-color: $clr-dark;
+        border-radius: 1rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+
+      button {
+        font-size: $fs-md;
+        width: 100%;
+        border-radius: 1rem;
+        background-color: $clr-dark;
+        border: none;
+        padding: 8px;
+        margin-top: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &.loginBtn:hover {
+          background-color: $clr-login;
+          color: $clr-light;
+        }
+
+        &.registerBtn:hover {
+          background-color: $clr-register;
+          color: $clr-light;
+        }
+      }
+    }
+  }
+  
+  @media (width >=40rem) {
+    width: 300px;
+  }
+
+  @media (width >=48rem) {
+    width: 400px;
+  }
+
+  @media (width >=64rem) {
+    width: 400px;
+    margin-top: 500px;
+  }
+
+  @media (width >=80rem) {
+    width: 500px;
+    margin-top: 0;
+  }
+
+  @media (width >=96rem) {
+    width: 600px;
+  }
+}

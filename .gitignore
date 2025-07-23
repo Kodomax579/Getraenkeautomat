@@ -1,0 +1,24 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+##Angular##
+Frontend/getraenkeautomat/dist/
+Frontend/getraenkeautomat/temp/
+Frontend/getraenkeautomat/.angular
+Frontend/getraenkeautomat/.editorconfig
+Frontend/getraenkeautomat/node_modules
+
+Backend/BankService/BankService/BankService/bin/**
+Backend/BankService/BankService/BankService/obj/**
+Backend/BankService/BankService/.vs/**
+
+Backend/TicTacToe/TicTacToe/bin/**
+Backend/TicTacToe/TicTacToe/obj/**
+Backend/TicTacToe/.vs/**
+
+Backend/UserService/UserService/bin/**
+Backend/UserService/UserService/obj/**
+Backend/UserService/.vs/**
+
+Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/bin/**
+Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/obj/**
+Backend/VorratService/GetraenkeautomatVorrat/.vs/**

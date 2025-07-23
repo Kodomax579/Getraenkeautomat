@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="imgBox">
+    <div>{{item().amount}}</div>
+    <img [src]="'data:image/png;base64,' + item().picture" alt="avatar" class="product-img">
+  </div>
+  <div class="infoBox">
+    <div class="productName">{{item().name}}</div>
+    <div class="productPrice">{{item().price.toFixed(2)}} €</div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="signInUpContainer">
+  <div class="headline">
+    <div [ngClass]="(isloginHeaderPressed) ? 'loginH' : ''" (click)="isloginHeaderPressed = true">Login</div>
+    <div [ngClass]="(!isloginHeaderPressed) ? 'registerH' : ''" (click)="isloginHeaderPressed = false">Register</div>
+  </div>
+  <div class="formContainer">
+    <form *ngIf="isloginHeaderPressed">
+      <label>Benutzername / E-Mail</label><br>
+      <input #userNameOrEmail type="text" placeholder="..."><br>
+      <label>Passwort</label><br>
+      <input #userPassword type="password" placeholder="...">
+      <button class="loginBtn" (click)="login()" type="button" >Anmelden</button>
+    </form>
+    <form *ngIf="!isloginHeaderPressed">
+      <label>Benutzername</label><br>
+      <input #userName type="text" placeholder="..."><br>
+      <label>E-Mail</label><br>
+      <input #userEmail type="email" placeholder="..."><br>
+      <label>Passwort</label><br>
+      <input #userPassword type="password" placeholder="...">
+      <button class="registerBtn" (click)="register()" type="button" >Registrieren</button>
+    </form>
+  </div>
+</div>

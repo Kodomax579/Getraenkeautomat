@@ -1,0 +1,57 @@
+.profileContainer {
+  position: relative;
+  width: 200px;
+  background-color: var(--clr-light);
+  border-radius: var(--rounded-md);
+  box-shadow: var(--box-shadow-lg);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .infoBox {
+    padding: var(--gap-md);
+
+    div {
+      font-weight: 600;
+      padding: var(--gap-sm);
+      margin: var(--gap-y-sm);
+      border-radius: var(--rounded-sm);
+      background-color: var(--clr-primary);
+      width: fit-content;
+    }
+  }
+
+  .logout {
+    font-weight: 600;
+    position: absolute;
+    top: var(--gap-md);
+    right: var(--gap-md);
+    background-color: var(--clr-danger);
+    color: var(--clr-light);
+    padding: var(--gap-md);
+    border-radius: var(--rounded-md);
+    cursor: pointer;
+  }
+
+  @media (width >=40rem) {
+    width: 300px;
+  }
+
+  @media (width >=48rem) {
+    width: 400px;
+  }
+
+  @media (width >=64rem) {
+    width: 400px;
+    margin-top: 500px;
+  }
+
+  @media (width >=80rem) {
+    width: 500px;
+    margin-top: 0;
+  }
+
+  @media (width >=96rem) {
+    width: 600px;
+  }
+}

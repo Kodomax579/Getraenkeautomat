@@ -1,0 +1,64 @@
+main {
+  display: flex;
+  width: var(--w-screen);
+  height: var(--h-screen);
+
+  .leftSide {
+    width: 40%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+
+    @media (width >=40rem) {
+      width: 40%;
+    }
+
+    @media (width >=48rem) {
+      width: 45%;
+    }
+
+    @media (width >=64rem) {
+      width: 50%;
+    }
+
+    @media (width >=80rem) {
+      width: 55%;
+    }
+
+    @media (width >=96rem) {
+      width: 60%;
+    }
+  }
+
+  .rightSide {
+    width: 60%;
+    background-color: var(--clr-primary);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+
+    @media (width >=40rem) {
+      width: 60%;
+    }
+
+    @media (width >=48rem) {
+      width: 55%;
+    }
+
+    @media (width >=64rem) {
+      width: 50%;
+    }
+
+    @media (width >=80rem) {
+      width: 45%;
+    }
+
+    @media (width >=96rem) {
+      width: 40%;
+    }
+  }
+}

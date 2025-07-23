@@ -1,0 +1,37 @@
+@GetraenkeautomatVorrat_HostAddress = http://localhost:5232
+@id = 2
+
+GET {{GetraenkeautomatVorrat_HostAddress}}/vorrat/
+Accept: application/json
+
+###
+
+GET {{GetraenkeautomatVorrat_HostAddress}}/vorrat/{{id}}
+Accept: application/json
+
+###
+
+POST {{GetraenkeautomatVorrat_HostAddress}}/vorrat/
+Content-Type: application/json
+{
+  "name": "Coca Cola Zero",
+  "price": 2.2,
+  "size": 0.5,
+  "totalAmount": 16
+}
+###
+
+PUT {{GetraenkeautomatVorrat_HostAddress}}/vorrat/{{id}}
+Content-Type: application/json
+{
+  "id": {{id}},
+  "name": "Coca Cola Zero2",
+  "price": 2.2,
+  "size": 0.5,
+  "totalAmount": 16
+}
+###
+
+DELETE {{GetraenkeautomatVorrat_HostAddress}}/vorrat/{{id}}
+
+###

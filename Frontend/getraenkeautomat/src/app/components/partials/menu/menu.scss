@@ -1,0 +1,65 @@
+.gameMenuContainer {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow-lg);
+
+  .TicTacToe {
+    background-image: url('/TicTacToe_Thumbnail.png');
+  }
+
+  .AimLab {
+    background-image: url('/Aimlabs_Thumbnail.png');
+  }
+
+  .TicTacToe,
+  .AimLab {
+    width: var(--size-half);
+    height: var(--size-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    transition: all;
+    transition-duration: 200ms;
+    font-size: larger;
+    font-weight: 800;
+
+    &:first-child {
+      border-radius: 1rem 0 0 1rem;
+    }
+
+    &:last-child {
+      border-radius: 0 1rem 1rem 0;
+    }
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  @media (width >=40rem) {
+    width: 300px;
+  }
+
+  @media (width >=48rem) {
+    width: 400px;
+  }
+
+  @media (width >=64rem) {
+    width: 400px;
+  }
+
+  @media (width >=80rem) {
+    width: 500px;
+  }
+
+  @media (width >=96rem) {
+    width: 600px;
+  }
+}

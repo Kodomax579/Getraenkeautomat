@@ -1,0 +1,13 @@
+<div class="background">
+  <div class="header">
+    <button class="back-button" (click)="onLeave()">Zurück</button>
+    <div class="counter">{{ counter }}</div>
+  </div>
+
+  <app-circle 
+    class="circle"
+    (click)="onClick()" 
+    [style.top.px]="top()" 
+    [style.left.px]="left()">
+  </app-circle>
+</div>
