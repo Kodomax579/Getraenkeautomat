@@ -1,25 +1,33 @@
-<div class="cartContainer">
-  <div class="productListBox">
-    @for (item of cartItems(); track $index) {
-    <div class="product">
-      <div class="productImgBox"><img [src]="'data:image/png;base64,' + item.picture"  alt="avatar" 
-          class="product-img"></div>
-      <div class="productname">{{item.name}}</div>
-      <div class="productAmount">
-        <div (click)="increaseAmount(item.id)">+</div>
-        <div>{{ getAmountForItem(item.id) }}</div>
-        <div (click)="decreaseAmount(item.id)">-</div>
-      </div>
-      <div class="productPrice">{{item.price.toFixed(2)}} €</div>
-      <div class="productRemove" (click)="deleteItem(item.id)">Entfernen</div>
+<div class="cartBox">
+  <div class="cartContainer">
+    <div class="cartHeader">
+      <span>
+        Shopping Cart
+      </span>
     </div>
-    }
-    @if (cartItems() == undefined || cartItems() == null) {
-      <div>leer</div>
-    }
+    <hr>
+    <div class="productListBox">
+      @for (item of cartItems(); track $index) {
+        <div class="product">
+          <div class="productImgBox"><img [src]="'data:image/png;base64,' + item.picture"  alt="avatar" 
+            class="product-img"></div>
+            <div class="productname">{{item.name}}</div>
+            <div class="productAmount">
+              <div (click)="increaseAmount(item.id)">+</div>
+              <div>{{ getAmountForItem(item.id) }}</div>
+              <div (click)="decreaseAmount(item.id)">-</div>
+            </div>
+            <div class="productPrice">{{item.price.toFixed(2)}} €</div>
+            <div class="productRemove" (click)="deleteItem(item.id)">Entfernen</div>
+          </div>
+        }
+        @if (cartItems() == undefined || cartItems() == null) {
+          <div>leer</div>
+        }
   </div>
   <div class="buttonContainer">
     <div (click)="buy()">Kaufen</div>
     <div>{{getTotalPrice().toFixed(2)}} €</div>
   </div>
+</div>
 </div>
