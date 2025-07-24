@@ -1,0 +1,33 @@
+<p-menu [model]="items"  >
+    <ng-template #start>
+        <div class="header">
+            <span class="pi pi-filter headIcon"></span>
+            <span class="headline">GETRÄNKEMARKT</span>
+        </div>
+    </ng-template>
+
+    <ng-template #item let-item >
+        <a pRipple class="flex items-center p-menu-item-link items">
+            <span class="itemIcon" [class]="item.icon"></span>
+            <span class="itemLabel">{{ item.label }}</span>
+        </a>
+    </ng-template>
+    <ng-template #end>
+        <div class="userSection">
+            <div>
+                <span class="pi pi-user userIcon"></span>
+                <span class="userHeader"> User</span>
+            </div>
+            <div >
+                <span class="userName">{{"Name:"+ user?.name }}</span>
+            </div>
+            <div>
+                <span class="userLevel">{{"Level: "+ user?.level }}</span>
+            </div>
+            <div>
+                <span class="userMoney">{{"Money: " + money}}</span>
+            </div>
+            <div class="logout" (click)="receiveMessage(false)">Logout</div>
+        </div>
+    </ng-template>
+</p-menu>

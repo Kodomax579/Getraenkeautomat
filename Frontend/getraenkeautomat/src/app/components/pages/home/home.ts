@@ -1,18 +1,16 @@
 import { Component, effect } from '@angular/core';
-import { ProductCard } from '../../partials/product-card/product-card';
-import { SignInUp } from '../../partials/sign-in-up/sign-in-up';
-import { Cart, productAmount } from '../../partials/cart/cart';
-import { CommonModule } from '@angular/common';
-import { Profile } from '../../partials/profile/profile';
-import { Data } from '../../../services/data';
-import { Menu } from "../../partials/menu/menu";
 import { productList } from '../../../Models/product.model';
+import { productAmount, Cart } from '../../partials/cart/cart';
+import { Data } from '../../../services/data';
+import { ProductCard } from "../../partials/product-card/product-card";
+import { Menu } from "../../partials/menu/menu";
+import { Navbar } from "../../partials/navbar/navbar";
 
 @Component({
   selector: 'app-home',
-  imports: [ProductCard, SignInUp, Cart, CommonModule, Profile, Menu],
+  imports: [ProductCard, Cart, Menu, Navbar],
   templateUrl: './home.html',
-  styleUrl: './home.scss',
+  styleUrl: './home.scss'
 })
 export class Home {
   constructor(private data: Data) 
@@ -30,7 +28,7 @@ export class Home {
     })
   }
 
-  isloggedin: boolean = false; //false
+  isloggedin: boolean = true; //false
   products: productList[] = [];
   cart: productList[] = [];
   cartAmount: productAmount[] = [];
@@ -40,10 +38,6 @@ export class Home {
       console.log('Produkte geladen:', data);
       this.products = data;
     });
-  }
-
-  receiveMessage(isLoggedIn: boolean) {
-    this.isloggedin = isLoggedIn;
   }
 
   addProduct(item: productList) {

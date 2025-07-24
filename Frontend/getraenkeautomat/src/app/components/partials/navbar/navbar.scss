@@ -1,0 +1,67 @@
+p-menu{
+    height: 100svh;
+    display: flex;
+    position: absolute;
+
+    .header{
+        margin: 2rem;
+    
+        .headline{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .headIcon{
+            font-size: 2rem;
+        }
+    }
+    .items{
+        display: flex;
+        justify-content: center;
+    
+        .itemLabel{
+            font-size: 1.4rem;
+        }
+        .itemIcon{
+            font-size: 1.4rem;
+        }
+    }
+    .userSection{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 55vh;
+        gap: 0.5rem;
+        .userIcon{
+            font-size: 1.5rem;
+        }
+        .userHeader{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .userName{
+            font-size: larger;
+        }
+        .userLevel{
+            font-size: larger;
+        }
+        .userMoney{
+            font-size: larger;
+        }
+        .logout {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            background-color: var(--clr-danger);
+            color: var(--clr-light);
+            padding: var(--gap-md);
+            border-radius: var(--rounded-md);
+            cursor: pointer;
+        }
+    }
+}
+::ng-deep .p-menu-list{
+    gap: 10px !important;
+}
