@@ -9,19 +9,18 @@ import { Aimlabs } from "../aimlabs/aimlabs";
   styleUrl: './menu.scss',
 })
 export class Menu {
-  TicTacToe: boolean = false;
-  AimLab: boolean = false;
+  selectedGame: number = 0;
 
   showTicTacToe(){
-    this.TicTacToe = true;
+    this.selectedGame = 1;
   }
 
   showAimLab(){
-    this.AimLab = true;
+    this.selectedGame = 2;
   }
 
   onLeave()
   {
-    this.AimLab = false
+    this.selectedGame = 0
   }
 }

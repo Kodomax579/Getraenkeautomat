@@ -1,7 +1,11 @@
-p-menu{
+::ng-deep p-menu{
     height: 100svh;
     display: flex;
     position: fixed;
+    .ng-trigger{
+        background-color: #1f2937;
+        color: #e5e7eb;
+    }
     .header{
         margin: 2rem;
     
@@ -14,15 +18,23 @@ p-menu{
             font-size: 2rem;
         }
     }
-    .items{
-        display: flex;
-        justify-content: center;
-    
-        .itemLabel{
-            font-size: 1.4rem;
+    .p-menu-item-content{
+
+        .items{
+            display: flex;
+            justify-content: center;
+            .itemIcon,
+            .itemLabel{
+                font-size: 1.6rem;
+                color: #e5e7eb;
+            }
         }
-        .itemIcon{
-            font-size: 1.4rem;
+        &:hover{
+            .itemIcon,
+            .itemLabel{
+                font-size: 1.6rem;
+                color: #000000;
+            }
         }
     }
     .userSection{
