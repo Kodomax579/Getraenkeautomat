@@ -66,6 +66,11 @@ export class Navbar implements OnInit {
   }
 
     receiveMessage($event:boolean){
-    this.islogout.emit($event);
+    this.route.navigateByUrl("Login")
+  }
+
+  onClickToHome()
+  {
+    this.route.navigateByUrl("Home")
   }
 }
