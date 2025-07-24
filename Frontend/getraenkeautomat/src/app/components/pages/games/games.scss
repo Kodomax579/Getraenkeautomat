@@ -1,5 +1,11 @@
 .page {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  .games{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

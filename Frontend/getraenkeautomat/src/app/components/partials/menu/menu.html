@@ -1,12 +1,17 @@
 <div class="gameMenuContainer">
-  @if (!TicTacToe && !AimLab) {
-  <div (click)="showTicTacToe()" class="TicTacToe">
-  </div>
-  <div (click)="showAimLab()" class="AimLab">
-  </div>
-  }@else if(TicTacToe) {
-  <app-games (isTicTacToe)="TicTacToe = false"></app-games>
-  }@else {
+  @if (selectedGame == 0) {
+
+  <div (click)="showTicTacToe()" class="TicTacToe"></div>
+
+  <div (click)="showAimLab()" class="AimLab"></div>
+
+  }
+  @else if(selectedGame === 1) {
+
+  <app-games (isTicTacToe)="selectedGame = 0"></app-games>
+
+  }
+  @else {
   <app-aimlabs (leave)="onLeave()"></app-aimlabs>
   }
 </div>
