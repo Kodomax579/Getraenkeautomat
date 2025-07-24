@@ -1,14 +1,14 @@
 p-menu{
     height: 100svh;
     display: flex;
-    position: absolute;
-
+    position: fixed;
     .header{
         margin: 2rem;
     
         .headline{
             font-size: 2rem;
             font-weight: bold;
+            cursor: pointer;
         }
         .headIcon{
             font-size: 2rem;
@@ -64,4 +64,7 @@ p-menu{
 }
 ::ng-deep .p-menu-list{
     gap: 10px !important;
+}
+.navbargap{
+    width: 400px;
 }
