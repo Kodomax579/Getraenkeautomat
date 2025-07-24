@@ -1,18 +1,19 @@
-import { Component, effect } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { productList } from '../../../Models/product.model';
-import { productAmount, Cart } from '../../partials/cart/cart';
+import { productAmount } from '../../partials/cart/cart';
 import { Data } from '../../../services/data';
-import { ProductCard } from "../../partials/product-card/product-card";
-import { Menu } from "../../partials/menu/menu";
 import { Navbar } from "../../partials/navbar/navbar";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [ProductCard, Cart, Menu, Navbar],
+  imports: [Navbar],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class Home {
+private route = inject(Router)
+
   constructor(private data: Data) 
   {
     effect(()=>{
@@ -28,7 +29,6 @@ export class Home {
     })
   }
 
-  isloggedin: boolean = true; //false
   products: productList[] = [];
   cart: productList[] = [];
   cartAmount: productAmount[] = [];
@@ -69,5 +69,9 @@ export class Home {
       this.data.isUpdated.set(true);
       
     }
+  }
+  isLogedOut()
+  {
+    this.route.navigateByUrl("Login")
   }
 }

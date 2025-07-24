@@ -1,12 +1,1 @@
-<app-navbar></app-navbar>
-<main>
-  <div class="leftSide">
-    @for (item of products; track $index) {
-    <app-product-card [item]="item" (click)="addProduct(item)" />
-    }
-  </div>
-  <div class="rightSide">
-    <app-cart [cartItems]="cart" [itemAmount]="cartAmount" (removeItem)="onRemoveItem($event)" (onPurchase)="onPurchase($event)"></app-cart>
-    <app-menu></app-menu>
-  </div>
-</main>
+<app-navbar (islogout)="isLogedOut()"></app-navbar>
