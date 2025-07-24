@@ -1,0 +1,18 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.product-list {
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+app-product-card {
+  box-sizing: border-box;
+}
