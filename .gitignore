@@ -6,6 +6,7 @@ Frontend/getraenkeautomat/temp/
 Frontend/getraenkeautomat/.angular
 Frontend/getraenkeautomat/.editorconfig
 Frontend/getraenkeautomat/node_modules
+Frontend/getraenkeautomat/.vscode
 
 Backend/BankService/BankService/BankService/bin/**
 Backend/BankService/BankService/BankService/obj/**
