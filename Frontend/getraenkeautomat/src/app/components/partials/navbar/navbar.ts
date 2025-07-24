@@ -42,6 +42,8 @@ export class Navbar implements OnInit {
 
       if(val)
         this.user = val
+      else
+        this.onLogout(true);
     })
   }
 
@@ -65,8 +67,11 @@ export class Navbar implements OnInit {
     this.user = this.authService.getUser()
   }
 
-    receiveMessage($event:boolean){
-    this.route.navigateByUrl("Login")
+    onLogout(isLogout:boolean){
+      if(isLogout)
+      {
+        this.route.navigateByUrl("Login")
+      }
   }
 
   onClickToHome()
