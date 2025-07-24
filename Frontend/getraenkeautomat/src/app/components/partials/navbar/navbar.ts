@@ -7,6 +7,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { Auth } from '../../../services/auth';
 import { userModel } from '../../../Models/user.model';
 import { Bank } from '../../../services/bank';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { Bank } from '../../../services/bank';
 export class Navbar implements OnInit {
   private authService = inject(Auth)
   private bankService = inject(Bank)
+  private route = inject(Router);
 
   money : number |undefined;
   user : userModel |undefined;
@@ -48,10 +50,16 @@ export class Navbar implements OnInit {
         {
             label: 'Shop',
             icon: PrimeIcons.SHOPPING_CART,
+            command: () => {
+              this.route.navigate(["./Shop"])
+            },
         },
         {
             label: 'Game',
-            icon: PrimeIcons.CROWN
+            icon: PrimeIcons.CROWN,
+            command: () => {
+              this.route.navigate(["./Games"])
+            },
         }
     ];
     this.user = this.authService.getUser()
