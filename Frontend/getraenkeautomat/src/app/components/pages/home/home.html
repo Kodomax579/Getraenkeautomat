@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <main>
   <div class="leftSide">
     @for (item of products; track $index) {
@@ -5,12 +6,7 @@
     }
   </div>
   <div class="rightSide">
-    @if (isloggedin == true) {
-    <app-profile (islogout)="receiveMessage($event)"></app-profile>
     <app-cart [cartItems]="cart" [itemAmount]="cartAmount" (removeItem)="onRemoveItem($event)" (onPurchase)="onPurchase($event)"></app-cart>
     <app-menu></app-menu>
-    } @else {
-    <app-sign-in-up (isLoggedIn)="receiveMessage($event)"></app-sign-in-up>
-    }
   </div>
 </main>
