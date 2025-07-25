@@ -62,6 +62,13 @@ export class Navbar implements OnInit {
             command: () => {
               this.route.navigate(["./Games"])
             },
+        },
+        {
+          label:'History',
+          icon:PrimeIcons.BOOK,
+          command: () => {
+              this.route.navigate(["./History"])
+            },
         }
     ];
     this.user = this.authService.getUser()

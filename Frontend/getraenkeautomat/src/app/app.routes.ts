@@ -3,6 +3,7 @@ import { Login } from './components/pages/Login/login';
 import { Home } from './components/pages/home/home';
 import { Shop } from './components/pages/shop/shop';
 import { Games } from './components/pages/games/games';
+import { History } from './components/pages/history/history';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path:"Games",
     component:Games
+  },
+  {
+    path:"History",
+    component:History
   }
 ];
