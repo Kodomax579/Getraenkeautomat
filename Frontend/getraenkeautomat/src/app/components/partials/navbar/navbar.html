@@ -22,7 +22,7 @@
                 <span class="userLevel">{{"Level: "+ user?.level?.toFixed(2) }}</span>
             </div>
             <div>
-                <span class="userMoney">{{"Money: " + money}}</span>
+                <span class="userMoney">{{"Money: " + money?.toFixed(2)}}</span>
             </div>
             <div class="logout" (click)="onLogout(true)">Logout</div>
         </div>

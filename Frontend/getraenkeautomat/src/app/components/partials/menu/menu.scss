@@ -5,11 +5,11 @@
   gap: 10vw;
 
   .TicTacToe {
-    background-image: url('/TicTacToe_Thumbnail.png');
+    background-image: url('/TicTacToe_Thumbnail2.png');
   }
 
   .AimLab {
-    background-image: url('/Aimlabs_Thumbnail.png');
+    background-image: url('/AimLab_Thumbnail.png');
   }
 
   .TicTacToe,
@@ -21,7 +21,7 @@
     background-position: center;
     transition: all;
     transition-duration: 200ms;
-    border-radius: 50%;
+    border-radius: 4rem;
 
     &:hover {
       opacity: 0.75;

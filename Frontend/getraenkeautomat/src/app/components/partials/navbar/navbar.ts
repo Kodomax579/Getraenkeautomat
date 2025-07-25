@@ -72,6 +72,14 @@ export class Navbar implements OnInit {
         }
     ];
     this.user = this.authService.getUser()
+    if(this.user)
+    {
+      this.bankService.getCurrentAccountBalance(this.user.id).subscribe({
+        next:(val)=>{
+          this.money = val.money
+        }
+      })
+    }
   }
 
     onLogout(isLogout:boolean){
