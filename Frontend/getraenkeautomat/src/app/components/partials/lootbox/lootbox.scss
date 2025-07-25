@@ -1,0 +1,56 @@
+.container {
+  border-radius: 2rem;
+  background-color: #ffffff20;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  .lootbox {
+    height: 26rem;
+    width: 20rem;
+    background-color: white;
+    margin: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+
+    img {
+      width: 20rem;
+      height: 20rem;
+      border-radius: 2rem;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      margin-top: 0.5rem;
+
+      &:last-child {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.back-button {
+  background-color: #007bff;
+  color: var(--clr-light);
+  font-size: 2rem;
+  font-weight: 600;
+  height: 26rem;
+  width: 20rem;
+  margin: 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}

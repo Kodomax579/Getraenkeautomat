@@ -1,8 +1,10 @@
 .gameMenuContainer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  margin: auto;
   box-shadow: var(--box-shadow-lg);
-  gap: 10vw;
+  //gap: 10vw;
 
   .TicTacToe {
     background-image: url('/TicTacToe_Thumbnail2.png');
@@ -12,8 +14,23 @@
     background-image: url('/AimLab_Thumbnail.png');
   }
 
+  .Blackjack {
+    background-image: url('/AimLab_Thumbnail.png');
+  }
+
+  .Lootbox {
+    background-image: url('/Lootbox_Thumbnail.png');
+  }
+
+  .CoinToss {
+    background-image: url('/CoinToss_Thumbnail.jpeg');
+  }
+
   .TicTacToe,
-  .AimLab {
+  .AimLab,
+  .Blackjack,
+  .Lootbox,
+  .CoinToss {
     width: 20vw;
     height: 40vh;
     cursor: pointer;
@@ -22,9 +39,15 @@
     transition: all;
     transition-duration: 200ms;
     border-radius: 4rem;
+    margin: 4rem;
 
     &:hover {
       opacity: 0.75;
     }
+  }
+  app-lootbox{
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }
