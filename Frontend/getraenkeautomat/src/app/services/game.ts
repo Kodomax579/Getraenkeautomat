@@ -72,6 +72,12 @@ export class Game {
     this.bank.putEarnMoney(money, user.id);
   }
 
+    getCashOnly(earnedMoney:number) {
+    let user: any = this.auth.getUser();
+    let money: number = earnedMoney;
+    this.bank.putEarnMoney(money, user.id);
+  }
+
   roundToTwoDecimalPlaces(num: number): number {
     return Number(num.toFixed(2));
   }
