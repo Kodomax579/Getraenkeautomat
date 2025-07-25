@@ -62,9 +62,24 @@ export class Navbar implements OnInit {
             command: () => {
               this.route.navigate(["./Games"])
             },
+        },
+        {
+          label:'History',
+          icon:PrimeIcons.BOOK,
+          command: () => {
+              this.route.navigate(["./History"])
+            },
         }
     ];
     this.user = this.authService.getUser()
+    if(this.user)
+    {
+      this.bankService.getCurrentAccountBalance(this.user.id).subscribe({
+        next:(val)=>{
+          this.money = val.money
+        }
+      })
+    }
   }
 
     onLogout(isLogout:boolean){

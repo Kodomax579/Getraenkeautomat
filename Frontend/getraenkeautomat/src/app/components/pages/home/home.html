@@ -1,3 +1,47 @@
-<div class="page">
-    <app-navbar (islogout)="isLogedOut()"></app-navbar>
+<div class="start-page">
+  <app-navbar></app-navbar>
+    <div class="content">
+        <div>
+            <section class="hero">
+              <img src="/Home_Thumbnail.png" alt="Tim spielt um Getränke" class="hero-image" />
+          
+              <div class="hero-text">
+                <h1>🎮 Der Durst des Verhängnisses</h1>
+                <p>
+                  Spiele nicht für Ruhm. Spiele für... Getränke!  
+                  In einer Welt, in der Getränkeautomaten keine Münzen wollen,  
+                  sondern TicTacToe, AimLabs und Lootboxen...  
+                  entscheidet dein Können über Cola oder Niederlage.
+                </p>
+          
+                <button class="cta-button" (click)="startGame()">Jetzt spielen</button>
+              </div>
+            </section>
+          
+            <section class="features">
+              <h2>🕹️ So funktioniert's</h2>
+              <div class="feature-grid">
+                <div class="feature">
+                  <h3>❌ TicTacToe</h3>
+                  <p>Besiege die KI im klassischen Minispiel und erhalte deine wohlverdiente Apfelschorle!</p>
+                </div>
+                <div class="feature">
+                  <h3>🧪 Aimlab</h3>
+                  <p>Stelle deine Schnelligkeit unter beweis</p>
+                </div>
+                <div class="feature">
+                  <h3>🎁 Lootbox</h3>
+                  <p>Wage dein Glück: Bekommst du Geld für Getränke oder musst du weiter machen?</p>
+                </div>
+              </div>
+            </section>
+          
+            <section class="quote">
+              <blockquote>
+                <strong>„Tim – Held der Getränke.“</strong><br />
+                <em>„Gespielt für die Durstigen.“</em>
+              </blockquote>
+            </section>
+        </div>
+    </div>
 </div>

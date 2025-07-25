@@ -1,0 +1,62 @@
+.page {
+  display: flex;
+
+  .mainPage {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 2rem;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 900px;
+      width: 100%;
+      gap: 2rem;
+      .header{
+        color: white;
+        font-size: 3rem;
+      }
+      .Picture {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .story {
+        color: white;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0 1rem;
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          color: #ffcc00;
+        }
+
+        blockquote {
+          margin: 1rem 0;
+          padding-left: 1rem;
+          border-left: 4px solid #888;
+          font-style: italic;
+          color: #ccc;
+        }
+
+        strong {
+          color: #ffffff;
+        }
+
+        em {
+          color: #bbbbbb;
+        }
+      }
+    }
+  }
+}

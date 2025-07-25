@@ -23,3 +23,11 @@ Backend/UserService/.vs/**
 Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/bin/**
 Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/obj/**
 Backend/VorratService/GetraenkeautomatVorrat/.vs/**
+
+Backend/LootboxService/LootboxService/bin/**
+Backend/LootboxService/LootboxService/obj/**
+Backend/LootboxService/.vs/**
+
+Backend/BlackJack/bin/**
+Backend/BlackJack/obj/**
+Backend/BlackJack/.vs/**

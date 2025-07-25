@@ -1,17 +1,25 @@
 <div class="gameMenuContainer">
-  @if (selectedGame == 0) {
-
-  <div (click)="showTicTacToe()" class="TicTacToe"></div>
-
-  <div (click)="showAimLab()" class="AimLab"></div>
-
-  }
-  @else if(selectedGame === 1) {
-
+  @switch (selectedGame) {
+  @case (1) {
   <app-games (isTicTacToe)="selectedGame = 0"></app-games>
-
   }
-  @else {
+  @case (2) {
   <app-aimlabs (leave)="onLeave()"></app-aimlabs>
   }
+  @case (3) {
+  <!--BlackJack-->
+  }
+  @case (4) {
+    <app-lootbox (leave)="onLeave()"></app-lootbox>
+  }
+  @case (5) {
+    <app-coin-toss (leave)="onLeave()"></app-coin-toss>
+  }
+  @default {
+  <div (click)="showTicTacToe()" class="TicTacToe"></div>
+  <div (click)="showAimLab()" class="AimLab"></div>
+  <div (click)="showBlackjack()" class="Blackjack"></div> <!--Blackjack-->
+  <div (click)="showLootbox()" class="Lootbox"></div>
+  <div (click)="showCoinToss()" class="CoinToss"></div>
+  }}
 </div>

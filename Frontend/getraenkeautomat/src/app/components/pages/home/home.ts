@@ -1,7 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
-import { productList } from '../../../Models/product.model';
-import { productAmount } from '../../partials/cart/cart';
-import { Data } from '../../../services/data';
+import { Component, effect, inject, runInInjectionContext } from '@angular/core';
 import { Navbar } from "../../partials/navbar/navbar";
 import { Router } from '@angular/router';
 
@@ -12,10 +9,9 @@ import { Router } from '@angular/router';
   styleUrl: './home.scss'
 })
 export class Home {
-private route = inject(Router)
+  private router = inject(Router)
+startGame() {
+  this.router.navigate(['/Games']);
+}
 
-  isLogedOut()
-  {
-    this.route.navigateByUrl("Login")
-  }
 }

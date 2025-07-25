@@ -62,7 +62,7 @@ namespace BankService.Service
             if (user == null)
                 return -1;
 
-            if(user.Money - model.Money < 0)
+            if((user.Money - model.Money) < 0)
             {
                 return -2;
             }
