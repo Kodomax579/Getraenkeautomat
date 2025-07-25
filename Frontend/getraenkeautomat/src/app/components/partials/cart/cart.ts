@@ -79,17 +79,17 @@ export class Cart {
   }
 
   buy() {
-    this._gameService.getCashAndLevel(0, 0.1);
     this._bankService.putSpendMoney(this.getTotalPrice())?.subscribe({
       next: (val) => {
         if (val) {
           this._bankService.setMoney(val.money);
+          this._gameService.getCashAndLevel(0, 0.1);
 
           for (let product of this.cartItems()) {
             let productAmount: number = 1;
-            const singleCartAmount = this.itemAmount().find(
-              (p) => p.id === product.id
-            );
+
+            const singleCartAmount = this.itemAmount().find((p) => p.id === product.id);
+
             if (singleCartAmount) {
               productAmount = product.amount - singleCartAmount.amount;
               console.log(productAmount);
@@ -98,6 +98,7 @@ export class Cart {
                 .subscribe();
               }
             }
+            console.log("after for loop")
             this.onPurchase.emit(true);
           }
       },
