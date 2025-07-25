@@ -1,0 +1,8 @@
+<div >
+    <div class="cards">
+        @for(singleCard of cards ; track $index)
+        {
+            <app-card [card]="singleCard"></app-card>
+        }
+    </div>
+</div>

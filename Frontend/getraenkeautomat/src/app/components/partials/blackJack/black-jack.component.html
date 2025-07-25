@@ -1,0 +1,58 @@
+<div class="background">
+  <button class="back-button" (click)="onLeave()">Zurück</button>
+  <div class="table-container">
+    @if(isNewGame) {
+      <div class="dealer-section">
+        <h2>Dealer</h2>
+        <div>
+          {{dealerScore}}
+        </div>
+          <app-dealer [card]="dealerCard"></app-dealer>
+      </div>
+  
+      <div class="versus-divider">
+        <span>🆚</span>
+         
+      </div>
+  
+      <div class="player-section">
+        <h2>Player</h2>
+        {{playerScore}}
+          <app-player [card]="playerCard"></app-player>
+          <div class="buttons">
+            <div>
+              <button class="action-button" [disabled]="playerButtonDisable" (click)="onPlayer()">Player zieht</button>
+            </div>
+            <div>
+              <button class="action-button" (click)="onStay()">Bleiben</button>
+            </div>
+          </div>
+      </div>
+    }
+    @else {
+    <div class="winner-container">
+      <div class="winner-card" [ngClass]="{
+        'dealer-win': Winner?.dealerWin === true,
+        'player-win': Winner?.dealerWin === false
+      }">
+        <h1>
+          @if (Winner?.dealerWin === true) {
+            🃏 Dealer WINS!
+          } @else if (Winner?.dealerWin === false) {
+            🧑‍🎲 Player WINS!
+          }
+        </h1>
+        @if(Winner)
+        {
+          <div class="score-box">
+            <p><strong>Dealer Score:</strong> {{ Winner.totalScoreDealer }}</p>
+            <p><strong>Player Score:</strong> {{ Winner.totalScorePlayer }}</p>
+          </div>
+        }
+        <p-inputnumber inputId="integeronly" [(ngModel)]="moneyValue" />
+         <p-button (onClick)="startGame()" label="Submit" />
+      </div>
+    </div>
+  }
+  </div>
+</div>
