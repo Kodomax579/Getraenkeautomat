@@ -1,0 +1,37 @@
+.container {
+  border-radius: 2rem;
+  background-color: #ffffff20;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  display: inline-grid;
+
+  img {
+    height: 22rem;
+    width: 22rem;
+    background-color: white;
+    margin: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+
+  input {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+  }
+}
+
+.back-button {
+  background-color: #007bff;
+  color: var(--clr-light);
+  margin-top: 1rem;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
