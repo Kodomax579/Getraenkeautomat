@@ -1,4 +1,125 @@
-.page{
-  width: 100vw;
-  height: 100vh;
+.start-page {
+  display: flex;
+
+  .content{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 2rem;
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+      gap: 2rem;
+
+      .hero-image {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      }
+  
+      .hero-text {
+        max-width: 700px;
+        color: white;
+  
+        h1 {
+          font-size: 2.5rem;
+          color: #ffcc00;
+          margin-bottom: 1rem;
+        }
+  
+        p {
+          font-size: 1.2rem;
+          line-height: 1.7;
+          margin-bottom: 2rem;
+        }
+  
+        .cta-button {
+          background-color: #ff9900;
+          color: #000;
+          font-weight: bold;
+          border: none;
+          border-radius: 10px;
+          padding: 0.8rem 2rem;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #ffaa33;
+          }
+        }
+      }
+    }
+  }
+
+  .features {
+    margin-top: 4rem;
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #ffcc00;
+      margin-bottom: 2rem;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+
+      .feature {
+        background-color: #1a1f2e;
+        padding: 1.5rem;
+        border-radius: 15px;
+        width: 250px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        h3 {
+          color: #ff9900;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  .quote {
+    margin-top: 4rem;
+    text-align: center;
+
+    blockquote {
+      font-style: italic;
+      color: #cccccc;
+      border-left: 4px solid #888;
+      padding-left: 1rem;
+      max-width: 600px;
+      margin: auto;
+
+      strong {
+        color: #ffffff;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      em {
+        color: #bbbbbb;
+      }
+    }
+  }
 }
