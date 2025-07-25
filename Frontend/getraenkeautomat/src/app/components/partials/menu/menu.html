@@ -7,7 +7,7 @@
   <app-aimlabs (leave)="onLeave()"></app-aimlabs>
   }
   @case (3) {
-  <!--BlackJack-->
+ <app-blackjack (leave)="onLeave()"></app-blackjack>
   }
   @case (4) {
     <app-lootbox (leave)="onLeave()"></app-lootbox>
@@ -18,7 +18,7 @@
   @default {
   <div (click)="showTicTacToe()" class="TicTacToe"></div>
   <div (click)="showAimLab()" class="AimLab"></div>
-  <div (click)="showBlackjack()" class="Blackjack"></div> <!--Blackjack-->
+  <div (click)="showBlackjack()" class="Blackjack"></div>
   <div (click)="showLootbox()" class="Lootbox"></div>
   <div (click)="showCoinToss()" class="CoinToss"></div>
   }}
