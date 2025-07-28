@@ -41,7 +41,10 @@ namespace User
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SupportedSubmitMethods();
+                });
             }
 
             app.UseCors("AllowAll");
