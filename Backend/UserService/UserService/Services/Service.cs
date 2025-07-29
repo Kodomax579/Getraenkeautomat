@@ -22,42 +22,37 @@ namespace User.Services
             this._requestService = requestService;
         }
 
+
         public async Task<int> CreateUser(CreateUserDTO userDTO)
         {
             if (userDTO == null)
                 throw new ArgumentNullException("user is Null");
 
-            try
-            {
-                var user = _dbContext.Users.First(user => user.Name == userDTO.name);
-                if (user != null)
-                    return -1;
-            }
-            catch { }
+            if (_dbContext.Users.Any(u => u.Name == userDTO.name))
+                return -1;
 
-            UserModel model = new UserModel()
+            var model = new UserModel
             {
                 Name = userDTO.name,
                 Email = userDTO.email,
                 Password = userDTO.password,
-                Level = 1,
+                Level = 1
             };
-            if (model.Name == null)
+
+            if (string.IsNullOrEmpty(model.Name))
                 return -2;
 
-            var response = await this._requestService.CreateBankAccount(model.Name);
+            _dbContext.Users.Add(model);
+            _dbContext.SaveChanges(); // Jetzt hat model.Id einen echten Wert
+
+            var response = await _requestService.CreateBankAccount(model.Id);
 
             if (response == 0)
-            {
                 return -3;
-            }
 
-            _dbContext.Add(model);
-            _dbContext.SaveChanges();
-
-
-            return response;
+            return model.Id;
         }
+
 
 
 
@@ -87,7 +82,9 @@ namespace User.Services
             }
             try
             {
-                var user = _dbContext.Users.First(u => u.Name == uName);
+                var user = _dbContext.Users.FirstOrDefault(u =>
+                    (u.Name == uName || u.Email == uName) && u.Password == uPassword);
+                if (user == null) return null!;
 
                 UserDTO userDTO = new UserDTO()
                 {
@@ -103,6 +100,7 @@ namespace User.Services
                 return null!;
             }
         }
+
         public void Delete(string name)
         {
             if (name is null) return;
