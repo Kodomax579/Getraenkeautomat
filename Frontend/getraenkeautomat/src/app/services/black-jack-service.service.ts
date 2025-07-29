@@ -8,7 +8,7 @@ import { WinModel } from "../Models/Win.Model";
 })
 export class BlackJackServiceService {
   private http = inject(HttpClient);
-  private url = "http://localhost:9011/api";
+  private url = "http://localhost:9011/api/BlackJack/";
 
   public NewGame(money: number) {
     return this.http.post<boolean>(

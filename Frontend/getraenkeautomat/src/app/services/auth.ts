@@ -10,7 +10,7 @@ export class Auth {
 
   public user = signal<userModel | undefined>(undefined);
 
-  api: string = 'http://localhost:9002/';
+  api: string = 'http://localhost:9002/api/User/';
 
   register(username: string, email: string, password: string) {
     return this.http.post<userModel>(`${this.api}CreateUser`, {

@@ -14,13 +14,13 @@ export class LootboxService {
     private auth: Auth,
     private bank: Bank
   ) {}
-  api: string = 'http://localhost:9010/api/Lootbox';
+  api: string = 'http://localhost:9010/api/Lootbox/';
 
   getLootboxes(): Observable<lootboxModel[]> {
-    return this.http.get<lootboxModel[]>(`${this.api}`);
+    return this.http.get<lootboxModel[]>(`${this.api}GetLootboxes`);
   }
 
   getLootbox(id:number) {
-    return this.http.get<number>(`${this.api}/${id}`);
+    return this.http.get<number>(`${this.api}GetResult/${id}`);
   }
 }

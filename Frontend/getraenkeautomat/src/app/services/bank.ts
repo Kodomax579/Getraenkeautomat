@@ -10,7 +10,7 @@ export class Bank {
   constructor(private http: HttpClient) {}
   private userService = inject(Auth);
 
-  private api: string = "http://localhost:9005/";
+  private api: string = "http://localhost:9005/api/Bank/";
   public money = signal<number | undefined>(undefined);
 
   public getCurrentAccountBalance(userId: number) {
