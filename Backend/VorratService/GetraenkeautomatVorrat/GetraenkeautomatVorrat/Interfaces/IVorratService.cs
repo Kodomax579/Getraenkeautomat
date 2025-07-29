@@ -13,6 +13,6 @@ namespace GetraenkeautomatVorrat.Interfaces
 
         public bool Delete(int id);
 
-        public int Update(UpdateVorratDTO vorrat, string productName);
+        public VorratDTO Update(UpdateVorratDTO vorrat, string productName);
     }
 }

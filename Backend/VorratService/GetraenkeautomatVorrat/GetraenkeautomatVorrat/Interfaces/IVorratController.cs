@@ -19,6 +19,6 @@ namespace GetraenkeautomatVorrat.Interfaces
         public ActionResult<Vorrat> Get(int id);
 
         [HttpPut]
-        public ActionResult<bool> Update(UpdateVorratDTO vorrat, string name);
+        public ActionResult<VorratDTO> Update(UpdateVorratDTO vorrat, string name);
     }
 }

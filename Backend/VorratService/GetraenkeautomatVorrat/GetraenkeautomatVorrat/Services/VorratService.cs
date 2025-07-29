@@ -78,11 +78,11 @@ namespace GetraenkeautomatVorrat.Services
             return true;
         }
 
-        public int Update(UpdateVorratDTO vorrat, string productName)
+        public VorratDTO Update(UpdateVorratDTO vorrat, string productName)
         {
             var existing = _context.Vorraete.FirstOrDefault(e => e.Name == productName);
             if (existing == null)
-                return 1;
+                return null;
 
             if(vorrat.Price > 0)
             {
@@ -100,7 +100,17 @@ namespace GetraenkeautomatVorrat.Services
                 //await this._requestProductsService.RefillProducts(10, existing.Name);
             }
 
-            return 0;
+            VorratDTO vorratDTO = new VorratDTO()
+            {
+                Amount = existing.Anzahl,
+                Id = existing.Id,
+                Name = existing.Name,
+                Picture = existing.Picture,
+                Price = existing.Preis,
+                Size = existing.Groesse,
+            };
+
+            return vorratDTO;
         }
         public void Refill(string name, int amount)
         {

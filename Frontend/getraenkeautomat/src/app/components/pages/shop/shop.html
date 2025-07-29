@@ -8,6 +8,6 @@
     }
   </div>
   <div >
-    <app-cart [cartItems]="cart" [itemAmount]="cartAmount" (removeItem)="onRemoveItem($event)" (onPurchase)="onPurchase($event)"></app-cart>
+    <app-cart [cartItems]="cart" [itemAmount]="cartAmount" (removeItem)="onRemoveItem($event)" (onPurchase)="onPurchase($event)" (onUpdateProduct)="onUpdate($event)"></app-cart>
   </div>
 </div>

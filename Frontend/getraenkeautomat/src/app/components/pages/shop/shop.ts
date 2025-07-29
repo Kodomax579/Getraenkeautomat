@@ -12,26 +12,11 @@ import { productAmount, Cart } from '../../partials/cart/cart';
   styleUrl: './shop.scss'
 })
 export class Shop implements OnInit{
-  private dataService = inject(Data)
+  private data = inject(Data)
   
   products: productList[] = [];
   cart: productList[] = [];
   cartAmount: productAmount[] = [];
-
-   constructor(private data: Data) 
-  {
-    effect(()=>{
-      const val = this.data.isUpdated()
-      console.log(val)
-      if(val)
-      {
-        setTimeout(() => {
-          this.ngOnInit()
-          this.data.isUpdated.set(false)
-        },100);
-      }
-    })
-  }
 
   ngOnInit() {
     this.data.getProducts().subscribe((data: productList[]) => {
@@ -66,8 +51,15 @@ export class Shop implements OnInit{
     {
       this.cart = []
       this.cartAmount = []
-      this.data.isUpdated.set(true);
-      
+    }
+  }
+  onUpdate(updatedProduct: productList)
+  {
+    let productIndex = this.products.findIndex(p => p.id === updatedProduct.id)
+
+    if(productIndex >= 0)
+    {
+      this.products[productIndex].amount = updatedProduct.amount; 
     }
   }
 }
