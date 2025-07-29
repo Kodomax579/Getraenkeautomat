@@ -18,7 +18,6 @@ export class PlayerComponent {
       if (newCard) {
         this.cards.push({... newCard});
       }
-      console.log(this.cards)
     });
   }
 }

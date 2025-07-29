@@ -32,7 +32,6 @@ export class Lootbox {
         return err;
       },
     });
-    console.log(this.lootboxes);
   }
 
   startGambling(id: number, isPrice: number) {
@@ -59,7 +58,6 @@ export class Lootbox {
                   );
                   this.gameService.getCashOnly(value);
               }
-              console.log(value);
             },
             error: (err) => {
               this.toastr.error(err, 'Fehler');
