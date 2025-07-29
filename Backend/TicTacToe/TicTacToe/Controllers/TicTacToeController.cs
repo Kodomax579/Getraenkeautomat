@@ -6,7 +6,7 @@ using TicTacToe.Services;
 namespace TicTacToe.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TicTacToeController : ControllerBase, ITicTacToeController
     {
 
@@ -19,7 +19,7 @@ namespace TicTacToe.Controllers
             _logger = logger;
         }
 
-        [HttpGet("create")]
+        [HttpGet("CreateBoard")]
         public ActionResult<GameBoardDTO> CreateGame()
         {
             _gameService.ResetBoard();
@@ -33,7 +33,7 @@ namespace TicTacToe.Controllers
             return dto;
         }
 
-        [HttpPut("update")]
+        [HttpPut("UpdateGame")]
         public ActionResult<GameBoardDTO> UpdateGame(int x, int y)
         {
             int messsage = _gameService.UpdateBoard(x, y, 'X');
