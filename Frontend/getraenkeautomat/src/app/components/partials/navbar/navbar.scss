@@ -1,67 +1,90 @@
-::ng-deep p-menu{
+::ng-deep p-menu {
     height: 100svh;
     display: flex;
     position: fixed;
-    .ng-trigger{
+
+    .ng-trigger {
         background-color: #1f2937;
         color: #e5e7eb;
     }
-    .header{
+
+    .header {
         margin: 2rem;
-    
-        .headline{
+
+        .headline {
             font-size: 2rem;
             font-weight: bold;
             cursor: pointer;
         }
-        .headIcon{
+
+        .headIcon {
             font-size: 2rem;
         }
     }
-    .p-menu-item-content{
 
-        .items{
+    .p-menu-item-content {
+
+        .items {
             display: flex;
             justify-content: center;
+
             .itemIcon,
-            .itemLabel{
+            .itemLabel {
                 font-size: 1.6rem;
                 color: #e5e7eb;
             }
         }
-        &:hover{
+
+        &:hover {
+
             .itemIcon,
-            .itemLabel{
+            .itemLabel {
                 font-size: 1.6rem;
                 color: #000000;
             }
         }
     }
-    .userSection{
+
+    .userSection {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-top: 55vh;
-        gap: 0.5rem;
-        .userIcon{
+        margin-top: 22vh;
+        gap: 1rem;
+
+        .userIcon {
             font-size: 1.5rem;
         }
-        .userHeader{
+
+        .userHeader {
             font-size: 1.5rem;
             font-weight: bold;
         }
-        .userName{
+
+        .userName {
             font-size: larger;
         }
-        .userLevel{
-            font-size: larger;
+        hr{
+            width: 8rem;
+            border-top: 1px solid white;
+            border-bottom: none;
+            margin: 0 0 1rem;
         }
-        .userMoney{
+
+        .userLevel {
             font-size: larger;
+            color: skyblue;
         }
+
+        .userMoney {
+            font-size: larger;
+            color: greenyellow;
+        }
+
         .logout {
+            margin-top: 2rem;
             width: 50%;
             display: flex;
             justify-content: center;
@@ -74,9 +97,11 @@
         }
     }
 }
-::ng-deep .p-menu-list{
+
+::ng-deep .p-menu-list {
     gap: 10px !important;
 }
-.navbargap{
+
+.navbargap {
     width: 400px;
 }
