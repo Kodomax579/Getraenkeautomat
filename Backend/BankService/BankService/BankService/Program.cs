@@ -1,6 +1,7 @@
 
 using BankService.Data;
 using BankService.Service;
+using Serilog;
 
 namespace BankService
 {
@@ -9,6 +10,12 @@ namespace BankService
         public static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.File("Logs\\service-log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.Console()
+                .CreateLogger();
 
             var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +29,7 @@ namespace BankService
                 });
             });
 
+            builder.Host.UseSerilog();
             builder.Services.AddSqlite<BankContext>("Data Source=BankContext.db");
             builder.Services.AddScoped<BankAccountService>();
 
