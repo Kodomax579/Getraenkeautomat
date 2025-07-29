@@ -1,9 +1,10 @@
-import { Component, EventEmitter, inject, input, Output } from '@angular/core';
-import { Data } from '../../../services/data';
-import { Bank } from '../../../services/bank';
-import { Game } from '../../../services/game';
-import { productList } from '../../../Models/product.model';
-import { concatMap, finalize, from, tap } from 'rxjs';
+import { Component, EventEmitter, inject, input, Output } from "@angular/core";
+import { Data } from "../../../services/data";
+import { Bank } from "../../../services/bank";
+import { Game } from "../../../services/game";
+import { productList } from "../../../Models/product.model";
+import { concatMap, finalize, from, tap } from "rxjs";
+import { ToastrService } from "ngx-toastr";
 
 export interface productAmount {
   id: number;
@@ -11,21 +12,23 @@ export interface productAmount {
 }
 
 @Component({
-  selector: 'app-cart',
+  selector: "app-cart",
   imports: [],
-  templateUrl: './cart.html',
-  styleUrl: './cart.scss',
+  templateUrl: "./cart.html",
+  styleUrl: "./cart.scss",
 })
 export class Cart {
   private _bankService = inject(Bank);
   private _dataService = inject(Data);
   private _gameService = inject(Game);
+  private _toastr = inject(ToastrService);
+
   public cartItems = input.required<productList[]>();
   public itemAmount = input.required<productAmount[]>();
 
   @Output() removeItem = new EventEmitter<number>();
   @Output() onPurchase = new EventEmitter<boolean>();
-  @Output() onUpdateProduct = new EventEmitter<productList>()
+  @Output() onUpdateProduct = new EventEmitter<productList>();
 
   totalPrice: number = 0;
 
@@ -88,30 +91,36 @@ export class Cart {
           const cartItems = this.cartItems();
           const itemAmounts = this.itemAmount();
 
-          from(cartItems).pipe(
-            concatMap((product) => {
-              const singleCartAmount = itemAmounts.find(p => p.id === product.id);
-              if (!singleCartAmount) return from([]);
+          from(cartItems)
+            .pipe(
+              concatMap((product) => {
+                const singleCartAmount = itemAmounts.find(
+                  (p) => p.id === product.id
+                );
+                if (!singleCartAmount) return from([]);
 
-              const productAmount = product.amount - singleCartAmount.amount;
+                const productAmount = product.amount - singleCartAmount.amount;
 
-              return this._dataService.updateProducts(product.name, product.price, productAmount).pipe(
-                tap((updatedProduct) => {
-                  if (updatedProduct) {
-                    this.onUpdateProduct.emit(updatedProduct);
-                  }
-                })
-              );
-            }),
-            finalize(() => {
-              this.onPurchase.emit(true);
-            })
-          ).subscribe();
+                return this._dataService
+                  .updateProducts(product.name, product.price, productAmount)
+                  .pipe(
+                    tap((updatedProduct) => {
+                      if (updatedProduct) {
+                        this.onUpdateProduct.emit(updatedProduct);
+                      }
+                    })
+                  );
+              }),
+              finalize(() => {
+                this.onPurchase.emit(true);
+              })
+            )
+            .subscribe();
         }
       },
       error: (err) => {
-        console.error('Fehler beim Kauf:', err);
-      }
+        this._toastr.error("Fehler beim Kauf:" + err, "Fehler");
+      },
     });
   }
 }
