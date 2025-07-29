@@ -20,7 +20,7 @@ namespace UserService.Services
             try
             {
                 var userId = _dbContext.Users.ToList().Count + 1;
-                var url = $"http://localhost:9005/CreateBankAccount/{userId}";
+                var url = $"http://localhost:9005/api/Bank/CreateBankAccount/{userId}";
                 HttpResponseMessage response = await _httpClient.PostAsync(url, null);
 
                 if (response.IsSuccessStatusCode)
