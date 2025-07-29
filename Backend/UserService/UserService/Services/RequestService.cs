@@ -14,19 +14,18 @@ namespace UserService.Services
             _httpClient = httpClient;
         }
 
-        public async Task<int> CreateBankAccount(string userName)
+        public async Task<int> CreateBankAccount(int userId)
         {
-
             try
             {
-                var userId = _dbContext.Users.ToList().Count + 1;
                 var url = $"http://localhost:9005/api/Bank/CreateBankAccount/{userId}";
-                HttpResponseMessage response = await _httpClient.PostAsync(url, null);
+                var response = await _httpClient.PostAsync(url, null);
 
                 if (response.IsSuccessStatusCode)
                 {
                     return userId;
                 }
+
                 return 0;
             }
             catch
@@ -34,5 +33,6 @@ namespace UserService.Services
                 return 0;
             }
         }
+
     }
 }

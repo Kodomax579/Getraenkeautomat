@@ -37,16 +37,18 @@ namespace User.Controllers
             }
 
             var user = _userService.GetUser(uName, uPassword);
+
             if (user == null)
             {
-                return BadRequest("User not found");
+                return Unauthorized("Benutzername oder Passwort ist falsch.");
             }
 
             return Ok(user);
+
         }
 
         [HttpPost("CreateUser")]
-        public async Task<ActionResult<UserDTO>> Createuser(CreateUserDTO userDto)
+        public async Task<ActionResult<UserDTO>> CreateUser(CreateUserDTO userDto)
         {
             if (userDto == null)
             {
