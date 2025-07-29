@@ -1,23 +1,24 @@
 .gameContainer {
-  width: 200px;
-  height: 400px;
-  background-color: var(--clr-light);
+  width: 100%;
+  height: 100%;
+  background-color: #A5531F;
   border-radius: var(--rounded-md);
   box-shadow: var(--box-shadow-lg);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 2rem;
 
   div {
     text-align: center;
     font-weight: 600;
     font-size: 2rem;
+    color: #EAAF5E;
 
     &:last-child {
       font-size: 1.5rem;
-      background-color: var(--clr-dark);
-      color: var(--clr-light);
+      background-color: #482D11;
       border-radius: var(--rounded-md);
       cursor: pointer;
       padding: var(--gap-md);
@@ -26,16 +27,18 @@
 
   table {
     display: inline-table;
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
+    background-color: #482D11;
+    color: #482D11;
+    font-weight: 700;
     padding: var(--gap-md);
-    margin: var(--gap-md);
+    margin: 1rem 2rem;
     border-radius: var(--rounded-md);
 
     tr {
       td {
         font-size: 2rem;
-        border: 1px solid var(--clr-light);
+        border: 2px solid #482D11;
+        background-color: #EAAF5E;
         height: 4rem;
         width: 4rem;
         text-align: center;
@@ -44,27 +47,29 @@
         &:hover {
           opacity: 0.5;
         }
+
+        @media (width >=64rem) {
+          height: 4rem;
+          width: 4rem;
+        }
+
+        @media (width >=80rem) {
+          height: 8rem;
+          width: 8rem;
+          border-width: 0.75rem;
+          border-radius: 1.5rem;
+          font-size: 4rem;
+        }
+
+        @media (width >=96rem) {
+          height: 14rem;
+          width: 14rem;
+          border-width: 1rem;
+          border-radius: 2rem;
+          font-size: 10rem;
+        }
       }
     }
   }
 
-  @media (width >=40rem) {
-    width: 300px;
-  }
-
-  @media (width >=48rem) {
-    width: 400px;
-  }
-
-  @media (width >=64rem) {
-    width: 400px;
-  }
-
-  @media (width >=80rem) {
-    width: 500px;
-  }
-
-  @media (width >=96rem) {
-    width: 600px;
-  }
 }

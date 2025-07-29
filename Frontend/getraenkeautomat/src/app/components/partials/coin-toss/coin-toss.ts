@@ -10,6 +10,12 @@ import { Bank } from '../../../services/bank';
 import { ToastrService } from 'ngx-toastr';
 import { Game } from '../../../services/game';
 
+interface showAniMoney {
+  id: number;
+  bool: boolean;
+  value: number;
+}
+
 @Component({
   selector: 'app-coin-toss',
   imports: [],
@@ -21,6 +27,9 @@ export class CoinToss {
   private bank = inject(Bank);
   private _gameService = inject(Game);
 
+  showWin: showAniMoney[] = [];
+  private winIdCounter = 0;
+
   @ViewChild('price') priceInput!: ElementRef<HTMLInputElement>;
   @Output() leave = new EventEmitter<boolean>();
 
@@ -28,6 +37,7 @@ export class CoinToss {
     let isPrice: number = +this.priceInput.nativeElement.value;
     if (isPrice == null || isPrice == undefined || isPrice <= 0) return;
     let rnd = Math.floor(Math.random() * 100);
+    const id = this.winIdCounter++;
     this.bank.putSpendMoney(isPrice)?.subscribe({
       next: (val) => {
         if (val) {
@@ -38,10 +48,16 @@ export class CoinToss {
               'Gewonnen!'
             );
             this._gameService.getCashOnly(isPrice * 2);
+
+            this.showWin.push({ id: id, bool: true, value: isPrice });
           } else {
             this.toastr.warning('Sie haben nichts erhalten.', 'Verloren!');
+            this.showWin.push({ id: id, bool: false, value: isPrice });
           }
         }
+        setTimeout(() => {
+          this.showWin = this.showWin.filter((e) => e.id !== id);
+        }, 2000);
       },
       error: (err) => {
         this.toastr.error(err, 'Fehler');
@@ -49,7 +65,7 @@ export class CoinToss {
       },
     });
   }
-  
+
   onLeave() {
     this.leave.emit(true);
   }

@@ -1,4 +1,4 @@
-<p-menu [model]="items"  >
+<p-menu [model]="items">
     <ng-template #start>
         <div class="header">
             <span class="pi pi-filter headIcon"></span>
@@ -6,7 +6,7 @@
         </div>
     </ng-template>
 
-    <ng-template #item let-item >
+    <ng-template #item let-item>
         <a pRipple class="flex items-center p-menu-item-link items">
             <span class="itemIcon" [class]="item.icon"></span>
             <span class="itemLabel">{{ item.label }}</span>
@@ -18,11 +18,12 @@
                 <span class="pi pi-user userIcon"></span>
                 <span class="userHeader"> {{ user?.name }}</span>
             </div>
+            <hr>
             <div>
-                <span class="userLevel">{{"Level: "+ user?.level?.toFixed(2) }}</span>
+                <span class="userLevel">{{"Level: "+ user?.level?.toFixed(2)}}</span>
             </div>
             <div>
-                <span class="userMoney">{{"Money: " + money?.toFixed(2)}}</span>
+                <span class="userMoney">{{"Money: " + money?.toFixed(2)}}€</span>
             </div>
             <div class="logout" (click)="onLogout(true)">Logout</div>
         </div>

@@ -2,7 +2,6 @@ using GetraenkeautomatVorrat.Data;
 using GetraenkeautomatVorrat.Services;
 
 
-Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +24,7 @@ builder.Services.AddCors(options =>
 });
 builder.Host.UseWindowsService();
 
+Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 builder.WebHost.UseUrls("http://0.0.0.0:9000");
 
 var app = builder.Build();

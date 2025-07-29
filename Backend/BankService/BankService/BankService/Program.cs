@@ -41,7 +41,10 @@ namespace BankService
             {
             }
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.SupportedSubmitMethods();
+            });
 
             app.UseRouting();
 

@@ -1,74 +1,63 @@
 .background {
-  width: 200px;
-  height: 400px;
+  width: calc(100svw - 40rem);
+  height: calc(100svh - 8rem);
   border-radius: 1rem;
   position: relative;
-  background-color: #f9f9f9;
+  background-image: url("/BadBackground.png");
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  cursor: url("/Crosshair.png"), crosshair;
 
   .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
     margin-bottom: 1rem;
 
     .back-button {
-      background-color: #007bff;
-      color: var(--clr-light);
+      background-color: #2DE3FE;
+      color: #0528B3;
       margin-top: 1rem;
       border: none;
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
-      font-size: 1rem;
+      font-size: 2rem;
+      font-weight: 600;
       cursor: pointer;
       transition: background-color 0.2s;
 
       &:hover {
-        background-color: #0056b3;
+      background-color: #0528B3;
+      color: #2DE3FE;
       }
     }
 
     .counter {
-      font-size: 2rem;
+      margin: auto auto 0 auto;
+      font-size: 3rem;
       font-weight: bold;
-      color: #333;
+      color: #2DE3FE;
     }
   }
 
   app-circle.circle {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 6rem;
+    height: 6rem;
     background-color: #ff5252;
     border-radius: 50%;
-    cursor: pointer;
     transition: transform 0.2s;
+    z-index: 2;
 
     &:hover {
       transform: scale(1.2);
     }
   }
-
-  
-  @media (width >=40rem) {
-    width: 300px;
-  }
-
-  @media (width >=48rem) {
-    width: 400px;
-  }
-
-  @media (width >=64rem) {
-    width: 400px;
-  }
-
-  @media (width >=80rem) {
-    width: 500px;
-  }
-
-  @media (width >=96rem) {
-    width: 600px;
+  img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 12rem;
+    cursor: grab;
   }
 }

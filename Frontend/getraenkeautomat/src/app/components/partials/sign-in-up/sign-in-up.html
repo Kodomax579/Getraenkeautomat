@@ -8,7 +8,7 @@
       <label>Benutzername</label>
       <input #userNameOrEmail type="text" placeholder="z.B. User1234">
       <label>Passwort</label>
-      <input #userPassword type="password" placeholder="z.B. 12345678">
+      <input #userPassword type="password" placeholder="z.B. 12345678" (keydown.Enter)="login()">
       <button class="loginBtn" (click)="login()" type="button" >Anmelden</button>
     </form>
     <form *ngIf="!isloginHeaderPressed">
@@ -17,7 +17,7 @@
       <label>E-Mail</label>
       <input #userEmail type="email" placeholder="z.B. example@mail.com">
       <label>Passwort</label>
-      <input #userPassword type="password" placeholder="z.B. 12345678">
+      <input #userPassword type="password" placeholder="z.B. 12345678" (keydown.Enter)="register()">
       <button class="registerBtn" (click)="register()" type="button" >Registrieren</button>
     </form>
   </div>

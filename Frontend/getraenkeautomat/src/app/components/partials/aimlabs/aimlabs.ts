@@ -1,4 +1,12 @@
-import { Component, EventEmitter, inject, Output, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Output,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { Circle } from './circle/circle';
 import { Game } from '../../../services/game';
 
@@ -16,14 +24,15 @@ export class Aimlabs {
   public left = signal<number>(0);
 
   @Output() leave = new EventEmitter<boolean>();
+  @ViewChild('background') backgroundRef!: ElementRef;
 
   ngOnInit(): void {
-    this.top.set(this.getRandomInt(300));
-    if (window.innerWidth < 1280) {
-      this.left.set(this.getRandomInt(300));
-    } else {
-      this.left.set(this.getRandomInt(500));
-    }
+    const backgroundEl = this.backgroundRef.nativeElement as HTMLElement;
+    const width: number = backgroundEl.clientWidth - 96;
+    const height: number = backgroundEl.clientHeight - 96;
+
+    this.top.set(this.getRandomInt(height));
+    this.left.set(this.getRandomInt(width));
   }
 
   onClick() {

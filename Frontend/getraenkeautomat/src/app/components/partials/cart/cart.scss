@@ -1,29 +1,30 @@
 .cartContainer {
   position: fixed;
+  right: 0;
+  height: 100svh;
+  top: 0;
   width: 200px;
-  height: 60vh;
-  right: 10px;
-  top: 15vh;
   background-color: var(--clr-light);
-  margin: var(--gap-lg);
-  border-radius: var(--rounded-md);
+  border-radius: var(--rounded-sm);
   box-shadow: var(--box-shadow-lg);
 
-  .cartHeader{
+  .cartHeader {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    
-    span{
+
+    span {
       font-size: 2rem;
       font-weight: bold;
     }
   }
+
   .productListBox {
     width: 100%;
     height: 48vh;
     overflow-y: auto;
     border-radius: 1rem 1rem 0 0;
+
     .product {
       display: flex;
       padding: 6px;

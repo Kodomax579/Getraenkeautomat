@@ -90,7 +90,7 @@ export class BlackjackComponent {
         this.isNewGame = false;
         this.dealerCard = undefined;
         this.playerCard = undefined
-        this.gameService.getCashAndLevel(this.Winner.money,0.2);
+        this.gameService.getCashOnly(this.Winner.money);
       }
     });
   }

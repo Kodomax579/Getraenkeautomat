@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace User.Controllers
 {
     [ApiController]
-    [Route("api/")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private ILogger<UserController> _logger;
@@ -22,7 +22,7 @@ namespace User.Controllers
             this._userService = userService;
         }
 
-        [HttpGet("/Login")]
+        [HttpGet("Login")]
         public ActionResult<UserDTO> GetUserById(string uName, string uPassword)
         {
             if (string.IsNullOrEmpty(uName))
@@ -45,7 +45,7 @@ namespace User.Controllers
             return Ok(user);
         }
 
-        [HttpPost("/CreateUser")]
+        [HttpPost("CreateUser")]
         public async Task<ActionResult<UserDTO>> Createuser(CreateUserDTO userDto)
         {
             if (userDto == null)
@@ -74,7 +74,7 @@ namespace User.Controllers
 
 
 
-        [HttpPut("/UpdateUser")]
+        [HttpPut("UpdateUser")]
         public ActionResult<UserDTO> UpdateUser([FromBody] UserDTO userDto)
         {
             if (userDto == null)
