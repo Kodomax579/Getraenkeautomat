@@ -1,5 +1,6 @@
 
 using BlackJack.Services;
+using Serilog;
 
 namespace BlackJack
 {
@@ -8,6 +9,13 @@ namespace BlackJack
         public static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.Console()
+                .WriteTo.File("Logs\\service-log.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -20,6 +28,8 @@ namespace BlackJack
                           .AllowAnyHeader();
                 });
             });
+
+            builder.Host.UseSerilog();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
