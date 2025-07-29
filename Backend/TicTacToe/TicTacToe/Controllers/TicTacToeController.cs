@@ -22,6 +22,7 @@ namespace TicTacToe.Controllers
         [HttpGet("CreateBoard")]
         public ActionResult<GameBoardDTO> CreateGame()
         {
+            _logger.LogInformation("Request to create new Game");
             _gameService.ResetBoard();
 
             var dto = new GameBoardDTO
@@ -29,6 +30,7 @@ namespace TicTacToe.Controllers
                 Board = _gameService.Board.Board,
                 Result = 1
             };
+            _logger.LogInformation("game created");
 
             return dto;
         }
@@ -36,6 +38,7 @@ namespace TicTacToe.Controllers
         [HttpPut("UpdateGame")]
         public ActionResult<GameBoardDTO> UpdateGame(int x, int y)
         {
+            _logger.LogInformation("Request to update game");
             int messsage = _gameService.UpdateBoard(x, y, 'X');
 
             if (messsage == 0)
@@ -58,7 +61,7 @@ namespace TicTacToe.Controllers
                 Board = _gameService.Board.Board,
                 Result = messsage
             };
-
+            _logger.LogInformation("Game updated");
             return dto;
         }
     }

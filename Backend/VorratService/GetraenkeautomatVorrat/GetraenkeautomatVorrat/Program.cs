@@ -1,10 +1,16 @@
 using GetraenkeautomatVorrat.Data;
 using GetraenkeautomatVorrat.Services;
+using Serilog;
 
 
+Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 
 var builder = WebApplication.CreateBuilder(args);
-
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.File("Logs\\service-log.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Console()
+    .CreateLogger();
 
 builder.Services.AddSqlite<VorratContext>("Data Source = Vorrat.db");
 builder.Services.AddScoped<VorratService>();
@@ -12,7 +18,7 @@ builder.Services.AddScoped<VorratService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Host.UseSerilog();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -24,7 +30,6 @@ builder.Services.AddCors(options =>
 });
 builder.Host.UseWindowsService();
 
-Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 builder.WebHost.UseUrls("http://0.0.0.0:9000");
 
 var app = builder.Build();

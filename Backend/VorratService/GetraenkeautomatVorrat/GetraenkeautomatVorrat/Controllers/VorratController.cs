@@ -12,7 +12,7 @@ namespace GetraenkeautomatVorrat.Controllers
     public class VorratController : ControllerBase, IVorratController
     {
         private readonly VorratService _service;
-        private ILogger<VorratController> _logger;
+        private readonly ILogger<VorratController> _logger;
 
         public VorratController(VorratService service, ILogger<VorratController> logger)
         {
@@ -23,49 +23,55 @@ namespace GetraenkeautomatVorrat.Controllers
         [HttpGet("GetProducts")]
         public ActionResult<List<VorratDTO>> GetAll()
         {
-            var vorrats  = _service.GetAll();
-            if(vorrats == null)
+            _logger.LogInformation("Method GetAll started");
+
+            var vorrats = _service.GetAll();
+            if (vorrats == null)
             {
-                _logger.LogError("No Products found");
+                _logger.LogError("No products found in inventory");
                 return BadRequest("No products found");
             }
 
-            var productList = new List<VorratDTO>();
-            foreach(var vorrat in vorrats)
+            var productList = vorrats.Select(vorrat => new VorratDTO
             {
-                    var product = new VorratDTO()
-                    {
-                        Id = vorrat.Id,
-                        Amount = vorrat.Anzahl,
-                        Size = vorrat.Groesse,
-                        Name = vorrat.Name,
-                        Price = vorrat.Preis,
-                        Picture = vorrat.Picture,
-                    };
-                productList.Add(product);
-            }
+                Id = vorrat.Id,
+                Amount = vorrat.Anzahl,
+                Size = vorrat.Groesse,
+                Name = vorrat.Name,
+                Price = vorrat.Preis,
+                Picture = vorrat.Picture
+            }).ToList();
 
+            _logger.LogInformation("Method GetAll finished successfully. ProductCount: {Count}", productList.Count);
             return productList;
         }
 
         [HttpPost("CreateProduct")]
         public ActionResult<VorratDTO> Post(VorratDTO item)
         {
+            _logger.LogInformation("Method Post started. Payload: {@Item}", item);
+
             if (item == null)
             {
-                _logger.LogError("No body");
+                _logger.LogError("Post failed. Request body is null");
                 return BadRequest("No body");
             }
 
             var added = _service.Add(item);
 
-            switch(added)
+            switch (added)
             {
                 case 0:
+                    _logger.LogInformation("Product created successfully. Name: {Name}, Size: {Size}", item.Name, item.Size);
+                    _logger.LogInformation("Method Post finished successfully.");
                     return Ok(item);
+
                 case 1:
+                    _logger.LogWarning("Product already exists. Name: {Name}, Size: {Size}", item.Name, item.Size);
                     return BadRequest("Product already exist");
+
                 default:
+                    _logger.LogError("Unknown error occurred during product creation.");
                     return BadRequest();
             }
         }
@@ -73,53 +79,68 @@ namespace GetraenkeautomatVorrat.Controllers
         [HttpDelete("DeleteProduct/{id}")]
         public ActionResult<bool> Delete(int id)
         {
-            if(id == 0)
+            _logger.LogInformation("Method Delete started. Id: {Id}", id);
+
+            if (id == 0)
             {
-                _logger.LogError("Id can't be zero");
+                _logger.LogError("Delete failed. Id cannot be zero.");
                 return BadRequest("Id can't be zero");
             }
-            
+
             var isDeleted = _service.Delete(id);
 
-            if(!isDeleted)
+            if (!isDeleted)
             {
-                _logger.LogError("No product found");
+                _logger.LogWarning("Delete failed. No product found for Id: {Id}", id);
                 return BadRequest("No product found");
             }
+
+            _logger.LogInformation("Product deleted successfully. Id: {Id}", id);
+            _logger.LogInformation("Method Delete finished successfully.");
             return true;
         }
-
 
         [HttpGet("GetProduct/{id}")]
         public ActionResult<Vorrat> Get(int id)
         {
+            _logger.LogInformation("Method Get started. Id: {Id}", id);
+
             var vorrat = _service.Get(id);
 
             if (vorrat == null)
             {
+                _logger.LogWarning("Product not found. Id: {Id}", id);
                 return NotFound();
             }
 
+            _logger.LogInformation("Product retrieved successfully. Id: {Id}, Name: {Name}", vorrat.Id, vorrat.Name);
+            _logger.LogInformation("Method Get finished successfully.");
             return Ok(vorrat);
         }
-
 
         [HttpPut("UpdateProduct")]
         public ActionResult<VorratDTO> Update(UpdateVorratDTO vorrat, string name)
         {
+            _logger.LogInformation("Method Update started. DTO: {@DTO}, TargetName: {TargetName}", vorrat, name);
+
             if (vorrat == null)
             {
-                _logger.LogError("No body");
+                _logger.LogError("Update failed. Request body is null");
                 return BadRequest("No body");
             }
-            var isUpdated = _service.Update(vorrat,name);
 
-            if(isUpdated == null)
+            var updated = _service.Update(vorrat, name);
+
+            if (updated == null)
             {
+                _logger.LogWarning("Update failed. No product found with name: {Name}", name);
                 return BadRequest("No product found");
             }
-            return Ok(isUpdated);
+
+            _logger.LogInformation("Product updated successfully. Name: {Name}, NewAmount: {Amount}, NewSize: {Size}",
+                updated.Name, updated.Amount, updated.Size);
+            _logger.LogInformation("Method Update finished successfully.");
+            return Ok(updated);
         }
-        
     }
 }

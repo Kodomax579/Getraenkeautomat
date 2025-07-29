@@ -1,9 +1,18 @@
 using LootboxService.Services;
+using Serilog;
 
+Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.File("Logs\\service-log.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Console()
+    .CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Host.UseSerilog();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -22,7 +31,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 builder.Host.UseWindowsService();
 builder.WebHost.UseUrls("http://0.0.0.0:9010");
 
