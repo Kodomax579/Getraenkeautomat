@@ -1,3 +1,4 @@
+using Serilog;
 using User.Data;
 using User.Services;
 using UserService.Services;
@@ -9,11 +10,18 @@ namespace User
         public static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.File("Logs\\service-log.txt", rollingInterval: RollingInterval.Day)
+            .WriteTo.Console()
+            .CreateLogger();
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddSqlite<UserContext>("Data Source = UserContext.db");
-
+            builder.Host.UseSerilog();
             builder.Services.AddScoped<Service>();
             builder.Services.AddHttpClient<RequestService>();
 

@@ -50,8 +50,8 @@ namespace User.Controllers
         {
             if (userDto == null)
             {
-                _logger.LogError("No body");
-                return BadRequest("No body");
+                _logger.LogError("Request without body");
+                return BadRequest("Request without body");
             }
             int response = await _userService.CreateUser(userDto);
 
@@ -61,37 +61,48 @@ namespace User.Controllers
                     _logger.LogError("User already exist");
                     return BadRequest("User already exist");
                 case -2:
-                    _logger.LogError("Body has no Name");
-                    return BadRequest("Body has no Name");
+                    _logger.LogError("Body without name");
+                    return BadRequest("Body without name");
                 case -3:
                     _logger.LogError("Create bankaccount error");
                     return BadRequest("Create bankaccount error");
                 default:
+                    if (string.IsNullOrEmpty(userDto.name))
+                    {
+                        _logger.LogError("Request without username");
+                        return BadRequest("Request without username");
+                    }
+                    if (string.IsNullOrEmpty(userDto.password))
+                    {
+                        _logger.LogError("Request without password");
+                        return BadRequest("Request without password");
+                    }
                     var user = this._userService.GetUser(userDto.name, userDto.password);
+
+                    _logger.LogInformation("Response user:{user}", user);
+
                     return Ok(user);
             }
         }
-
-
 
         [HttpPut("UpdateUser")]
         public ActionResult<UserDTO> UpdateUser([FromBody] UserDTO userDto)
         {
             if (userDto == null)
             {
-                _logger.LogError("No body");
-                return BadRequest("No body");
+                _logger.LogError("Request without body");
+                return BadRequest("Request without body");
             }
 
             var updatedUser = this._userService.UpdateUser(userDto);
             if (updatedUser == null)
             {
+                _logger.LogError("User not found");
                 return BadRequest("User not found");
             }
 
+            _logger.LogInformation("Response updatedUser:{updatedUser}", updatedUser);
             return Ok(updatedUser);
         }
-
-
     }
 }
