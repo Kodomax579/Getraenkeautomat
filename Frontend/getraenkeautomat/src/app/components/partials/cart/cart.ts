@@ -51,7 +51,6 @@ export class Cart {
     )?.amount;
     if (item && totalItems && item.amount < totalItems) {
       item.amount++;
-      console.log(item.amount);
     }
   }
 
@@ -59,7 +58,6 @@ export class Cart {
     const item = this.itemAmount().find((a) => a.id === itemId);
     if (item && item.amount > 1) {
       item.amount--;
-      console.log(item.amount);
     }
   }
 

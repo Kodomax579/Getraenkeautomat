@@ -20,7 +20,6 @@ export class Shop implements OnInit{
 
   ngOnInit() {
     this.data.getProducts().subscribe((data: productList[]) => {
-      console.log('Produkte geladen:', data);
       this.products = data;
     });
   }
@@ -30,12 +29,9 @@ export class Shop implements OnInit{
     if (!this.cart.includes(item)) {
       this.cart.push(item);
       this.cartAmount.push({ id: item.id, amount: 1 });
-      console.log(this.cart);
-      console.log(this.cartAmount);
     } else if (existing && existing.amount < item.amount) {
       if (existing) {
         existing.amount += 1;
-        console.log(this.cartAmount);
       }
     }
   }

@@ -23,7 +23,6 @@ export class Games {
 
   restart() {
     this.gameBoard = this.game.getTicTacToe();
-    console.log(this.gameBoard);
   }
 
   playerClicked(id: number): void {
