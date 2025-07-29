@@ -8,11 +8,11 @@ import { productList } from '../Models/product.model';
 })
 export class Data {
   constructor(private http: HttpClient) {}
-  api: string = 'http://localhost:9000/';
+  api: string = 'http://localhost:9000/api/Vorrat/';
   public isUpdated = signal<boolean>(false);
 
   getProducts(): Observable<productList[]> {
-    return this.http.get<productList[]>(`${this.api}Vorrat`);
+    return this.http.get<productList[]>(`${this.api}GetProducts`);
   }
 
   updateProducts(pName:string, pPreis:number, pAnzahl:number) {
@@ -20,7 +20,7 @@ export class Data {
     let param = new HttpParams()
       .set("name",pName)
 
-    return this.http.put<productList>(`${this.api}Vorrat`, {
+    return this.http.put<productList>(`${this.api}UpdateProduct`, {
       price: pPreis,
       amount: pAnzahl
     }, {params: param});

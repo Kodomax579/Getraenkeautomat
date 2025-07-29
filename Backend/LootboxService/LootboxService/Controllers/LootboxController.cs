@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LootboxService.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class LootboxController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("GetLootboxes")]
         public ActionResult<List<Lootbox>> GetAll() => LootBoxService.GetAll();
 
-        [HttpGet("{id}")]
+        [HttpGet("GetResult/{id}")]
         public ActionResult<int> Start(int id)
         {
             var lootbox = LootBoxService.Start(id);

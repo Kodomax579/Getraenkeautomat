@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GetraenkeautomatVorrat.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class VorratController : ControllerBase, IVorratController
     {
         private readonly VorratService _service;
@@ -20,7 +20,7 @@ namespace GetraenkeautomatVorrat.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("GetProducts")]
         public ActionResult<List<VorratDTO>> GetAll()
         {
             var vorrats  = _service.GetAll();
@@ -48,7 +48,7 @@ namespace GetraenkeautomatVorrat.Controllers
             return productList;
         }
 
-        [HttpPost]
+        [HttpPost("CreateProduct")]
         public ActionResult<VorratDTO> Post(VorratDTO item)
         {
             if (item == null)
@@ -70,7 +70,7 @@ namespace GetraenkeautomatVorrat.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteProduct/{id}")]
         public ActionResult<bool> Delete(int id)
         {
             if(id == 0)
@@ -90,7 +90,7 @@ namespace GetraenkeautomatVorrat.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("GetProduct/{id}")]
         public ActionResult<Vorrat> Get(int id)
         {
             var vorrat = _service.Get(id);
@@ -104,7 +104,7 @@ namespace GetraenkeautomatVorrat.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPut("UpdateProduct")]
         public ActionResult<bool> Update(UpdateVorratDTO vorrat, string name)
         {
             if (vorrat == null)
