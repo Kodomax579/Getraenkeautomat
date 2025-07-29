@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BankService.Controllers
 {
     [ApiController]
-    [Route("/api/")]
+    [Route("api/[controller]")]
     public class BankController : ControllerBase, IBankController
     {
         private readonly ILogger<BankController> _logger;
@@ -18,7 +18,7 @@ namespace BankService.Controllers
             _bankAccountService = bankAccountService;
         }
 
-        [HttpGet("/GetMoney/{userId}")]
+        [HttpGet("GetMoney/{userId}")]
         public ActionResult<BankModelDTO> GetMoney(int userId)
         {
             double money;
@@ -46,7 +46,7 @@ namespace BankService.Controllers
             return Ok(moneyDTO);
         }
 
-        [HttpPost("/CreateBankAccount/{userId}")]
+        [HttpPost("CreateBankAccount/{userId}")]
         public ActionResult<BankModelDTO> CreateBankAccount(int userId)
         {
             double startMoney;
@@ -71,7 +71,7 @@ namespace BankService.Controllers
             return Ok(bankAccountDTO);
         }
 
-        [HttpPut("/EarnMoney")]
+        [HttpPut("EarnMoney")]
         public ActionResult<BankModelDTO> EarnMoney(BankModelDTO bankModelDTO)
         {
             double money;
@@ -102,7 +102,7 @@ namespace BankService.Controllers
             return Ok(bankAccountDTO);
         }
 
-        [HttpPut("/SpendMoney")]
+        [HttpPut("SpendMoney")]
         public ActionResult<BankModelDTO> SpendMoney(BankModelDTO bankModelDTO)
         {
             double money;
