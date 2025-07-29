@@ -9,7 +9,6 @@ import { productList } from '../Models/product.model';
 export class Data {
   constructor(private http: HttpClient) {}
   api: string = 'http://localhost:9000/api/Vorrat/';
-  public isUpdated = signal<boolean>(false);
 
   getProducts(): Observable<productList[]> {
     return this.http.get<productList[]>(`${this.api}GetProducts`);
