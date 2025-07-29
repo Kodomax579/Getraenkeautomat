@@ -105,7 +105,7 @@ namespace GetraenkeautomatVorrat.Controllers
 
 
         [HttpPut("UpdateProduct")]
-        public ActionResult<bool> Update(UpdateVorratDTO vorrat, string name)
+        public ActionResult<VorratDTO> Update(UpdateVorratDTO vorrat, string name)
         {
             if (vorrat == null)
             {
@@ -114,16 +114,11 @@ namespace GetraenkeautomatVorrat.Controllers
             }
             var isUpdated = _service.Update(vorrat,name);
 
-            switch(isUpdated)
+            if(isUpdated == null)
             {
-                case 0:
-                    return Ok(true);
-                case 1:
-                    return BadRequest("no game found to update");
-                default:
-                    return BadRequest();
-
+                return BadRequest("No product found");
             }
+            return Ok(isUpdated);
         }
         
     }
