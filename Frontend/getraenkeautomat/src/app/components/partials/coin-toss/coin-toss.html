@@ -1,5 +1,9 @@
 <div class="container">
-  <img (click)="play()" src="/CoinToss_Thumbnail.jpeg" alt="">
-  <input type="number" placeholder="Geben Sie hier Ihren Betrag ein" #price>
+  <img (click)="play()" src="/CoinToss_Thumbnail.jpeg">
+  @for (item of showWin; track $index) {
+  <div [class]="item.bool === true ? 'showWin' : 'showFail'">{{item.bool ? '+':'-'}} {{item.value}}€</div>
+  }
+  <div (click)="play()" class="showPlay">Play</div>
+  <input type="number" placeholder="Geben Sie hier Ihren Betrag ein" (keydown.Enter)="play()" #price>
   <div class="back-button" (click)="onLeave()">Zurück</div>
 </div>
