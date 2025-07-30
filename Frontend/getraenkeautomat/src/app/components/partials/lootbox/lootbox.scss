@@ -1,3 +1,6 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
 .container {
   margin: auto;
   padding: 2rem;
@@ -9,7 +12,7 @@
   .lootbox {
     height: 26rem;
     width: 20rem;
-    background-color: white;
+    background-color: $clr-white;
     margin: 1rem;
     border-radius: 2rem;
     cursor: pointer;
@@ -40,7 +43,8 @@
 }
 
 .back-button {
-  background-color: #007bff;
+  @include flexBoxCenter(none);
+  background-color: $clr-blue-accent;
   color: var(--clr-light);
   font-size: 2rem;
   font-weight: 600;
@@ -49,12 +53,9 @@
   margin: 1rem;
   border-radius: 2rem;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: $clr-blue-deep;
   }
 
   @media (width >=120rem) {

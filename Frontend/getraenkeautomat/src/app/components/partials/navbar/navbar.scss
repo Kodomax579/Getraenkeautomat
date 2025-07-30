@@ -1,24 +1,26 @@
+@use '../../../../styles/variables' as *;
+
 ::ng-deep p-menu {
     height: 100svh;
     display: flex;
     position: fixed;
 
     .ng-trigger {
-        background-color: #1f2937;
-        color: #e5e7eb;
+        background-color: $clr-blue-slate;
+        color: $clr-gray-light;
     }
 
     .header {
-        margin: 2rem;
+        margin: gSize(md);
 
         .headline {
-            font-size: 2rem;
+            font-size: fSize(md);
             font-weight: bold;
             cursor: pointer;
         }
 
         .headIcon {
-            font-size: 2rem;
+            font-size: fSize(md);
         }
     }
 
@@ -30,8 +32,8 @@
 
             .itemIcon,
             .itemLabel {
-                font-size: 1.6rem;
-                color: #e5e7eb;
+                font-size: fSize(sm);
+                color: $clr-gray-light;
             }
         }
 
@@ -39,8 +41,8 @@
 
             .itemIcon,
             .itemLabel {
-                font-size: 1.6rem;
-                color: #000000;
+                font-size: fSize(sm);
+                color: $clr-black;
             }
         }
     }
@@ -55,32 +57,33 @@
         gap: 1rem;
 
         .userIcon {
-            font-size: 1.5rem;
+            font-size: fSize(sm);
         }
 
         .userHeader {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: fSize(sm);
+            font-weight: fWeight(md);
         }
 
         .userName {
-            font-size: larger;
+            font-size: fSize(xl);
         }
-        hr{
+
+        hr {
             width: 8rem;
-            border-top: 1px solid white;
+            border-top: 1px solid $clr-white;
             border-bottom: none;
             margin: 0 0 1rem;
         }
 
         .userLevel {
             font-size: larger;
-            color: skyblue;
+            color: $clr-blue-sky;
         }
 
         .userMoney {
             font-size: larger;
-            color: greenyellow;
+            color: $clr-green-primary;
         }
 
         .logout {
@@ -89,8 +92,8 @@
             display: flex;
             justify-content: center;
             font-weight: 600;
-            background-color: var(--clr-danger);
-            color: var(--clr-light);
+            background-color: $clr-red-primary;
+            color: $clr-gray-light;
             padding: var(--gap-md);
             border-radius: var(--rounded-md);
             cursor: pointer;
