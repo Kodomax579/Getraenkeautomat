@@ -5,8 +5,8 @@
   </div>
   <div class="formContainer">
     <form *ngIf="isloginHeaderPressed">
-      <label>Benutzername</label>
-      <input #userNameOrEmail type="text" placeholder="z.B. User1234">
+      <label>Benutzername / Email</label>
+      <input #userNameOrEmail type="text" placeholder="z.B. User1234 / example@mail.com">
       <label>Passwort</label>
       <input #userPassword type="password" placeholder="z.B. 12345678" (keydown.Enter)="login()">
       <button class="loginBtn" (click)="login()" type="button" >Anmelden</button>

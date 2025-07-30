@@ -1,6 +1,6 @@
-.signIn{
+@use '../../../../styles/mixins' as *;
+
+.signIn {
+  @include flexBoxCenter(none);
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
