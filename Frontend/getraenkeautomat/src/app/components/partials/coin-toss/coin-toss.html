@@ -1,5 +1,5 @@
 <div class="container">
-  <img (click)="play()" src="/CoinToss_Thumbnail.jpeg">
+  <img (click)="play()" src="/getraenkeautomat/assets/CoinTossThumbnail.jpeg">
   @for (item of showWin; track $index) {
   <div [class]="item.bool === true ? 'showWin' : 'showFail'">{{item.bool ? '+':'-'}} {{item.value}}€</div>
   }

@@ -3,10 +3,10 @@
   height: calc(100svh - 8rem);
   border-radius: 1rem;
   position: relative;
-  background-image: url("/BadBackground.png");
+  background-image: url("/getraenkeautomat/assets/BadBackground.png");
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  cursor: url("/Crosshair.png"), crosshair;
+  cursor: url("/getraenkeautomat/assets/Crosshair.png"), crosshair;
 
   .header {
     display: flex;
