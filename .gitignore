@@ -16,7 +16,7 @@ Backend/BankService/BankService/.vs/**
 
 Backend/TicTacToe/TicTacToe/bin/**
 Backend/TicTacToe/TicTacToe/obj/**
-Backend\TicTacToe\TicTacToe\TicTacToe.csproj.user
+Backend/TicTacToe/TicTacToe/TicTacToe.csproj.user
 Backend/TicTacToe/TicTacToe/obj/**
 Backend/TicTacToe/.vs/**
 
@@ -29,18 +29,18 @@ Backend/UserService/.vs/**
 Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/bin/**
 Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/obj/**
 Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/Properties/**
-Backend\VorratService\GetraenkeautomatVorrat\GetraenkeautomatVorrat\GetraenkeautomatVorrat.csproj.user
+Backend/VorratService/GetraenkeautomatVorrat/GetraenkeautomatVorrat/GetraenkeautomatVorrat.csproj.user
 Backend/VorratService/GetraenkeautomatVorrat/.vs/**
 
 Backend/LootboxService/LootboxService/bin/**
 Backend/LootboxService/LootboxService/obj/**
 Backend/LootboxService/LootboxService/Properties/**
-Backend\LootboxService\LootboxService\LootboxService.csproj.user
+Backend/LootboxService/LootboxService/LootboxService.csproj.user
 Backend/LootboxService/.vs/**
 
 Backend/BlackJack/bin/**
 Backend/BlackJack/obj/**
 Backend/BlackJack/.vs/**
 Backend/BlackJack/Properties/**
-Backend\BlackJack\BlackJack.csproj.user
+Backend/BlackJack\BlackJack.csproj.user
 Frontend/getraenkeautomat/package-lock.json

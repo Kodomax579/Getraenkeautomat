@@ -4,48 +4,22 @@
   align-items: center;
   margin: auto;
   box-shadow: var(--box-shadow-lg);
-  //gap: 10vw;
 
-  .TicTacToe {
-    background-image: url('/TicTacToe_Thumbnail2.png');
-  }
-
-  .AimLab {
-    background-image: url('/AimLab_Thumbnail.png');
-  }
-
-  .Blackjack {
-    background-image: url('/BlackJack_Thumbnail.png');
-  }
-
-  .Lootbox {
-    background-image: url('/Lootbox_Thumbnail.png');
-  }
-
-  .CoinToss {
-    background-image: url('/CoinToss_Thumbnail.jpeg');
-  }
-
-  .TicTacToe,
-  .AimLab,
-  .Blackjack,
-  .Lootbox,
-  .CoinToss {
+  .game-image {
     width: 20vw;
     height: 40vh;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    transition: all;
-    transition-duration: 200ms;
+    object-fit: cover;
     border-radius: 4rem;
     margin: 4rem;
+    cursor: pointer;
+    transition: opacity 200ms;
 
     &:hover {
       opacity: 0.75;
     }
   }
-  app-lootbox{
+
+  app-lootbox {
     display: flex;
     justify-content: center;
     width: 100%;

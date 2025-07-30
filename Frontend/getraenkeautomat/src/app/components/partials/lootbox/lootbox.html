@@ -1,6 +1,6 @@
 <div class="container">
   <div class="lootbox" *ngFor="let item of lootboxes; index as i;" (click)="startGambling(item.id, item.price)">
-    <img src="/lootboxes/chest{{item.id}}.png" [alt]="item.name">
+    <img src="assets/lootboxes/chest{{item.id}}.png" [alt]="item.name">
     <p>{{item.name}}</p>
     <p>{{item.price}}€</p>
   </div>
