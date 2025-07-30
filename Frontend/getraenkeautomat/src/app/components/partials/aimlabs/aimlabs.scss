@@ -3,16 +3,27 @@
   height: calc(100svh - 8rem);
   border-radius: 1rem;
   position: relative;
-  background-image: url("/getraenkeautomat/assets/BadBackground.png");
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: url("/getraenkeautomat/assets/Crosshair.png"), crosshair;
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
 
   .header {
     display: flex;
     align-items: center;
     padding: 0 1rem;
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 
     .back-button {
       background-color: #2DE3FE;
@@ -27,8 +38,8 @@
       transition: background-color 0.2s;
 
       &:hover {
-      background-color: #0528B3;
-      color: #2DE3FE;
+        background-color: #0528B3;
+        color: #2DE3FE;
       }
     }
 
@@ -53,11 +64,13 @@
       transform: scale(1.2);
     }
   }
-  img{
+
+  img.character {
     position: absolute;
     bottom: 0;
     left: 0;
     height: 12rem;
     cursor: grab;
+    z-index: 2;
   }
 }

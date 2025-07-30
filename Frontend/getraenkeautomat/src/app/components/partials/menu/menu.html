@@ -1,25 +1,50 @@
 <div class="gameMenuContainer">
   @switch (selectedGame) {
-  @case (1) {
-  <app-games (isTicTacToe)="selectedGame = 0"></app-games>
+    @case (1) {
+      <app-games (isTicTacToe)="selectedGame = 0"></app-games>
+    }
+    @case (2) {
+      <app-aimlabs (leave)="onLeave()"></app-aimlabs>
+    }
+    @case (3) {
+      <app-blackjack (leave)="onLeave()"></app-blackjack>
+    }
+    @case (4) {
+      <app-lootbox (leave)="onLeave()"></app-lootbox>
+    }
+    @case (5) {
+      <app-coin-toss (leave)="onLeave()"></app-coin-toss>
+    }
+    @default {
+      <img
+        src="assets/TicTacToeThumbnail2.png"
+        alt="TicTacToe"
+        class="game-image"
+        (click)="showTicTacToe()" />
+
+      <img
+        src="assets/AimLabThumbnail.png"
+        alt="AimLab"
+        class="game-image"
+        (click)="showAimLab()" />
+
+      <img
+        src="assets/BlackJackThumbnail.png"
+        alt="Blackjack"
+        class="game-image"
+        (click)="showBlackjack()" />
+
+      <img
+        src="assets/LootboxThumbnail.png"
+        alt="Lootbox"
+        class="game-image"
+        (click)="showLootbox()" />
+
+      <img
+        src="assets/CoinTossThumbnail.jpeg"
+        alt="CoinToss"
+        class="game-image"
+        (click)="showCoinToss()" />
+    }
   }
-  @case (2) {
-  <app-aimlabs (leave)="onLeave()"></app-aimlabs>
-  }
-  @case (3) {
- <app-blackjack (leave)="onLeave()"></app-blackjack>
-  }
-  @case (4) {
-    <app-lootbox (leave)="onLeave()"></app-lootbox>
-  }
-  @case (5) {
-    <app-coin-toss (leave)="onLeave()"></app-coin-toss>
-  }
-  @default {
-  <div (click)="showTicTacToe()" class="TicTacToe"></div>
-  <div (click)="showAimLab()" class="AimLab"></div>
-  <div (click)="showBlackjack()" class="Blackjack"></div>
-  <div (click)="showLootbox()" class="Lootbox"></div>
-  <div (click)="showCoinToss()" class="CoinToss"></div>
-  }}
 </div>
