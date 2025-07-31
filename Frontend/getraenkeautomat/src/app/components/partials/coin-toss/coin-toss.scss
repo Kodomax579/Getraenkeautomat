@@ -1,9 +1,12 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
 .container {
   position: relative;
-  border-radius: 2rem;
+  border-radius: round(lg);
   background-color: #ffffff20;
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  padding: gap(md);
   display: inline-grid;
 
   .showWin {
@@ -11,8 +14,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: green;
-    font-size: 3rem;
+    color: $clr-green-primary;
+    font-size: fSize(xl);
     text-align: center;
     animation-name: fly;
     animation-duration: 2s;
@@ -23,8 +26,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: red;
-    font-size: 3rem;
+    color: $clr-red-primary;
+    font-size: fSize(xl);
     text-align: center;
     animation-name: fly;
     animation-duration: 2s;
@@ -35,28 +38,26 @@
   }
 
   .showPlay {
+    @include flexBoxCenter(none);
     position: absolute;
     height: 22rem;
     width: 22rem;
-    border-radius: 2rem;
-    margin: 1rem;
-    top: 37%;
+    border-radius: round(lg);
+    margin: gap(xs);
+    top: 35.4%;
     left: 46.5%;
     transform: translate(-50%, -50%);
-    display: none;
-    justify-content: center;
-    align-items: center;
     z-index: 2;
-    color: white;
+    color: $clr-white;
     background-color: #0000004f;
-    font-size: 3rem;
+    font-size: fSize(xl);
     cursor: pointer;
   }
 
   img {
     height: 22rem;
     width: 22rem;
-    background-color: white;
+    background-color: $clr-white;
     margin: 1rem;
     border-radius: 2rem;
     cursor: pointer;
@@ -64,8 +65,8 @@
   }
 
   input {
-    font-size: 1.5rem;
-    padding: 0.5rem;
+    font-size: fSize(sm);
+    padding: 1rem;
     border-radius: 2rem;
   }
 }
@@ -76,7 +77,7 @@
   margin-top: 1rem;
   border-radius: 2rem;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: fSize(sm);
   cursor: pointer;
   text-align: center;
 
