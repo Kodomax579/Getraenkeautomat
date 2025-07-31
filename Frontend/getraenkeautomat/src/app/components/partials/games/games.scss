@@ -1,12 +1,13 @@
+@use '../../../../styles/variables' as *;
 @use '../../../../styles/mixins' as *;
 
 .gameContainer {
   @include flexBoxCenter(none);
-  width: 100%;
-  height: 100%;
-  background-color: #A5531F;
-  border-radius: var(--rounded-md);
-  box-shadow: var(--box-shadow-lg);
+  width: size(p-100);
+  height: size(p-100);
+  background-color: $clr-orange-deep;
+  border-radius: round(sm);
+  box-shadow: $box-shadow-lg;
   flex-direction: column;
   padding: 2rem;
 
@@ -28,7 +29,7 @@
       width: 15rem;
       font-size: 1.5rem;
       background-color: #482D11;
-      border-radius: var(--rounded-md);
+      border-radius: round(sm);
       cursor: pointer;
       padding: var(--gap-md);
     }
@@ -41,7 +42,7 @@
     font-weight: 700;
     padding: var(--gap-md);
     margin: 1rem 2rem;
-    border-radius: var(--rounded-md);
+    border-radius: round(sm);
 
     tr {
       td {

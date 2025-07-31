@@ -2,7 +2,7 @@
 @use '../../../../styles/mixins' as *;
 
 .container {
-  display: flex;
+  @include flexBoxCenter(none);
   flex-wrap: wrap;
   margin: auto;
   padding: gap('2xl');
@@ -10,16 +10,16 @@
   height: size(full);
 
   .lootbox {
-    height: 26rem;
-    width: 20rem;
+    height: size(s-26);
+    width: size(s-20);
     background-color: $clr-white;
     margin: gap(lg);
     border-radius: round(lg);
     cursor: pointer;
 
     img {
-      width: 20rem;
-      height: 20rem;
+      width: size(s-20);
+      height: size(s-20);
       border-radius: round(lg);
     }
 
@@ -56,8 +56,8 @@
   color: var(--clr-light);
   font-size: fSize(lg);
   font-weight: fWeight(md);
-  height: 26rem;
-  width: 20rem;
+  height: size(s-26);
+  width: size(s-20);
   margin: gap(lg);
   border-radius: round(lg);
   cursor: pointer;
@@ -67,7 +67,7 @@
   }
 
   @include for-big-desktop-up {
-    width: 64rem;
-    height: 8rem;
+    width: size(s-64);
+    height: size(s-8);
   }
 }

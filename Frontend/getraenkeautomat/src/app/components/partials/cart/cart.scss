@@ -7,7 +7,7 @@
   background-color: $clr-blue-slate;
   color: $clr-gray-light;
   border-radius: var(--rounded-sm);
-  box-shadow: var(--box-shadow-lg);
+  box-shadow: $box-shadow-lg;
 
   .cartHeader {
     display: flex;
