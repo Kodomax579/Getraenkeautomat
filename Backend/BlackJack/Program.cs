@@ -50,7 +50,7 @@ namespace BlackJack
             }
 
             app.UseAuthorization();
-
+            app.UseRouting();
             app.UseCors("AllowAll");
             app.MapControllers();
 

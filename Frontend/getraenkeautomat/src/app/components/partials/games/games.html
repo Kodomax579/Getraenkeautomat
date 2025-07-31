@@ -3,20 +3,26 @@
   <div #gameResult></div>
   <table>
     <tr>
-      <td (click)="playerClicked(0)">{{gameBoard[0]}}</td>
-      <td (click)="playerClicked(1)">{{gameBoard[1]}}</td>
-      <td (click)="playerClicked(2)">{{gameBoard[2]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(0)">{{gameBoard[0]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(1)">{{gameBoard[1]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(2)">{{gameBoard[2]}}</td>
     </tr>
     <tr>
-      <td (click)="playerClicked(3)">{{gameBoard[3]}}</td>
-      <td (click)="playerClicked(4)">{{gameBoard[4]}}</td>
-      <td (click)="playerClicked(5)">{{gameBoard[5]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(3)">{{gameBoard[3]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(4)">{{gameBoard[4]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(5)">{{gameBoard[5]}}</td>
     </tr>
     <tr>
-      <td (click)="playerClicked(6)">{{gameBoard[6]}}</td>
-      <td (click)="playerClicked(7)">{{gameBoard[7]}}</td>
-      <td (click)="playerClicked(8)">{{gameBoard[8]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(6)">{{gameBoard[6]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(7)">{{gameBoard[7]}}</td>
+      <td [ngClass]="{'canHover': !gameFinish}" (click)="!gameFinish && playerClicked(8)">{{gameBoard[8]}}</td>
     </tr>
   </table>
-  <div (click)="backToMenu()">Zurück</div>
+  <div class="buttons">
+    <div class="onClick" (click)="backToMenu()">Zurück</div>
+    @if(gameFinish)
+    {
+      <div class="onClick" (click)="onNewGame()">Neues Spiel starten</div>
+    }
+  </div>
 </div>  

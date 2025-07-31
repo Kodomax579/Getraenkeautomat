@@ -8,10 +8,9 @@ import { productList } from '../Models/product.model';
 })
 export class Data {
   constructor(private http: HttpClient) {}
-  api: string = 'http://localhost:9000/api/Vorrat/';
 
   getProducts(): Observable<productList[]> {
-    return this.http.get<productList[]>(`${this.api}GetProducts`);
+    return this.http.get<productList[]>(`/api/Vorrat/GetProducts`);
   }
 
   updateProducts(pName:string, pPreis:number, pAnzahl:number) {
@@ -19,7 +18,7 @@ export class Data {
     let param = new HttpParams()
       .set("name",pName)
 
-    return this.http.put<productList>(`${this.api}UpdateProduct`, {
+    return this.http.put<productList>(`/api/Vorrat/UpdateProduct`, {
       price: pPreis,
       amount: pAnzahl
     }, {params: param});

@@ -30,7 +30,7 @@ namespace LootboxService.Controllers
             return lootboxes;
         }
 
-        [HttpGet("GetResult/{id}")]
+        [HttpGet("GetResult")]
         public ActionResult<int> Start(int id)
         {
             _logger.LogInformation("Request Lootbox");

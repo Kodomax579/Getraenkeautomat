@@ -18,7 +18,7 @@ namespace BankService.Controllers
             _bankAccountService = bankAccountService;
         }
 
-        [HttpGet("GetMoney/{userId}")]
+        [HttpGet("GetMoney")]
         public ActionResult<BankModelDTO> GetMoney(int userId)
         {
             _logger.LogInformation("Method GetMoney started. UserId: {UserId}", userId);
