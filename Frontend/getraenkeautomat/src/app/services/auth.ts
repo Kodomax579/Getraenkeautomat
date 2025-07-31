@@ -10,10 +10,8 @@ export class Auth {
 
   public user = signal<userModel | undefined>(undefined);
 
-  api: string = 'http://localhost:9002/api/User/';
-
   register(username: string, email: string, password: string) {
-    return this.http.post<userModel>(`${this.api}CreateUser`, {
+    return this.http.post<userModel>("/api/User/CreateUser", {
       name: username,
       email: email,
       password: password,
@@ -25,7 +23,7 @@ export class Auth {
       .set('uName', username)
       .set('uPassword', password);
 
-    return this.http.get<userModel>(`${this.api}Login`, { params });
+    return this.http.get<userModel>("/api/User/Login", { params });
   }
 
   setUser(user: userModel) {
@@ -33,7 +31,7 @@ export class Auth {
   }
 
   updateLevel(level: number) {
-    return this.http.put<userModel>(`${this.api}UpdateUser`, {
+    return this.http.put<userModel>("/api/User/UpdateUser", {
       id: this.user()?.id,
       name: this.user?.name,
       level: level,

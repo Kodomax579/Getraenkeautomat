@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Injectable, signal } from "@angular/core";
 import { bankModel } from "../Models/bank.model";
 import { Auth } from "./auth";
@@ -10,11 +10,12 @@ export class Bank {
   constructor(private http: HttpClient) {}
   private userService = inject(Auth);
 
-  private api: string = "http://localhost:9005/api/Bank/";
   public money = signal<number | undefined>(undefined);
 
   public getCurrentAccountBalance(userId: number) {
-    return this.http.get<bankModel>(`${this.api}GetMoney/${userId}`);
+    const params = new HttpParams()
+      .set('userId', userId)
+    return this.http.get<bankModel>("/api/Bank/GetMoney", { params });
   }
 
   public setMoney(money: number) {
@@ -27,7 +28,7 @@ export class Bank {
 
   public putEarnMoney(money: number, userId: number) {
     this.http
-      .put<bankModel>(`${this.api}EarnMoney`, {
+      .put<bankModel>(`/api/Bank/EarnMoney`, {
         money: money,
         userId: userId,
       })
@@ -41,7 +42,7 @@ export class Bank {
     const user = this.userService.getUser();
     if (!user) return;
 
-    return this.http.put<bankModel>(`${this.api}SpendMoney`, {
+    return this.http.put<bankModel>(`/api/Bank/SpendMoney`, {
       money: money,
       userId: user.id,
     });
