@@ -1,27 +1,39 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
 .gameMenuContainer {
-  display: flex;
+  @include flexBoxCenter(none);
   flex-wrap: wrap;
-  align-items: center;
   margin: auto;
-  box-shadow: var(--box-shadow-lg);
+  box-shadow: $box-shadow-lg;
 
   .game-image {
     width: 20vw;
     height: 40vh;
     object-fit: cover;
-    border-radius: 4rem;
-    margin: 4rem;
+    border-radius: round(xl);
+    margin: gap(xl);
     cursor: pointer;
     transition: opacity 200ms;
 
     &:hover {
       opacity: 0.75;
     }
+
+    @include for-tablet-portrait-up {
+    margin: gap(md);
+    }
+
+    @include for-big-desktop-up {
+    margin: gap(xl);
+    }
   }
 
-  app-lootbox {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  @include for-tablet-portrait-up {
+    margin-top: 600px;
+  }
+
+  @include for-desktop-up {
+    margin-top: 0;
   }
 }

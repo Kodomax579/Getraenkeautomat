@@ -1,9 +1,10 @@
 @use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
 
 ::ng-deep p-menu {
-    height: 100svh;
     display: flex;
     position: fixed;
+    height: 100svh;
 
     .ng-trigger {
         background-color: $clr-blue-slate;
@@ -11,11 +12,11 @@
     }
 
     .header {
-        margin: gSize(md);
+        margin: gap(md);
 
         .headline {
             font-size: fSize(md);
-            font-weight: bold;
+            font-weight: fWeight(md);
             cursor: pointer;
         }
 
@@ -27,8 +28,7 @@
     .p-menu-item-content {
 
         .items {
-            display: flex;
-            justify-content: center;
+            @include flexBoxCenter(none);
 
             .itemIcon,
             .itemLabel {
@@ -48,63 +48,56 @@
     }
 
     .userSection {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        @include flexBoxCenter(column);
+        width: size(full);
         margin-top: 22vh;
-        gap: 1rem;
+        gap: gap(xs);
+        text-align: center;
 
         .userIcon {
-            font-size: fSize(sm);
+            font-size: fSize(md);
         }
 
         .userHeader {
-            font-size: fSize(sm);
+            font-size: fSize(md);
             font-weight: fWeight(md);
         }
 
-        .userName {
-            font-size: fSize(xl);
-        }
-
         hr {
-            width: 8rem;
             border-top: 1px solid $clr-white;
             border-bottom: none;
+            width: 8rem;
             margin: 0 0 1rem;
         }
 
         .userLevel {
-            font-size: larger;
+            font-size: fSize(sm);
             color: $clr-blue-sky;
         }
 
         .userMoney {
-            font-size: larger;
+            font-size: fSize(sm);
             color: $clr-green-primary;
         }
 
         .logout {
-            margin-top: 2rem;
-            width: 50%;
-            display: flex;
-            justify-content: center;
-            font-weight: 600;
+            @include flexBoxCenter(none);
+            border-radius: var(--rounded-md);
+            width: size('5/10');
+            margin-top: gap(md);
+            padding: gap(xs);
+            font-size: fSize(sm);
+            font-weight: fWeight(md);
             background-color: $clr-red-primary;
             color: $clr-gray-light;
-            padding: var(--gap-md);
-            border-radius: var(--rounded-md);
             cursor: pointer;
         }
     }
 }
-
 ::ng-deep .p-menu-list {
     gap: 10px !important;
 }
 
 .navbargap {
-    width: 400px;
+    width: size('400');
 }

@@ -2,10 +2,8 @@
 @use '../../../../styles/mixins' as *;
 
 .signInUpContainer {
-  width: 90%;
-  max-width: 500px;
+  border-radius: round(md);
   background-color: $clr-white-dark;
-  border-radius: 1.5rem;
   box-shadow: $box-shadow;
 
   .headline {
@@ -16,17 +14,17 @@
 
     div {
       flex: 1;
-      padding: gSize(xs);
-      cursor: pointer;
+      padding: gap(xs);
       background-color: $clr-white;
+      cursor: pointer;
       transition: background-color 0.3s ease, color 0.3s ease;
 
       &:first-child {
-        border-top-left-radius: 1.5rem;
+        border-top-left-radius: round(md);
       }
 
       &:last-child {
-        border-top-right-radius: 1.5rem;
+        border-top-right-radius: round(md);
       }
 
       &.loginH {
@@ -46,26 +44,26 @@
   }
 
   .formContainer {
-    padding: gSize(md);
+    padding: gap(md);
     font-size: fSize(sm);
 
     form {
       display: flex;
       flex-direction: column;
-      gap: gSize(xs);
+      gap: gap(xs);
 
       label {
         font-weight: fWeight(sm);
-        color: #333;
+        color: $clr-blue-dark;
       }
 
       input {
-        padding: gSize('3/4') gSize(xs);
+        padding: gap('3/4') gap(xs);
         border: none;
-        border-radius: 1rem;
-        background-color: $clr-white;
-        box-shadow: inset 2px 2px 5px #d1d5db, inset -2px -2px 5px #ffffff;
+        border-radius: round(sm);
         font-size: fSize(sm);
+        background-color: $clr-white;
+        box-shadow: $box-shadow-inset;
         transition: box-shadow 0.3s ease;
 
         &:focus {
@@ -75,13 +73,13 @@
       }
 
       button {
-        padding: gSize('3/4');
+        padding: gap('3/4');
+        border: none;
+        border-radius: round(sm);
         font-size: fSize(sm);
         font-weight: fWeight(md);
-        border: none;
-        border-radius: 1rem;
         background-color: $clr-white;
-        color: #333;
+        color: $clr-blue-dark;
         cursor: pointer;
         transition: all 0.3s ease;
 
@@ -99,22 +97,18 @@
   }
 
   @include for-phone-only {
-    width: 300px;
+    width: size('300');
   }
 
   @include for-tablet-portrait-up {
-    width: 400px;
+    width: size('400');
   }
 
   @include for-tablet-landscape-up {
-    width: 500px;
+    width: size('500');
   }
 
   @include for-desktop-up {
-    width: 600px;
-  }
-
-  @include for-big-desktop-up {
-    width: 800px;
+    width: size('600');
   }
 }
