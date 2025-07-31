@@ -12,7 +12,7 @@
     height: 40vh;
     object-fit: cover;
     border-radius: round(xl);
-    margin: gap(xl);
+    margin: gap('4xl');
     cursor: pointer;
     transition: opacity 200ms;
 
@@ -21,11 +21,11 @@
     }
 
     @include for-tablet-portrait-up {
-    margin: gap(md);
+    margin: gap('2xl');
     }
 
     @include for-big-desktop-up {
-    margin: gap(xl);
+    margin: gap('4xl');
     }
   }
 

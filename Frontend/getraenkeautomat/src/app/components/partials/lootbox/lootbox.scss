@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  padding: gap(md);
+  padding: gap('2xl');
   width: size(full);
   height: size(full);
 
@@ -13,7 +13,7 @@
     height: 26rem;
     width: 20rem;
     background-color: $clr-white;
-    margin: gap(xs);
+    margin: gap(lg);
     border-radius: round(lg);
     cursor: pointer;
 
@@ -28,7 +28,7 @@
       font-size: fSize(md);
       font-weight: fWeight(md);
       margin: 0;
-      margin-top: gap('2/4');
+      margin-top: gap(sm);
 
       &:last-child {
         font-weight: fWeight(md);
@@ -38,15 +38,15 @@
   }
 
   @include for-big-desktop-up {
-    width: size('8/10');
+    width: size(p-80);
   }
 
   @include for-xl-desktop-up {
-    width: size('7/10');
+    width: size(p-70);
   }
 
   @media (min-width: 2280px) {
-    width: size('6/10');
+    width: size(p-60);
   }
 }
 
@@ -58,7 +58,7 @@
   font-weight: fWeight(md);
   height: 26rem;
   width: 20rem;
-  margin: gap(xs);
+  margin: gap(lg);
   border-radius: round(lg);
   cursor: pointer;
 

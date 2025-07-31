@@ -6,7 +6,7 @@
   border-radius: round(lg);
   background-color: #ffffff20;
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-  padding: gap(md);
+  padding: gap('2xl');
   display: inline-grid;
 
   .showWin {
@@ -43,7 +43,7 @@
     height: 22rem;
     width: 22rem;
     border-radius: round(lg);
-    margin: gap(xs);
+    margin: gap(lg);
     top: 35.4%;
     left: 46.5%;
     transform: translate(-50%, -50%);
