@@ -25,3 +25,45 @@ $clr-green-primary: #00a63e;
 
 //🟤 Brown Tones
 $clr-brown-dark: #482D11;
+
+
+//Shadow
+$box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+//Fonts
+$font-weights: (
+  "sm" : 400,
+  "md" : 600,
+  "lg" : 800,
+);
+
+@function fWeight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+$font-sizes: (
+  "xs" : 1rem,
+  "sm" : 1.5rem,
+  "md" : 2rem,
+  "lg" : 2.5rem,
+  "xl" : 3rem,
+);
+
+@function fSize($size-name) {
+  @return map-get($font-sizes, $size-name);
+}
+
+$gap-sizes: (
+  "1/4" : 0.25rem,
+  "2/4" : 0.5rem,
+  "3/4" : 0.75rem,
+  "xs" : 1rem,
+  "sm" : 1.5rem,
+  "md" : 2rem,
+  "lg" : 2.5rem,
+  "xl" : 3rem,
+);
+
+@function gSize($size-name) {
+  @return map-get($gap-sizes, $size-name);
+}

@@ -1,19 +1,12 @@
-<div #background class="background">
-  <!-- Hintergrundbild als <img> -->
-  <img class="background-image" src="assets/BadBackground.png" alt="Background">
+<div #background class="background" [ngStyle]="{'background-image': 'url(' + currentBg + ')'}">
 
   <div class="header">
     <button class="back-button" (click)="onLeave()">Zurück</button>
     <div class="counter">{{ counter }}</div>
   </div>
 
-  <app-circle class="circle"
-              (click)="onClick()"
-              [style.top.px]="top()"
-              [style.left.px]="left()">
+  <app-circle class="circle" (click)="onClick()" [style.top.px]="top()" [style.left.px]="left()">
   </app-circle>
 
-  <img class="character"
-       src="assets/AimLabSoldier.png"
-       alt="Soldier">
+  <img class="character" src="assets/AimLabSoldier.png" alt="Soldier">
 </div>

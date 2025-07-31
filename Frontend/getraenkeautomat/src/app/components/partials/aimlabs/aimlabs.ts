@@ -9,10 +9,11 @@ import {
 } from "@angular/core";
 import { Circle } from "./circle/circle";
 import { Game } from "../../../services/game";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-aimlabs",
-  imports: [Circle],
+  imports: [Circle, CommonModule],
   templateUrl: "./aimlabs.html",
   styleUrl: "./aimlabs.scss",
 })
@@ -25,6 +26,17 @@ export class Aimlabs {
 
   @Output() leave = new EventEmitter<boolean>();
   @ViewChild("background") backgroundRef!: ElementRef<HTMLDivElement>;
+
+  currentBg: string = "/getraenkeautomat/assets/BadBackground.png";
+  fallbackBg: string = "assets/BadBackground.png";
+
+  ngOnInit() {
+    const img: HTMLImageElement = new Image();
+    img.src = this.currentBg;
+    img.onerror = () => {
+      this.currentBg = this.fallbackBg;
+    };
+  }
 
   ngAfterViewInit() {
     const backgroundEl: HTMLDivElement = this.backgroundRef.nativeElement;
