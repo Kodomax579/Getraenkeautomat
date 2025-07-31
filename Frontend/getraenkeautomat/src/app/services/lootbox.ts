@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Auth } from './auth';
 import { Bank } from './bank';
@@ -14,13 +14,15 @@ export class LootboxService {
     private auth: Auth,
     private bank: Bank
   ) {}
-  api: string = 'http://localhost:9010/api/Lootbox/';
 
   getLootboxes(): Observable<lootboxModel[]> {
-    return this.http.get<lootboxModel[]>(`${this.api}GetLootboxes`);
+    return this.http.get<lootboxModel[]>(`/api/Lootbox/GetLootboxes`);
   }
 
   getLootbox(id:number) {
-    return this.http.get<number>(`${this.api}GetResult/${id}`);
+     const params = new HttpParams()
+      .set('id', id)
+
+    return this.http.get<number>(`/api/Lootbox/GetResult`, { params });
   }
 }

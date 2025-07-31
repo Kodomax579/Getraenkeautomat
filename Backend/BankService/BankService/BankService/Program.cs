@@ -54,7 +54,6 @@ namespace BankService
                 c.SupportedSubmitMethods();
             });
 
-            app.UseRouting();
 
             app.UseCors("AllowAll");
 

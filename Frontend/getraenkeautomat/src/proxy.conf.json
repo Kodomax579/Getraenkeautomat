@@ -1,0 +1,26 @@
+{
+    "/api/User/*": {
+        "target": "http://localhost:9002",
+        "secure": false
+    },
+    "/api/Bank/*": {
+        "target": "http://localhost:9005",
+        "secure": false
+    },
+     "/api/Lootbox/*": {
+        "target": "http://localhost:9010",
+        "secure": false
+    },
+    "/api/TicTacToe/*": {
+        "target": "http://localhost:9008",
+        "secure": false
+    },
+     "/api/Vorrat/*": {
+        "target": "http://localhost:9000",
+        "secure": false
+    },
+    "/api/BlackJack/*": {
+        "target": "http://localhost:9011",
+        "secure": false
+    }
+}

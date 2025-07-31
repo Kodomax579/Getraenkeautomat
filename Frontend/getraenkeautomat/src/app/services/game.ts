@@ -13,11 +13,10 @@ export class Game {
     private auth: Auth,
     private bank: Bank
   ) {}
-  api: string = 'http://localhost:9008/api/TicTacToe/';
 
   getTicTacToe() {
     let result: any[] = [];
-    this.http.get<TicTacToe>(`${this.api}CreateBoard`).subscribe({
+    this.http.get<TicTacToe>(`/api/TicTacToe/CreateBoard`).subscribe({
       next(value) {
         value.board.forEach((e) => {
           e.forEach((f) => {
@@ -57,7 +56,7 @@ export class Game {
         break;
     }
     return this.http.put<TicTacToe>(
-      `${this.api}UpdateGame?x=${x}&y=${y}`,
+      `/api/TicTacToe/UpdateGame?x=${x}&y=${y}`,
       null
     );
   }
