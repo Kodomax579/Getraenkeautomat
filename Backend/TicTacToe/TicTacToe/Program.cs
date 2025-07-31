@@ -1,6 +1,8 @@
 using Serilog;
 using TicTacToe.Services;
 
+Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.File("Logs\\service-log.txt", rollingInterval: RollingInterval.Day)
@@ -30,7 +32,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 builder.Host.UseWindowsService();
 builder.WebHost.UseUrls("http://0.0.0.0:9008");
 
