@@ -45,12 +45,18 @@ namespace User
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            app.UseSwagger(c =>
             {
-            }
-            app.UseSwagger();
-            app.UseSwaggerUI();
+                c.RouteTemplate = "api/User/{documentName}/swagger.json";
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "api/User";
+                c.SwaggerEndpoint("/api/User/v1/swagger.json", "User API V1");
+                c.SupportedSubmitMethods();
+            });
+
 
             app.UseCors("AllowAll");
 

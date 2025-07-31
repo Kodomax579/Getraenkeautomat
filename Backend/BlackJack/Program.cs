@@ -42,12 +42,18 @@ namespace BlackJack
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            app.UseSwagger(c =>
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+                c.RouteTemplate = "api/BlackJack/{documentName}/swagger.json";
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "api/BlackJack";
+                c.SwaggerEndpoint("/api/BlackJack/v1/swagger.json", "User API V1");
+                c.SupportedSubmitMethods();
+            });
+
 
             app.UseAuthorization();
             app.UseRouting();

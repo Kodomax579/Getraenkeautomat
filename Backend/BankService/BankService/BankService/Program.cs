@@ -45,12 +45,15 @@ namespace BankService
 
             var app = builder.Build();
 
-            if (app.Environment.IsDevelopment())
+            app.UseSwagger(c =>
             {
-            }
-            app.UseSwagger();
+                c.RouteTemplate = "api/Bank/{documentName}/swagger.json";
+            });
+
             app.UseSwaggerUI(c =>
             {
+                c.RoutePrefix = "api/Bank";
+                c.SwaggerEndpoint("/api/Bank/v1/swagger.json", "User API V1");
                 c.SupportedSubmitMethods();
             });
 
