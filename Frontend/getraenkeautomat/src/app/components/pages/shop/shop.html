@@ -4,10 +4,10 @@
   <div class="product-list">
     @for(product of products; track $index)
     {
-      <app-product-card (click)="addProduct(product)" [item]="product" ></app-product-card>
+    <app-product-card (click)="addProduct(product)" [item]="product"></app-product-card>
     }
   </div>
-  <div >
-    <app-cart [cartItems]="cart" [itemAmount]="cartAmount" (removeItem)="onRemoveItem($event)" (onPurchase)="onPurchase($event)" (onUpdateProduct)="onUpdate($event)"></app-cart>
-  </div>
+  @if (cart.length != 0) {
+  <app-cart [cartItems]="cart" [itemAmount]="cartAmount" (removeItem)="onRemoveItem($event)"
+    (onPurchase)="onPurchase($event)" (onUpdateProduct)="onUpdate($event)"></app-cart>}
 </div>
