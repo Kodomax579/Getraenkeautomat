@@ -1,9 +1,10 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Game } from '../../../services/game';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-games',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './games.html',
   styleUrl: './games.scss',
 })
@@ -12,6 +13,7 @@ export class Games {
     this.gameBoard = game.getTicTacToe();
   }
 
+  gameFinish: boolean = false
   gameBoard: number[] = [];
   result: number = 0;
 
@@ -34,28 +36,22 @@ export class Games {
         switch (this.result) {
           case 1:
             this.gameResult.nativeElement.innerText = '';
-            //this.gameResult.nativeElement.className.replace('', '');
             break;
           case 2:
             this.game.getCashAndLevel(0.1, 0.01);
             this.gameResult.nativeElement.innerText = 'Du hast Gewonnen!';
-            //this.gameResult.nativeElement.className.replace('', '');
-            this.gameBoard = this.game.getTicTacToe();
-            //this.isMoneyUptdated.emit(true);
+            this.gameFinish = true;
             break;
           case 3:
             this.gameResult.nativeElement.innerText = 'Bot hat Gewonnen';
-            //this.gameResult.nativeElement.className.replace('', '');
-            this.gameBoard = this.game.getTicTacToe();
+            this.gameFinish = true;
             break;
           case 4:
             this.gameResult.nativeElement.innerText = 'Unentschieden';
-            //this.gameResult.nativeElement.className.replace('', '');
-            this.gameBoard = this.game.getTicTacToe();
+            this.gameFinish = true;
             break;
           default:
             this.gameResult.nativeElement.innerText = 'Das geht nicht...';
-            //this.gameResult.nativeElement.className.replace('', '');
             break;
         }
       },
@@ -67,4 +63,12 @@ export class Games {
   backToMenu(){
     this.isTicTacToe.emit(false);
   }
+
+  onNewGame()
+  {
+    this.gameBoard = this.game.getTicTacToe();
+     this.gameResult.nativeElement.innerText = '';
+    this.gameFinish = false;
+  }
+
 }
