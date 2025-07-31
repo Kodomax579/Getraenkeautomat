@@ -54,14 +54,14 @@ namespace BankService.Controllers
             if (userId == 0)
             {
                 _logger.LogError("Invalid request: {Reason}. UserId: {UserId}", "UserId is 0", userId);
-                return BadRequest("Invalid UserId");
+                return BadRequest(new { message = "Invalid UserId" });
             }
 
             var startMoney = _bankAccountService.CreateBankAccount(userId);
             if (startMoney == -1)
             {
                 _logger.LogWarning("Bank account already exists for UserId: {UserId}", userId);
-                return BadRequest("User already exists");
+                return BadRequest(new { message = "User already exists" });
             }
 
             _logger.LogInformation("Bank account created. UserId: {UserId}, StartMoney: {StartMoney}", userId, startMoney);
@@ -82,20 +82,20 @@ namespace BankService.Controllers
             if (bankModelDTO == null)
             {
                 _logger.LogError("Request body is null");
-                return BadRequest("No body");
+                return BadRequest(new { message = "No body" });
             }
 
             if (bankModelDTO.UserId == 0)
             {
                 _logger.LogError("Invalid UserId in request body: {@DTO}", bankModelDTO);
-                return BadRequest("UserId is required");
+                return BadRequest(new { message = "UserId is required" });
             }
 
             var money = _bankAccountService.EarnMoney(bankModelDTO);
             if (money == -1)
             {
                 _logger.LogWarning("User not found during EarnMoney. UserId: {UserId}", bankModelDTO.UserId);
-                return BadRequest("User not found");
+                return BadRequest(new { message = "User not found" });
             }
 
             _logger.LogInformation("User earned money. UserId: {UserId}, Amount: {Amount}, NewBalance: {NewBalance}",
@@ -117,21 +117,21 @@ namespace BankService.Controllers
             if (bankModelDTO == null)
             {
                 _logger.LogError("Request body is null");
-                return BadRequest("No body");
+                return BadRequest(new { message = "No body" });
             }
 
             var money = _bankAccountService.SpendMoney(bankModelDTO);
             if (money == -1)
             {
                 _logger.LogWarning("User not found during SpendMoney. UserId: {UserId}", bankModelDTO.UserId);
-                return BadRequest("User not found");
+                return BadRequest(new { message = "User not found" });
             }
 
             if (money == -2)
             {
                 _logger.LogWarning("Not enough money for transaction. UserId: {UserId}, RequestedAmount: {Amount}",
                     bankModelDTO.UserId, bankModelDTO.Money);
-                return BadRequest("Not enough money");
+                return BadRequest(new { message = "Not enough money" });
             }
 
             _logger.LogInformation("User spent money. UserId: {UserId}, Amount: {Amount}, NewBalance: {NewBalance}",
