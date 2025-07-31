@@ -8,11 +8,11 @@
   box-shadow: $box-shadow-lg;
 
   .game-image {
-    width: 20vw;
-    height: 40vh;
+    width: size(w-20);
+    height: size(h-40);
     object-fit: cover;
     border-radius: round(xl);
-    margin: gap(xl);
+    margin: gap('4xl');
     cursor: pointer;
     transition: opacity 200ms;
 
@@ -21,16 +21,16 @@
     }
 
     @include for-tablet-portrait-up {
-    margin: gap(md);
+    margin: gap('2xl');
     }
 
     @include for-big-desktop-up {
-    margin: gap(xl);
+    margin: gap('4xl');
     }
   }
 
   @include for-tablet-portrait-up {
-    margin-top: 600px;
+    margin-top: size(s-38);
   }
 
   @include for-desktop-up {

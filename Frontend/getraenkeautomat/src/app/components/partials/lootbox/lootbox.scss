@@ -2,24 +2,24 @@
 @use '../../../../styles/mixins' as *;
 
 .container {
-  display: flex;
+  @include flexBoxCenter(none);
   flex-wrap: wrap;
   margin: auto;
-  padding: gap(md);
+  padding: gap('2xl');
   width: size(full);
   height: size(full);
 
   .lootbox {
-    height: 26rem;
-    width: 20rem;
+    height: size(s-26);
+    width: size(s-20);
     background-color: $clr-white;
-    margin: gap(xs);
+    margin: gap(lg);
     border-radius: round(lg);
     cursor: pointer;
 
     img {
-      width: 20rem;
-      height: 20rem;
+      width: size(s-20);
+      height: size(s-20);
       border-radius: round(lg);
     }
 
@@ -28,7 +28,7 @@
       font-size: fSize(md);
       font-weight: fWeight(md);
       margin: 0;
-      margin-top: gap('2/4');
+      margin-top: gap(sm);
 
       &:last-child {
         font-weight: fWeight(md);
@@ -38,15 +38,15 @@
   }
 
   @include for-big-desktop-up {
-    width: size('8/10');
+    width: size(p-80);
   }
 
   @include for-xl-desktop-up {
-    width: size('7/10');
+    width: size(p-70);
   }
 
   @media (min-width: 2280px) {
-    width: size('6/10');
+    width: size(p-60);
   }
 }
 
@@ -56,9 +56,9 @@
   color: var(--clr-light);
   font-size: fSize(lg);
   font-weight: fWeight(md);
-  height: 26rem;
-  width: 20rem;
-  margin: gap(xs);
+  height: size(s-26);
+  width: size(s-20);
+  margin: gap(lg);
   border-radius: round(lg);
   cursor: pointer;
 
@@ -67,7 +67,7 @@
   }
 
   @include for-big-desktop-up {
-    width: 64rem;
-    height: 8rem;
+    width: size(s-64);
+    height: size(s-8);
   }
 }

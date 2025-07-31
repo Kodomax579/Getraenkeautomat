@@ -6,13 +6,20 @@
 
 .product-list {
     height: 100%;
-    width: 50vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
+    overflow-y: auto;
 }
 
 app-product-card {
   box-sizing: border-box;
+  margin: auto;
+}
+
+app-cart{
+  width: max-content;
+  display: flex;
 }

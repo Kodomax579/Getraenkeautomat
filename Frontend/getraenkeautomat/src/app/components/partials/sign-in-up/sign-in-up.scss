@@ -14,7 +14,7 @@
 
     div {
       flex: 1;
-      padding: gap(xs);
+      padding: gap(lg);
       background-color: $clr-white;
       cursor: pointer;
       transition: background-color 0.3s ease, color 0.3s ease;
@@ -44,13 +44,13 @@
   }
 
   .formContainer {
-    padding: gap(md);
+    padding: gap('2xl');
     font-size: fSize(sm);
 
     form {
       display: flex;
       flex-direction: column;
-      gap: gap(xs);
+      gap: gap(lg);
 
       label {
         font-weight: fWeight(sm);
@@ -58,7 +58,7 @@
       }
 
       input {
-        padding: gap('3/4') gap(xs);
+        padding: gap(md) gap(lg);
         border: none;
         border-radius: round(sm);
         font-size: fSize(sm);
@@ -73,7 +73,7 @@
       }
 
       button {
-        padding: gap('3/4');
+        padding: gap(md);
         border: none;
         border-radius: round(sm);
         font-size: fSize(sm);
@@ -97,18 +97,18 @@
   }
 
   @include for-phone-only {
-    width: size('300');
+    width: size(s-20);
   }
 
   @include for-tablet-portrait-up {
-    width: size('400');
+    width: size(s-26);
   }
 
   @include for-tablet-landscape-up {
-    width: size('500');
+    width: size(s-32);
   }
 
   @include for-desktop-up {
-    width: size('600');
+    width: size(s-38);
   }
 }

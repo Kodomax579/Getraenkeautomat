@@ -1,50 +1,55 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
 .card {
-  width: 200px;
-  height: 300px;
-  background-color: var(--clr-light);
-  margin: var(--gap-sm);
-  padding: var(--gap-sm);
-  border-radius: var(--rounded-md);
-  box-shadow: var(--box-shadow-lg);
+  width: size(s-16);
+  height: size(p-100);
+  background-color: $clr-gray-light;
+  margin: gap(sm);
+  padding: gap(sm);
+  border-radius: round(sm);
+  box-shadow: $box-shadow-lg;
   cursor: pointer;
 
   .imgBox {
-    border-radius: 12px;
     position: relative;
+    border-radius: round(sm);
 
     div {
       display: flex;
       position: absolute;
       right: 0;
-      width: 2rem;
-      height: 2rem;
+      width: size(s-2);
+      height: size(s-2);
       background-color: var(--clr-primary);
-      border-radius: var(--rounded-md);
+      border-radius: round(sm);
       justify-content: center;
       align-items: center;
     }
 
     img {
-      width: 100%;
-      height: 236px;
-      border-radius: 12px;
+      width: size(p-100);
+      height: size(s-16);
+      border-radius: round(sm);
       object-fit: cover;
       margin-bottom: -5px;
     }
   }
 
   .infoBox {
-    font-weight: 600;
+    @include flexBoxCenter(column);
     margin-top: 5px;
+    text-align: center;
+    font-size: fSize(sm);
+    font-weight: fWeight(sm);
+    gap: gap(sm);
 
     .productName {
-      padding: 6px var(--gap-sm);
-      text-align: center;
+      padding: gap(xs) gap(sm);
     }
 
     .productPrice {
-      padding: 6px var(--gap-sm);
-      text-align: right;
+      padding: gap(xs) gap(sm);
     }
   }
 }
