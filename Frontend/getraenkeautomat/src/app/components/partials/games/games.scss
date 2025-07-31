@@ -16,7 +16,16 @@
     font-size: 2rem;
     color: #EAAF5E;
 
-    &:last-child {
+  }
+  .buttons{
+    display: flex;
+    gap: var(--gap-md);
+    
+    .onClick {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15rem;
       font-size: 1.5rem;
       background-color: #482D11;
       border-radius: var(--rounded-md);
@@ -44,10 +53,6 @@
         text-align: center;
         cursor: pointer;
 
-        &:hover {
-          opacity: 0.5;
-        }
-
         @media (width >=64rem) {
           height: 4rem;
           width: 4rem;
@@ -70,6 +75,9 @@
         }
       }
     }
+    
   }
-
+  .canHover:hover {
+    opacity: 0.5;
+  }
 }
