@@ -17,7 +17,7 @@
         <div (click)="decreaseAmount(item.id)">-</div>
       </div>
       <div class="productPrice">{{item.price.toFixed(2)}} €</div>
-      <div class="productRemove" (click)="deleteItem(item.id)">Entfernen</div>
+      <div class="productRemove pi pi-trash headIcon" (click)="deleteItem(item.id)"></div>
     </div>
     }
     @if (cartItems() == undefined || cartItems() == null) {
