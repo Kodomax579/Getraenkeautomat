@@ -37,12 +37,18 @@ builder.WebHost.UseUrls("http://0.0.0.0:9010");
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.RouteTemplate = "api/Lootbox/{documentName}/swagger.json";
+});
+
+app.UseSwaggerUI(c =>
+{
+    c.RoutePrefix = "api/Lootbox";
+    c.SwaggerEndpoint("/api/Lootbox/v1/swagger.json", "User API V1");
+    c.SupportedSubmitMethods();
+});
+
 
 app.UseCors("AllowAll");
 
