@@ -119,7 +119,7 @@ export class Cart {
         }
       },
       error: (err) => {
-        this._toastr.error("Fehler beim Kauf:" + err, "Fehler");
+        this._toastr.error("Fehler beim Kauf:" + err.error.message, "Fehler");
       },
     });
   }

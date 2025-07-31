@@ -2,43 +2,51 @@
 @use '../../../../styles/mixins' as *;
 
 .container {
-  margin: auto;
-  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+  margin: auto;
+  padding: gap(md);
+  width: size(full);
+  height: size(full);
 
   .lootbox {
     height: 26rem;
     width: 20rem;
     background-color: $clr-white;
-    margin: 1rem;
-    border-radius: 2rem;
+    margin: gap(xs);
+    border-radius: round(lg);
     cursor: pointer;
 
     img {
       width: 20rem;
       height: 20rem;
-      border-radius: 2rem;
+      border-radius: round(lg);
     }
 
     p {
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: fSize(md);
+      font-weight: fWeight(md);
       margin: 0;
-      margin-top: 0.5rem;
+      margin-top: gap('2/4');
 
       &:last-child {
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: fWeight(md);
+        font-size: fSize(sm);
       }
     }
   }
 
-  @media (width >=150rem) {
-    width: calc(100% - 60rem);
+  @include for-big-desktop-up {
+    width: size('8/10');
+  }
+
+  @include for-xl-desktop-up {
+    width: size('7/10');
+  }
+
+  @media (min-width: 2280px) {
+    width: size('6/10');
   }
 }
 
@@ -46,19 +54,19 @@
   @include flexBoxCenter(none);
   background-color: $clr-blue-accent;
   color: var(--clr-light);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: fSize(lg);
+  font-weight: fWeight(md);
   height: 26rem;
   width: 20rem;
-  margin: 1rem;
-  border-radius: 2rem;
+  margin: gap(xs);
+  border-radius: round(lg);
   cursor: pointer;
 
   &:hover {
     background-color: $clr-blue-deep;
   }
 
-  @media (width >=120rem) {
+  @include for-big-desktop-up {
     width: 64rem;
     height: 8rem;
   }

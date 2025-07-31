@@ -56,7 +56,7 @@ export class Games {
         }
       },
       error: (err) => {
-        console.error('Error updating game:', err);
+        console.error('Error updating game:', err.error.message);
       },
     });
   }

@@ -60,7 +60,7 @@ export class CoinToss {
         }, 2000);
       },
       error: (err) => {
-        this.toastr.error(err, 'Fehler');
+        this.toastr.error(err.error.message, 'Fehler');
         return err;
       },
     });

@@ -29,19 +29,21 @@ $clr-brown-dark: #482D11;
 
 //Shadow
 $box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+$box-shadow-inset: inset 2px 2px 5px #d1d5db, inset -2px -2px 5px #ffffff;
 
 //Fonts
-$font-weights: (
+$font-weight-values: (
   "sm" : 400,
   "md" : 600,
   "lg" : 800,
 );
 
 @function fWeight($weight-name) {
-  @return map-get($font-weights, $weight-name);
+  @return map-get($font-weight-values, $weight-name);
 }
 
-$font-sizes: (
+$font-size-values: (
   "xs" : 1rem,
   "sm" : 1.5rem,
   "md" : 2rem,
@@ -50,20 +52,116 @@ $font-sizes: (
 );
 
 @function fSize($size-name) {
-  @return map-get($font-sizes, $size-name);
+  @return map-get($font-size-values, $size-name);
 }
 
-$gap-sizes: (
+//Box Model
+$gap-size-values: (
   "1/4" : 0.25rem,
   "2/4" : 0.5rem,
   "3/4" : 0.75rem,
   "xs" : 1rem,
   "sm" : 1.5rem,
   "md" : 2rem,
-  "lg" : 2.5rem,
-  "xl" : 3rem,
+  "lg" : 3rem,
+  "xl" : 4rem,
 );
 
-@function gSize($size-name) {
-  @return map-get($gap-sizes, $size-name);
+@function gap($size-name) {
+  @return map-get($gap-size-values, $size-name);
 }
+
+$round-values: (
+  "xs" : 0.5rem,
+  "sm" : 1rem,
+  "md" : 1.5rem,
+  "lg" : 2rem,
+  "xl" : 4rem,
+  "full" : 50%,
+);
+
+@function round($size-name) {
+  @return map-get($round-values, $size-name);
+}
+
+$sizes: (
+  "1/10" : 10%,
+  "2/10" : 20%,
+  "3/10" : 30%,
+  "4/10" : 40%,
+  "5/10" : 50%,
+  "6/10" : 60%,
+  "7/10" : 70%,
+  "8/10" : 80%,
+  "9/10" : 90%,
+  "full" : 100%,
+  "300" : 300px,
+  "400" : 400px,
+  "500" : 500px,
+  "600" : 600px,
+);
+
+@function size($size-name) {
+  @return map-get($sizes, $size-name);
+}
+
+/* CLASS EXAMPLE LAYOUT
+
+.example{
+  // 
+  // Layout
+  //
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  //
+  // Box Model 
+  //
+  width: 300px;
+  height: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  //
+  // Typography
+  //
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+
+  //
+  // Visual Appearance 
+  //
+  background-color: #fff;
+  background-image: linear-gradient(to bottom right, #f9f9f9, #e0e0e0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.95;
+
+  //
+  // Interaction 
+  //
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+
+  // Animation
+  //
+  animation: fadeIn 0.5s ease-in-out;
+
+  // 
+  // Misc
+  //
+  overflow: hidden;
+  pointer-events: auto;
+}
+*/

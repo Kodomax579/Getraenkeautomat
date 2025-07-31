@@ -37,3 +37,9 @@
     @content;
   }
 }
+
+@mixin for-xl-desktop-up {
+  @media (min-width: 2240px) {
+    @content;
+  }
+}

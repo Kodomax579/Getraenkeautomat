@@ -48,12 +48,12 @@ namespace TicTacToe.Controllers
             if (messsage == -1)
             {
                 _logger.LogError("The variabe X can only contain 0, 1 or 2");
-                return BadRequest("The variabe X can only contain 0, 1 or 2");
+                return BadRequest(new { message = "The variabe X can only contain 0, 1 or 2" });
             }
             if (messsage == -2)
             {
                 _logger.LogError("The variabe Y can only contain 0, 1 or 2");
-                return BadRequest("The variabe Y can only contain 0, 1 or 2");
+                return BadRequest(new { message = "The variabe Y can only contain 0, 1 or 2" });
             }
 
             var dto = new GameBoardDTO
