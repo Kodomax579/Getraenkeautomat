@@ -1,11 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Auth } from './auth';
-import { Bank } from './bank';
-import { TicTacToe } from '../Models/TicTacToe.model';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Auth } from "./auth";
+import { Bank } from "./bank";
+import { TicTacToe } from "../Models/TicTacToe.model";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class Game {
   constructor(
@@ -13,7 +14,7 @@ export class Game {
     private auth: Auth,
     private bank: Bank
   ) {}
-  api: string = 'http://localhost:9008/api/TicTacToe/';
+  api: string = "http://localhost:9008/api/TicTacToe/";
 
   getTicTacToe() {
     let result: any[] = [];
@@ -62,7 +63,7 @@ export class Game {
     );
   }
 
-  getCashAndLevel(earnedMoney:number, earnedLevel:number) {
+  getCashAndLevel(earnedMoney: number, earnedLevel: number) {
     let user: any = this.auth.getUser();
     let money: number = this.roundToTwoDecimalPlaces(earnedMoney * user.level);
     user.level += earnedLevel;
@@ -72,7 +73,7 @@ export class Game {
     this.bank.putEarnMoney(money, user.id);
   }
 
-    getCashOnly(earnedMoney:number) {
+  getCashOnly(earnedMoney: number) {
     let user: any = this.auth.getUser();
     let money: number = earnedMoney;
     this.bank.putEarnMoney(money, user.id);
