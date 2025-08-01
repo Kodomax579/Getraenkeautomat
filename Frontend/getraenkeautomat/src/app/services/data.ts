@@ -13,13 +13,12 @@ export class Data {
     return this.http.get<productList[]>(`/api/Vorrat/GetProducts`);
   }
 
-  updateProducts(pName:string, pPreis:number, pAnzahl:number) {
+  updateProducts(pName:string, pAnzahl:number) {
 
     let param = new HttpParams()
       .set("name",pName)
 
     return this.http.put<productList>(`/api/Vorrat/UpdateProduct`, {
-      price: pPreis,
       amount: pAnzahl
     }, {params: param});
   }
