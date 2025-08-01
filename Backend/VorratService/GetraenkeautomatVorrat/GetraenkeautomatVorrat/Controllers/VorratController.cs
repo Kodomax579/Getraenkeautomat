@@ -2,14 +2,12 @@
 using GetraenkeautomatVorrat.Models;
 using GetraenkeautomatVorrat.Services;
 using GetraenkeautomatVorrat.DTO;
-using GetraenkeautomatVorrat.Interfaces;
-using System.Threading.Tasks;
 
 namespace GetraenkeautomatVorrat.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class VorratController : ControllerBase, IVorratController
+    public class VorratController : ControllerBase
     {
         private readonly VorratService _service;
         private readonly ILogger<VorratController> _logger;
@@ -118,18 +116,42 @@ namespace GetraenkeautomatVorrat.Controllers
             return Ok(vorrat);
         }
 
-        [HttpPut("UpdateProduct")]
-        public ActionResult<VorratDTO> Update(UpdateVorratDTO vorrat, string name)
+        [HttpPut("UpdateProductAmount")]
+        public async Task<ActionResult<VorratDTO>> UpdateAmount(int amount, string name)
         {
-            _logger.LogInformation("Method Update started. DTO: {@DTO}, TargetName: {TargetName}", vorrat, name);
+            _logger.LogInformation("Method Update started. Amount: {@Amount}, TargetName: {TargetName}", amount, name);
 
-            if (vorrat == null)
+            if (amount < 0)
             {
-                _logger.LogError("Update failed. Request body is null");
-                return BadRequest("No body");
+                _logger.LogError("Update failed. Amount is less then 0");
+                return BadRequest("Amount is less then 0");
             }
 
-            var updated = _service.Update(vorrat, name);
+            var updated = await _service.UpdateAmount(amount, name);
+
+            if (updated == null)
+            {
+                _logger.LogWarning("Update failed. No product found with name: {Name}", name);
+                return BadRequest("No product found");
+            }
+
+            _logger.LogInformation("Product updated successfully. Name: {Name}, NewAmount: {Amount}, NewSize: {Size}",
+                updated.Name, updated.Amount, updated.Size);
+            _logger.LogInformation("Method Update finished successfully.");
+            return Ok(updated);
+        }
+        [HttpPut("UpdateProductPrice")]
+        public ActionResult<VorratDTO> UpdatePrice(double price, string name)
+        {
+            _logger.LogInformation("Method Update started. Price: {@Price}, TargetName: {TargetName}", price, name);
+
+            if (price < 0)
+            {
+                _logger.LogError("Update failed. Amount is less then 0");
+                return BadRequest("Amount is less then 0");
+            }
+
+            var updated = _service.UpdatePrice(price, name);
 
             if (updated == null)
             {

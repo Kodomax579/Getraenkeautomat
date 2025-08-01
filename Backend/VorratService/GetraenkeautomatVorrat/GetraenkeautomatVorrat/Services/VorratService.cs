@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GetraenkeautomatVorrat.Services
 {
-    public class VorratService : IVorratService
+    public class VorratService 
     {
 
         private readonly VorratContext _context;
-        //private RequestProductsService _requestProductsService;
-        public VorratService(VorratContext context /*,RequestProductsService requestProductsService*/)
+        private Request _requestProductsService;
+        public VorratService(VorratContext context ,Request requestProductsService)
         {
             _context = context;
-            //_requestProductsService = requestProductsService;
+            _requestProductsService = requestProductsService;
         }
 
         public int Add(VorratDTO item)
@@ -78,27 +78,55 @@ namespace GetraenkeautomatVorrat.Services
             return true;
         }
 
-        public VorratDTO Update(UpdateVorratDTO vorrat, string productName)
+        public async Task<VorratDTO> UpdateAmount(int amount, string productName)
         {
             var existing = _context.Vorraete.FirstOrDefault(e => e.Name == productName);
             if (existing == null)
-                return null;
+                return null!;
 
-            if(vorrat.Price > 0)
+            if (amount < existing.Anzahl)
             {
-                existing.Preis = vorrat.Price;
+                await this._requestProductsService.PutOrder(amount, productName);
+                
             }
-            if (vorrat.Amount >= 0)
+
+            if (amount >= 0)
             {
-                existing.Anzahl = vorrat.Amount;
+                existing.Anzahl = amount;
             }
             
             _context.SaveChanges();
 
             if(existing.Anzahl <=3)
             {
-                //await this._requestProductsService.RefillProducts(10, existing.Name);
+                await this._requestProductsService.RefillProducts(10, existing.Name);
+                
             }
+
+            VorratDTO vorratDTO = new VorratDTO()
+            {
+                Amount = existing.Anzahl,
+                Id = existing.Id,
+                Name = existing.Name,
+                Picture = existing.Picture,
+                Price = existing.Preis,
+                Size = existing.Groesse,
+            };
+
+            return vorratDTO;
+        }
+        public VorratDTO UpdatePrice(double price, string productName)
+        {
+            var existing = _context.Vorraete.FirstOrDefault(e => e.Name == productName);
+            if (existing == null)
+                return null!;
+
+            if (price >= 0)
+            {
+                existing.Preis = price;
+            }
+
+            _context.SaveChanges();
 
             VorratDTO vorratDTO = new VorratDTO()
             {

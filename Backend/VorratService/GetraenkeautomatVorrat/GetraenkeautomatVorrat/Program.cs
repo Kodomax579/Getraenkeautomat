@@ -14,7 +14,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Services.AddSqlite<VorratContext>("Data Source = Vorrat.db");
 builder.Services.AddScoped<VorratService>();
-//builder.Services.AddHttpClient<RequestProductsService>();
+builder.Services.AddHttpClient<Request>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -43,7 +43,6 @@ app.UseSwaggerUI(c =>
 {
     c.RoutePrefix = "api/Vorrat";
     c.SwaggerEndpoint("/api/Vorrat/v1/swagger.json", "User API V1");
-    c.SupportedSubmitMethods();
 });
 
 

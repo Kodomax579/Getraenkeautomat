@@ -102,7 +102,7 @@ export class Cart {
                 const productAmount = product.amount - singleCartAmount.amount;
 
                 return this._dataService
-                  .updateProducts(product.name, product.price, productAmount)
+                  .updateProducts(product.name, productAmount)
                   .pipe(
                     tap((updatedProduct) => {
                       if (updatedProduct) {
