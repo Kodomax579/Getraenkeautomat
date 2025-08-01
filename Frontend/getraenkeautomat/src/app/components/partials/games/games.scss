@@ -18,7 +18,7 @@
 
   .buttons {
     display: flex;
-    gap: var(--gap-md);
+    gap: size(s-1);
 
     .onClick {
       display: flex;
@@ -29,7 +29,7 @@
       background-color: clr(bro-900);
       border-radius: round(sm);
       cursor: pointer;
-      padding: var(--gap-md);
+      padding: size(s-1);
     }
   }
 
@@ -38,7 +38,7 @@
     background-color: clr(bro-900);
     color: clr(bro-900);
     font-weight: fWeight(lg);
-    padding: var(--gap-md);
+    padding: size(s-1);
     margin: size(s-1) size(s-2);
     border-radius: round(sm);
 

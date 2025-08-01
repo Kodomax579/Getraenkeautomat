@@ -50,7 +50,7 @@
     width: size(s-22);
     background-color: clr(w);
     margin: size(s-1);
-    border-radius: 2rem;
+    border-radius: round(lg);
     cursor: pointer;
 
   }
@@ -58,22 +58,22 @@
   input {
     font-size: fSize(sm);
     padding: size(s-1);
-    border-radius: 2rem;
+    border-radius: round(lg);
   }
 }
 
 .back-button {
-  background-color: #007bff;
-  color: var(--clr-light);
+  background-color: clr(blu-600);
+  color: clr(gra-100);
   margin-top: size(s-1);
-  border-radius: 2rem;
+  border-radius: round(lg);
   padding: size(s-1);
   font-size: fSize(sm);
   cursor: pointer;
   text-align: center;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: clr(blu-800);
   }
 }
 
