@@ -2,11 +2,11 @@
 @use '../../../../styles/mixins' as *;
 
 .cartContainer {
-  height: 100svh;
-  width: 200px;
+  height: size(h-100);
+  width: size(s-38);
   background-color: clr(sla-900);
   color: clr(gra-100);
-  border-radius: var(--rounded-sm);
+  border-radius: round(xs);
   box-shadow: $box-shadow-lg;
 
   .cartHeader {
@@ -21,24 +21,23 @@
   }
 
   .productListBox {
-    width: 100%;
+    width: size(p-100);
     height: max-content;
-    max-height: 80vh;
+    max-height: size(h-80);
     overflow-y: auto;
 
     .product {
       display: flex;
-      padding: 6px;
+      padding: size(s-0-5);
       justify-content: space-between;
       border-bottom: clr(gra-100) solid 1px;
 
       .productImgBox {
-        height: 34px;
         padding: 0;
 
         img {
-          width: 100%;
-          height: 100%;
+          width: size(s-2);
+          height: size(s-4);
           object-fit: cover;
         }
       }
@@ -51,75 +50,61 @@
         display: flex;
 
         div {
-          width: 34px;
-          padding: var(--gap-y-sm);
+          width: size(s-2);
+          padding: size(s-0-5) 0;
           text-align: center;
-          border-radius: var(--rounded-full);
-          background-color: gray;
+          border-radius: round(full);
+          background-color: clr(sla-700);
           cursor: pointer;
+
+          &:first-child:hover,
+          &:last-child:hover {
+            color: clr(sla-700);
+            background-color: clr(gra-100);
+          }
         }
       }
 
-      .productPrice{
-        width: 98px;
+      .productPrice {
+        width: calc(size(s-6) + 2px);
       }
 
       .productRemove {
-        color: var(--clr-light);
-        background-color: var(--clr-danger);
+        color: clr(gra-100);
+        background-color: clr(red-500);
         padding: size(s-1);
         cursor: pointer;
-        border-radius: var(--rounded-sm);
+        border-radius: round(xs);
       }
 
       div {
-        margin: auto 8px;
-        padding: var(--gap-sm);
-        font-weight: 600;
+        margin: auto size(s-0-5);
+        padding: size(s-0-5);
+        font-weight: fWeight(md);
       }
 
       p {
         margin: 0;
-        padding: var(--gap-sm);
+        padding: size(s-0-5);
       }
     }
   }
 
   .buttonContainer {
-    padding: 6px;
+    padding: size(s-1);
     display: flex;
     justify-content: space-around;
 
     div {
-      padding: var(--gap-sm);
-      font-weight: 600;
+      padding: size(s-0-5);
+      font-weight: fWeight(md);
 
       &:first-child {
-        background-color: green;
-        color: var(--clr-light);
+        background-color: clr(gre-500);
+        color: clr(gra-100);
         cursor: pointer;
-        border-radius: var(--rounded-sm);
+        border-radius: round(xs);
       }
     }
-  }
-
-  @media (width >=40rem) {
-    width: 300px;
-  }
-
-  @media (width >=48rem) {
-    width: 400px;
-  }
-
-  @media (width >=64rem) {
-    width: 400px;
-  }
-
-  @media (width >=80rem) {
-    width: 500px;
-  }
-
-  @media (width >=96rem) {
-    width: 600px;
   }
 }

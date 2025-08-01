@@ -1,16 +1,19 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
 .page {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: size(h-100);
 }
 
 .product-list {
-    height: 100%;
-    width: 100%;
-    display: flex;
+  @include flexBoxCenter(none);
+    height: size(p-100);
+    width: size(p-100);
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
+    gap: size(s-1);
+    padding: size(s-1);
     overflow-y: auto;
 }
 

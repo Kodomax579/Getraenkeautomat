@@ -21,7 +21,7 @@
       right: 0;
       width: size(s-2);
       height: size(s-2);
-      background-color: var(--clr-primary);
+      background-color: clr(blu-100);
       border-radius: round(sm);
       justify-content: center;
       align-items: center;
@@ -45,7 +45,7 @@
     gap: size(s-0-5);
 
     .productName {
-      padding: size(s-0-25) size(s-0-5);
+      padding: size(s-0-25) 0;
     }
 
     .productPrice {

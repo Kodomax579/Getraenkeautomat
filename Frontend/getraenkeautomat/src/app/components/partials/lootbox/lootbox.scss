@@ -53,7 +53,7 @@
 .back-button {
   @include flexBoxCenter(none);
   background-color: clr(blu-600);
-  color: var(--clr-light);
+  color: clr(gra-100);
   font-size: fSize(lg);
   font-weight: fWeight(md);
   height: size(s-26);

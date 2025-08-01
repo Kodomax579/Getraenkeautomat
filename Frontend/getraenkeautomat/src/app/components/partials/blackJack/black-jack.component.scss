@@ -1,110 +1,113 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
 
-.background{
-  width: 70vw;
-}
+.background {
+  width: size(w-60);
 
-.table-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  background-color: #0b0b0b;
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.dealer-section,
-.player-section {
-  width: 25vw;
-  height: 38vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  background: #1c1c1c;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
-
-  .buttons{
+  .table-container {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: size(s-2);
+    background-color: clr(b);
+    color: clr(w);
+    border-radius: round(md);
+    box-shadow: 0 0 size(s-2) rgba(255, 255, 255, 0.1);
+
+    .dealer-section,
+    .player-section {
+      position: relative;
+      width: size(w-25);
+      height: size(h-40);
+      @include flexBoxCenter(column);
+      gap: size(s-1);
+      background: clr(gra-900);
+      padding: size(s-2);
+      border-radius: round(md);
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+      overflow-x: auto;
+
+      .buttons {
+        display: flex;
+        position: absolute;
+        bottom: size(s-2);
+        gap: size(s-2);
+
+        .action-button {
+          background-color: #1e90ff;
+          border: none;
+          padding: size(s-0-75) size(s-1);
+          border-radius: round(xs);
+          color: clr(w);
+          font-weight: fWeight(lg);
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: clr(blu-600);
+          }
+        }
+
+      }
+    }
+
+    .versus-divider {
+      font-size: 2rem;
+      color: clr(gra-50);
+    }
+
+    .winner-container {
+      @include flexBoxCenter(none);
+      width: size(p-100);
+      padding: size(s-4);
+
+      .winner-card {
+        background: clr(gra-900);
+        padding: size(s-2) size(s-4);
+        border-radius: round(sm);
+        text-align: center;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+        color: clr(w);
+        transition: transform 0.3s ease;
+        animation: pop-in 0.5s ease-out;
+
+        &.dealer-win {
+          border: 2px solid clr(red-500);
+          box-shadow: 0 0 size(s-2) clr(red-500);
+        }
+
+        &.player-win {
+          border: 2px solid clr(gre-500);
+          box-shadow: 0 0 size(s-2) clr(gre-500);
+        }
+
+        .score-box {
+          margin-top: size(s-1);
+          font-size: 1.1rem;
+
+          p {
+            margin: size(s-1) 0;
+          }
+        }
+      }
+    }
   }
-}
 
-.versus-divider {
-  font-size: 2rem;
-  color: #ffffffaa;
-}
+  .back-button {
+    background-color: clr(blu-600);
+    width: size(p-100);
+    color: clr(gra-100);
+    margin: size(s-2) 0;
+    border: none;
+    border-radius: round(sm);
+    padding: size(s-1) size(s-2);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
 
-.action-button {
-  background-color: #1e90ff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.action-button:hover {
-  background-color: #63b3ed;
-}
-.winner-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem;
-  background-color: #0b0b0b;
-  border-radius: 20px;
-}
-
-.winner-card {
-  background: #1f1f1f;
-  padding: 2rem 3rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-  color: white;
-  transition: transform 0.3s ease;
-  animation: pop-in 0.5s ease-out;
-}
-
-.winner-card.dealer-win {
-  border: 2px solid #ff4c4c;
-  box-shadow: 0 0 20px rgba(255, 76, 76, 0.5);
-}
-
-.winner-card.player-win {
-  border: 2px solid #00d26a;
-  box-shadow: 0 0 20px rgba(0, 210, 106, 0.5);
-}
-
-.score-box {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-
-  p {
-    margin: 0.3rem 0;
-  }
-}
-
-.restart-button {
-  margin-top: 2rem;
-  background-color: #ffc107;
-  color: #000;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    background-color: #ffdd57;
+    &:hover {
+      background-color: clr(blu-800);
+    }
   }
 }
 
@@ -113,23 +116,9 @@
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
   }
 }
-.back-button {
-      background-color: #007bff;
-      color: var(--clr-light);
-      margin-top: 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.2s;
-
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
