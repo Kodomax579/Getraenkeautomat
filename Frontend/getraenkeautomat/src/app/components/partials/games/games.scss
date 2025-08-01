@@ -2,13 +2,10 @@
 @use '../../../../styles/mixins' as *;
 
 .gameContainer {
-  @include flexBoxCenter(none);
-  width: size(p-100);
-  height: size(p-100);
+  @include flexBoxCenter(column);
   background-color: $clr-orange-deep;
   border-radius: round(sm);
   box-shadow: $box-shadow-lg;
-  flex-direction: column;
   padding: 2rem;
 
   div {
