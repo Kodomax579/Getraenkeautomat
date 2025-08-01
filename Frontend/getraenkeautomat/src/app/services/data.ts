@@ -18,7 +18,7 @@ export class Data {
     let param = new HttpParams()
       .set("name",pName)
 
-    return this.http.put<productList>(`/api/Vorrat/UpdateProduct`, {
+    return this.http.put<productList>(`/api/Vorrat/UpdateProductAmount`, {
       amount: pAnzahl
     }, {params: param});
   }
