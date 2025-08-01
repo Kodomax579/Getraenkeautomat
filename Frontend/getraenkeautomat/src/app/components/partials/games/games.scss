@@ -3,7 +3,7 @@
 
 .gameContainer {
   @include flexBoxCenter(column);
-  background-color: $clr-orange-deep;
+  background-color: clr(ora-700);
   border-radius: round(sm);
   box-shadow: $box-shadow-lg;
   padding: 2rem;

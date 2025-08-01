@@ -7,8 +7,8 @@
   height: size(h-100);
 
   .ng-trigger {
-    background-color: $clr-blue-slate;
-    color: $clr-gray-light;
+    background-color: clr(sla-900);
+    color: clr(gra-100);
   }
 
   .header {
@@ -33,7 +33,7 @@
       .itemIcon,
       .itemLabel {
         font-size: fSize(sm);
-        color: $clr-gray-light;
+        color: clr(gra-100);
       }
     }
 
@@ -42,7 +42,7 @@
       .itemIcon,
       .itemLabel {
         font-size: fSize(sm);
-        color: $clr-black;
+        color: clr(b);
       }
     }
   }
@@ -64,7 +64,7 @@
     }
 
     hr {
-      border-top: 1px solid $clr-white;
+      border-top: 1px solid clr(w);
       border-bottom: none;
       width: size(s-8);
       margin: 0 0 1rem;
@@ -72,12 +72,12 @@
 
     .userLevel {
       font-size: fSize(sm);
-      color: $clr-blue-sky;
+      color: clr(blu-100);
     }
 
     .userMoney {
       font-size: fSize(sm);
-      color: $clr-green-primary;
+      color: clr(gre-500);
     }
 
     .logout {
@@ -88,8 +88,8 @@
       padding: size(s-1);
       font-size: fSize(sm);
       font-weight: fWeight(md);
-      background-color: $clr-red-primary;
-      color: $clr-gray-light;
+      background-color: clr(red-500);
+      color: clr(gra-100);
       cursor: pointer;
     }
   }

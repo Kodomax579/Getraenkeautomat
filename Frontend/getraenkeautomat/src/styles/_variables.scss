@@ -1,30 +1,34 @@
-// Neutral Colors
-$clr-white: #ffffff;
-$clr-white-dark: #f0f0f0;
-$clr-black: #000000;
-$clr-gray-light: #e5e7eb;
+$color-palette: (
+  "w": #ffffff,
+  "b": #000000,
+  "gra-50": #f0f0f0,
+  "gra-100": #e5e7eb,
 
-//🔴 Red & Orange Tones
-$clr-red-primary: #e7000b;
-$clr-orange-bright: #ff6900;
-$clr-orange-deep: #A5531F;
-$clr-orange-soft: #EAAF5E;
+  "red-500": #e7000b,
 
-//🔵 Blue Tones
-$clr-blue-sky: #b8e6fe;
-$clr-blue-primary: #00a6f4;
-$clr-blue-dark: #314158;
-$clr-blue-accent: #2b7fff;
-$clr-blue-deep: #193cb8;
-$clr-blue-royal: #0528B3;
-$clr-blue-cyan: #2DE3FE;
-$clr-blue-slate: #1e2939;
+  "ora-200": #eaaf5e,
+  "ora-400": #ff6900,
+  "ora-700": #a5531f,
 
-//🟢 Green Tones
-$clr-green-primary: #00a63e;
+  "blu-100": #b8e6fe,
+  "blu-500": #00a6f4,
+  "blu-600": #2b7fff,
+  "blu-800": #193cb8,
+  "blu-900": #0528b3,
 
-//🟤 Brown Tones
-$clr-brown-dark: #482D11;
+  "cya-300": #2de3fe,
+
+  "sla-700": #314158,
+  "sla-900": #1e2939,
+
+  "gre-500": #00a63e,
+
+  "bro-900": #482d11,
+);
+
+@function clr($clr-name) {
+  @return map-get($color-palette, $clr-name);
+}
 
 
 //Shadow
@@ -91,20 +95,34 @@ $sizes: (
   "s-0-5" : 0.5rem,
   "s-0-75" : 0.75rem,
   "s-1" : 1rem,
-  "s-2"  : 2rem,    /* 32px */
-  "s-4"  : 4rem,    /* 64px */
-  "s-6"  : 6rem,    /* 96px */
-  "s-8"  : 8rem,    /* 128px */
-  "s-12" : 12rem,   /* 192px */
-  "s-14" : 14rem,   /* 224px */
-  "s-16" : 16rem,   /* 256px */
-  "s-18" : 18rem,   /* 288px */
-  "s-20" : 20rem,   /* 320px */
-  "s-22" : 22rem,   /* 352px */
-  "s-24" : 24rem,   /* 384px */
-  "s-26" : 26rem,   /* 416px */
-  "s-32" : 32rem,   /* 512px */
-  "s-38" : 38rem,   /* 608px */
+  "s-2" : 2rem,
+  /* 32px */
+  "s-4" : 4rem,
+  /* 64px */
+  "s-6" : 6rem,
+  /* 96px */
+  "s-8" : 8rem,
+  /* 128px */
+  "s-12" : 12rem,
+  /* 192px */
+  "s-14" : 14rem,
+  /* 224px */
+  "s-16" : 16rem,
+  /* 256px */
+  "s-18" : 18rem,
+  /* 288px */
+  "s-20" : 20rem,
+  /* 320px */
+  "s-22" : 22rem,
+  /* 352px */
+  "s-24" : 24rem,
+  /* 384px */
+  "s-26" : 26rem,
+  /* 416px */
+  "s-32" : 32rem,
+  /* 512px */
+  "s-38" : 38rem,
+  /* 608px */
   "s-64" : 64rem,
 );
 

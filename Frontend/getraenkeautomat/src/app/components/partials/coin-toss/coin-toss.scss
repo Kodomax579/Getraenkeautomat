@@ -14,7 +14,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $clr-green-primary;
+    color: clr(gre-500);
     font-size: fSize(xl);
     text-align: center;
     animation-name: fly;
@@ -26,7 +26,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $clr-red-primary;
+    color: clr(red-500);
     font-size: fSize(xl);
     text-align: center;
     animation-name: fly;
@@ -48,7 +48,7 @@
     left: 46.5%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    color: $clr-white;
+    color: clr(w);
     background-color: #0000004f;
     font-size: fSize(xl);
     cursor: pointer;
@@ -57,7 +57,7 @@
   img {
     height: 22rem;
     width: 22rem;
-    background-color: $clr-white;
+    background-color: clr(w);
     margin: 1rem;
     border-radius: 2rem;
     cursor: pointer;

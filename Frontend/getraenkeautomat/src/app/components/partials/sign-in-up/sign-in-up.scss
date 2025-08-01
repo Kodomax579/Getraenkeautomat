@@ -3,7 +3,7 @@
 
 .signInUpContainer {
   border-radius: round(md);
-  background-color: $clr-white-dark;
+  background-color: clr(gra-50);
   box-shadow: $box-shadow;
 
   .headline {
@@ -15,7 +15,7 @@
     div {
       flex: 1;
       padding: size(s-1);
-      background-color: $clr-white;
+      background-color: clr(w);
       cursor: pointer;
       transition: background-color 0.3s ease, color 0.3s ease;
 
@@ -28,13 +28,13 @@
       }
 
       &.loginH {
-        background-color: $clr-blue-primary;
-        color: $clr-white;
+        background-color: clr(blu-500);
+        color: clr(w);
       }
 
       &.registerH {
-        background-color: $clr-orange-bright;
-        color: $clr-white-dark;
+        background-color: clr(ora-400);
+        color: clr(gra-50);
       }
 
       &:hover {
@@ -54,7 +54,7 @@
 
       label {
         font-weight: fWeight(sm);
-        color: $clr-blue-dark;
+        color: clr(sla-700);
       }
 
       input {
@@ -62,13 +62,13 @@
         border: none;
         border-radius: round(sm);
         font-size: fSize(sm);
-        background-color: $clr-white;
+        background-color: clr(w);
         box-shadow: $box-shadow-inset;
         transition: box-shadow 0.3s ease;
 
         &:focus {
           outline: none;
-          box-shadow: 0 0 0 2px $clr-blue-primary;
+          box-shadow: 0 0 0 2px clr(blu-500);
         }
       }
 
@@ -78,19 +78,19 @@
         border-radius: round(sm);
         font-size: fSize(sm);
         font-weight: fWeight(md);
-        background-color: $clr-white;
-        color: $clr-blue-dark;
+        background-color: clr(w);
+        color: clr(sla-700);
         cursor: pointer;
         transition: all 0.3s ease;
 
         &.loginBtn:hover {
-          background-color: $clr-blue-primary;
-          color: $clr-white-dark;
+          background-color: clr(blu-500);
+          color: clr(gra-50);
         }
 
         &.registerBtn:hover {
-          background-color: $clr-orange-bright;
-          color: $clr-white-dark;
+          background-color: clr(ora-400);
+          color: clr(gra-50);
         }
       }
     }

@@ -12,7 +12,7 @@
   .lootbox {
     height: size(s-26);
     width: size(s-20);
-    background-color: $clr-white;
+    background-color: clr(w);
     margin: size(s-1);
     border-radius: round(lg);
     cursor: pointer;
@@ -52,7 +52,7 @@
 
 .back-button {
   @include flexBoxCenter(none);
-  background-color: $clr-blue-accent;
+  background-color: clr(blu-600);
   color: var(--clr-light);
   font-size: fSize(lg);
   font-weight: fWeight(md);
@@ -63,7 +63,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $clr-blue-deep;
+    background-color: clr(blu-800);
   }
 
   @include for-big-desktop-up {
