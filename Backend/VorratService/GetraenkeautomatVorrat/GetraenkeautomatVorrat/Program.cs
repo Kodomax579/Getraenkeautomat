@@ -13,7 +13,7 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Services.AddSqlite<VorratContext>("Data Source = Vorrat.db");
-builder.Services.AddSingleton<VorratService>();
+builder.Services.AddScoped<VorratService>();
 builder.Services.AddHttpClient<Request>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

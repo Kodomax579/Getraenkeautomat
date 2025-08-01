@@ -86,11 +86,8 @@ namespace GetraenkeautomatVorrat.Services
 
             if (amount < existing.Anzahl)
             {
-                var orderCreated = await this._requestProductsService.PutOrder(amount, productName);
-                if(!orderCreated)
-                {
-                    return null!;
-                }
+                await this._requestProductsService.PutOrder(amount, productName);
+                
             }
 
             if (amount >= 0)
@@ -102,11 +99,8 @@ namespace GetraenkeautomatVorrat.Services
 
             if(existing.Anzahl <=3)
             {
-                var refillProducts = await this._requestProductsService.RefillProducts(10, existing.Name);
-                if(!refillProducts)
-                {
-                    return null!;
-                }
+                await this._requestProductsService.RefillProducts(10, existing.Name);
+                
             }
 
             VorratDTO vorratDTO = new VorratDTO()
