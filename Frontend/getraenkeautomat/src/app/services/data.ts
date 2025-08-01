@@ -16,10 +16,9 @@ export class Data {
   updateProducts(pName:string, pAnzahl:number) {
 
     let param = new HttpParams()
-      .set("name",pName)
+    .set("amount",pAnzahl)
+    .set("name",pName)
 
-    return this.http.put<productList>(`/api/Vorrat/UpdateProduct`, {
-      amount: pAnzahl
-    }, {params: param});
+    return this.http.put<productList>(`/api/Vorrat/UpdateProductAmount`,null,{params : param});
   }
 }
