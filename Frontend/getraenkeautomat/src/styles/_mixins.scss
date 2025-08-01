@@ -8,6 +8,28 @@
   }
 }
 
+@mixin absoluteBoxCenter($top-val, $left-val) {
+  position: absolute;
+
+  @if ($top-val ==none) {
+    top: 50%;
+  }
+
+  @else {
+    top: $top-val;
+  }
+
+  @if ($left-val ==none) {
+    left: 50%;
+  }
+
+  @else {
+    left: $left-val;
+  }
+
+  transform: translate(-50%, -50%);
+}
+
 @mixin for-phone-only {
   @media (max-width: 599px) {
     @content;

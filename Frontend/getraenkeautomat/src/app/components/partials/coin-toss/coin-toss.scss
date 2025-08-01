@@ -2,30 +2,24 @@
 @use "../../../../styles/mixins" as *;
 
 .container {
+  display: inline-grid;
   position: relative;
   border-radius: round(lg);
-  background-color: #ffffff20;
+  background-color: clr(sla-700);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
   padding: size(s-2);
-  display: inline-grid;
 
   .showWin {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absoluteBoxCenter(none, none);
+    text-align: center;
     color: clr(gre-500);
     font-size: fSize(xl);
-    text-align: center;
     animation-name: fly;
     animation-duration: 2s;
   }
 
   .showFail {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absoluteBoxCenter(none, none);
     color: clr(red-500);
     font-size: fSize(xl);
     text-align: center;
@@ -34,19 +28,16 @@
   }
 
   &:hover .showPlay {
-    display: flex;
+    @include flexBoxCenter(none);
   }
 
   .showPlay {
-    @include flexBoxCenter(none);
-    position: absolute;
-    height: 22rem;
-    width: 22rem;
+    @include absoluteBoxCenter(35.4%, 46.5%);
+    display: none;
+    height: size(s-22);
+    width: size(s-22);
     border-radius: round(lg);
     margin: size(s-1);
-    top: 35.4%;
-    left: 46.5%;
-    transform: translate(-50%, -50%);
     z-index: 2;
     color: clr(w);
     background-color: #0000004f;
@@ -55,10 +46,10 @@
   }
 
   img {
-    height: 22rem;
-    width: 22rem;
+    height: size(s-22);
+    width: size(s-22);
     background-color: clr(w);
-    margin: 1rem;
+    margin: size(s-1);
     border-radius: 2rem;
     cursor: pointer;
 
@@ -66,7 +57,7 @@
 
   input {
     font-size: fSize(sm);
-    padding: 1rem;
+    padding: size(s-1);
     border-radius: 2rem;
   }
 }
@@ -74,9 +65,9 @@
 .back-button {
   background-color: #007bff;
   color: var(--clr-light);
-  margin-top: 1rem;
+  margin-top: size(s-1);
   border-radius: 2rem;
-  padding: 1rem;
+  padding: size(s-1);
   font-size: fSize(sm);
   cursor: pointer;
   text-align: center;

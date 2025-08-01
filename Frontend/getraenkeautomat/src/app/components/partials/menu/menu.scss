@@ -3,8 +3,8 @@
 
 .container {
   @include flexBoxCenter(none);
-  width: 100%;
-  height: calc(100svh - 8rem);
+  width: size(p-100);
+  height: calc(size(h-100) - size(s-8));
 
   .gameMenuContainer {
     @include flexBoxCenter(none);

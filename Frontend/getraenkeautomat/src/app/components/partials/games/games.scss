@@ -6,26 +6,27 @@
   background-color: clr(ora-700);
   border-radius: round(sm);
   box-shadow: $box-shadow-lg;
-  padding: 2rem;
+  padding: size(s-2);
 
   div {
     text-align: center;
-    font-weight: 600;
+    font-weight: fWeight(md);
     font-size: 2rem;
-    color: #EAAF5E;
+    color: clr(ora-200);
 
   }
-  .buttons{
+
+  .buttons {
     display: flex;
     gap: var(--gap-md);
-    
+
     .onClick {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 15rem;
+      width: size(s-16);
       font-size: 1.5rem;
-      background-color: #482D11;
+      background-color: clr(bro-900);
       border-radius: round(sm);
       cursor: pointer;
       padding: var(--gap-md);
@@ -34,47 +35,43 @@
 
   table {
     display: inline-table;
-    background-color: #482D11;
-    color: #482D11;
-    font-weight: 700;
+    background-color: clr(bro-900);
+    color: clr(bro-900);
+    font-weight: fWeight(lg);
     padding: var(--gap-md);
-    margin: 1rem 2rem;
+    margin: size(s-1) size(s-2);
     border-radius: round(sm);
 
     tr {
       td {
         font-size: 2rem;
-        border: 2px solid #482D11;
-        background-color: #EAAF5E;
-        height: 4rem;
-        width: 4rem;
+        border: 2px solid clr(bro-900);
+        background-color: clr(ora-200);
+        height: size(s-4);
+        width: size(s-4);
         text-align: center;
         cursor: pointer;
 
-        @media (width >=64rem) {
-          height: 4rem;
-          width: 4rem;
-        }
-
-        @media (width >=80rem) {
-          height: 8rem;
-          width: 8rem;
-          border-width: 0.75rem;
+        @include for-desktop-up {
+          height: size(s-8);
+          width: size(s-8);
+          border-width: size(s-0-75);
           border-radius: 1.5rem;
           font-size: 4rem;
         }
 
-        @media (width >=96rem) {
-          height: 14rem;
-          width: 14rem;
-          border-width: 1rem;
+        @include for-big-desktop-up {
+          height: size(s-14);
+          width: size(s-14);
+          border-width: size(s-1);
           border-radius: 2rem;
           font-size: 10rem;
         }
       }
     }
-    
+
   }
+
   .canHover:hover {
     opacity: 0.5;
   }

@@ -67,7 +67,8 @@
       border-top: 1px solid clr(w);
       border-bottom: none;
       width: size(s-8);
-      margin: 0 0 1rem;
+      margin: 0;
+      margin-bottom: size(s-1);
     }
 
     .userLevel {
