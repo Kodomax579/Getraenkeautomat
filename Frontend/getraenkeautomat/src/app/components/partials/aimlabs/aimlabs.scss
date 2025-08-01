@@ -1,52 +1,52 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
 .background {
-  width: calc(100svw - 40rem);
-  height: calc(100svh - 8rem);
-  border-radius: 1rem;
   position: relative;
+  border-radius: round(md);
+  width: calc(size(w-100) - size(s-40));
+  height: calc(size(h-100) - size(s-8));
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: crosshair;
 
   .header {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    margin-bottom: 1rem;
+    @include flexBoxCenter(none);
     position: relative;
+    padding: 0 size(s-1);
+    margin-bottom: size(s-1);
     z-index: 1;
 
     .back-button {
-      background-color: #2DE3FE;
-      color: #0528B3;
-      margin-top: 1rem;
+      background-color: clr(cya-300);
+      color: clr(blu-900);
+      margin-top: size(s-1);
       border: none;
-      border-radius: 0.5rem;
-      padding: 0.5rem 1rem;
+      border-radius: round(xs);
+      padding: size(s-0-5) size(s-1);
       font-size: 2rem;
-      font-weight: 600;
+      font-weight: fWeight(md);
       cursor: pointer;
       transition: background-color 0.2s;
 
       &:hover {
-        background-color: #0528B3;
-        color: #2DE3FE;
+        background-color: clr(blu-900);
+        color: clr(cya-300);
       }
     }
 
     .counter {
       margin: auto auto 0 auto;
       font-size: 3rem;
-      font-weight: bold;
-      color: #2DE3FE;
+      font-weight: fWeight(md);
+      color: clr(cya-300);
     }
   }
 
   app-circle.circle {
     position: absolute;
-    width: 6rem;
-    height: 6rem;
-    background-color: #ff5252;
-    border-radius: 50%;
+    width: size(s-6);
+    height: size(s-6);
     transition: transform 0.2s;
     z-index: 2;
 
@@ -59,8 +59,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 12rem;
+    height: size(s-12);
     cursor: grab;
-    z-index: 0;
   }
 }
