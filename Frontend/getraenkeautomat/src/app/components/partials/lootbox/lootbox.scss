@@ -5,15 +5,15 @@
   @include flexBoxCenter(none);
   flex-wrap: wrap;
   margin: auto;
-  padding: gap('2xl');
+  padding: size(s-2);
   width: size(full);
   height: size(full);
 
   .lootbox {
     height: size(s-26);
     width: size(s-20);
-    background-color: $clr-white;
-    margin: gap(lg);
+    background-color: clr(w);
+    margin: size(s-1);
     border-radius: round(lg);
     cursor: pointer;
 
@@ -28,7 +28,7 @@
       font-size: fSize(md);
       font-weight: fWeight(md);
       margin: 0;
-      margin-top: gap(sm);
+      margin-top: size(s-0-5);
 
       &:last-child {
         font-weight: fWeight(md);
@@ -52,18 +52,18 @@
 
 .back-button {
   @include flexBoxCenter(none);
-  background-color: $clr-blue-accent;
+  background-color: clr(blu-600);
   color: var(--clr-light);
   font-size: fSize(lg);
   font-weight: fWeight(md);
   height: size(s-26);
   width: size(s-20);
-  margin: gap(lg);
+  margin: size(s-1);
   border-radius: round(lg);
   cursor: pointer;
 
   &:hover {
-    background-color: $clr-blue-deep;
+    background-color: clr(blu-800);
   }
 
   @include for-big-desktop-up {

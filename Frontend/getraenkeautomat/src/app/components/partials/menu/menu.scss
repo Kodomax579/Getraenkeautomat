@@ -1,39 +1,29 @@
 @use '../../../../styles/variables' as *;
 @use '../../../../styles/mixins' as *;
 
-.gameMenuContainer {
+.container {
   @include flexBoxCenter(none);
-  flex-wrap: wrap;
-  margin: auto;
-  box-shadow: $box-shadow-lg;
+  width: size(p-100);
+  height: calc(size(h-100) - size(s-8));
 
-  .game-image {
-    width: size(w-20);
-    height: size(h-40);
-    object-fit: cover;
-    border-radius: round(xl);
-    margin: gap('4xl');
-    cursor: pointer;
-    transition: opacity 200ms;
+  .gameMenuContainer {
+    @include flexBoxCenter(none);
+    flex-wrap: wrap;
+    margin: auto;
+    box-shadow: $box-shadow-lg;
 
-    &:hover {
-      opacity: 0.75;
+    .game-image {
+      width: size(w-20);
+      height: size(h-40);
+      object-fit: cover;
+      border-radius: round(xl);
+      margin: size(s-2);
+      cursor: pointer;
+      transition: opacity 200ms;
+
+      &:hover {
+        opacity: 0.75;
+      }
     }
-
-    @include for-tablet-portrait-up {
-    margin: gap('2xl');
-    }
-
-    @include for-big-desktop-up {
-    margin: gap('4xl');
-    }
-  }
-
-  @include for-tablet-portrait-up {
-    margin-top: size(s-38);
-  }
-
-  @include for-desktop-up {
-    margin-top: 0;
   }
 }

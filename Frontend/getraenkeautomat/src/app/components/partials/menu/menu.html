@@ -1,50 +1,34 @@
-<div class="gameMenuContainer">
-  @switch (selectedGame) {
+<div class="container">
+
+  <div class="gameMenuContainer">
+    @switch (selectedGame) {
     @case (1) {
-      <app-games (isTicTacToe)="selectedGame = 0"></app-games>
+    <app-games (isTicTacToe)="selectedGame = 0"></app-games>
     }
     @case (2) {
-      <app-aimlabs (leave)="onLeave()"></app-aimlabs>
+    <app-aimlabs (leave)="onLeave()"></app-aimlabs>
     }
     @case (3) {
-      <app-blackjack (leave)="onLeave()"></app-blackjack>
+    <app-blackjack (leave)="onLeave()"></app-blackjack>
     }
     @case (4) {
-      <app-lootbox (leave)="onLeave()"></app-lootbox>
+    <app-lootbox (leave)="onLeave()"></app-lootbox>
     }
     @case (5) {
-      <app-coin-toss (leave)="onLeave()"></app-coin-toss>
+    <app-coin-toss (leave)="onLeave()"></app-coin-toss>
     }
     @default {
-      <img
-        src="assets/TicTacToeThumbnail2.png"
-        alt="TicTacToe"
-        class="game-image"
-        (click)="showTicTacToe()" />
+    <img src="assets/TicTacToeThumbnail2.png" alt="TicTacToe" class="game-image" (click)="showTicTacToe()" />
 
-      <img
-        src="assets/AimLabThumbnail.png"
-        alt="AimLab"
-        class="game-image"
-        (click)="showAimLab()" />
+    <img src="assets/AimLabThumbnail.png" alt="AimLab" class="game-image" (click)="showAimLab()" />
 
-      <img
-        src="assets/BlackJackThumbnail.png"
-        alt="Blackjack"
-        class="game-image"
-        (click)="showBlackjack()" />
+    <img src="assets/BlackJackThumbnail.png" alt="Blackjack" class="game-image" (click)="showBlackjack()" />
 
-      <img
-        src="assets/LootboxThumbnail.png"
-        alt="Lootbox"
-        class="game-image"
-        (click)="showLootbox()" />
+    <img src="assets/LootboxThumbnail.png" alt="Lootbox" class="game-image" (click)="showLootbox()" />
 
-      <img
-        src="assets/CoinTossThumbnail.jpeg"
-        alt="CoinToss"
-        class="game-image"
-        (click)="showCoinToss()" />
+    <img src="assets/CoinTossThumbnail.jpeg" alt="CoinToss" class="game-image" (click)="showCoinToss()" />
     }
-  }
+    }
+  </div>
+
 </div>

@@ -4,15 +4,15 @@
 .cartContainer {
   height: 100svh;
   width: 200px;
-  background-color: $clr-blue-slate;
-  color: $clr-gray-light;
+  background-color: clr(sla-900);
+  color: clr(gra-100);
   border-radius: var(--rounded-sm);
   box-shadow: $box-shadow-lg;
 
   .cartHeader {
     display: flex;
     justify-content: center;
-    margin-top: gap(sm);
+    margin-top: size(s-0-5);
 
     span {
       font-size: 2rem;
@@ -30,7 +30,7 @@
       display: flex;
       padding: 6px;
       justify-content: space-between;
-      border-bottom: $clr-gray-light solid 1px;
+      border-bottom: clr(gra-100) solid 1px;
 
       .productImgBox {
         height: 34px;
@@ -67,7 +67,7 @@
       .productRemove {
         color: var(--clr-light);
         background-color: var(--clr-danger);
-        padding: gap(lg);
+        padding: size(s-1);
         cursor: pointer;
         border-radius: var(--rounded-sm);
       }
