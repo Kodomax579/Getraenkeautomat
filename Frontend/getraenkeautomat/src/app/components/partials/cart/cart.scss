@@ -12,7 +12,7 @@
   .cartHeader {
     display: flex;
     justify-content: center;
-    margin-top: gap(sm);
+    margin-top: size(s-0-5);
 
     span {
       font-size: 2rem;
@@ -67,7 +67,7 @@
       .productRemove {
         color: var(--clr-light);
         background-color: var(--clr-danger);
-        padding: gap(lg);
+        padding: size(s-1);
         cursor: pointer;
         border-radius: var(--rounded-sm);
       }

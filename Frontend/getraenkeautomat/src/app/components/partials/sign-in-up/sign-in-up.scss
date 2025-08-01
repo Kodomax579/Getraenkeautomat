@@ -14,7 +14,7 @@
 
     div {
       flex: 1;
-      padding: gap(lg);
+      padding: size(s-1);
       background-color: $clr-white;
       cursor: pointer;
       transition: background-color 0.3s ease, color 0.3s ease;
@@ -44,13 +44,13 @@
   }
 
   .formContainer {
-    padding: gap('2xl');
+    padding: size(s-2);
     font-size: fSize(sm);
 
     form {
       display: flex;
       flex-direction: column;
-      gap: gap(lg);
+      gap: size(s-1);
 
       label {
         font-weight: fWeight(sm);
@@ -58,7 +58,7 @@
       }
 
       input {
-        padding: gap(md) gap(lg);
+        padding: size(s-0-75) size(s-1);
         border: none;
         border-radius: round(sm);
         font-size: fSize(sm);
@@ -73,7 +73,7 @@
       }
 
       button {
-        padding: gap(md);
+        padding: size(s-0-75);
         border: none;
         border-radius: round(sm);
         font-size: fSize(sm);

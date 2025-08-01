@@ -56,21 +56,6 @@ $font-size-values: (
 }
 
 //Box Model
-$gap-size-values: (
-  "xs" : 0.25rem,
-  "sm" : 0.5rem,
-  "md" : 0.75rem,
-  "lg" : 1rem,
-  "xl" : 1.5rem,
-  "2xl" : 2rem,
-  "3xl" : 3rem,
-  "4xl" : 4rem,
-);
-
-@function gap($size-name) {
-  @return map-get($gap-size-values, $size-name);
-}
-
 $round-values: (
   "xs" : 0.5rem,
   "sm" : 1rem,
@@ -102,6 +87,10 @@ $sizes: (
   "w-20" : 20vw,
   "w-100" : 100svw,
 
+  "s-0-25" : 0.25rem,
+  "s-0-5" : 0.5rem,
+  "s-0-75" : 0.75rem,
+  "s-1" : 1rem,
   "s-2"  : 2rem,    /* 32px */
   "s-4"  : 4rem,    /* 64px */
   "s-6"  : 6rem,    /* 96px */

@@ -5,8 +5,8 @@
   width: size(s-16);
   height: size(p-100);
   background-color: $clr-gray-light;
-  margin: gap(sm);
-  padding: gap(sm);
+  margin: size(s-0-5);
+  padding: size(s-0-5);
   border-radius: round(sm);
   box-shadow: $box-shadow-lg;
   cursor: pointer;
@@ -42,14 +42,14 @@
     text-align: center;
     font-size: fSize(sm);
     font-weight: fWeight(sm);
-    gap: gap(sm);
+    gap: size(s-0-5);
 
     .productName {
-      padding: gap(xs) gap(sm);
+      padding: size(s-0-25) size(s-0-5);
     }
 
     .productPrice {
-      padding: gap(xs) gap(sm);
+      padding: size(s-0-25) size(s-0-5);
     }
   }
 }

@@ -12,7 +12,7 @@
   }
 
   .header {
-    margin: gap('2xl');
+    margin: size(s-2);
 
     .headline {
       font-size: fSize(md);
@@ -51,7 +51,7 @@
     @include flexBoxCenter(column);
     width: size(full);
     margin-top: size(h-22);
-    gap: gap(lg);
+    gap: size(s-1);
     text-align: center;
 
     .userIcon {
@@ -84,8 +84,8 @@
       @include flexBoxCenter(none);
       border-radius: round(sm);
       width: size(p-50);
-      margin-top: gap('2xl');
-      padding: gap(lg);
+      margin-top: size(s-2);
+      padding: size(s-1);
       font-size: fSize(sm);
       font-weight: fWeight(md);
       background-color: $clr-red-primary;
@@ -96,7 +96,7 @@
 }
 
 ::ng-deep .p-menu-list {
-  gap: gap(sm) !important;
+  gap: size(s-0-5) !important;
 }
 
 .navbargap {
