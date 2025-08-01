@@ -1,60 +1,55 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
 .page {
   display: flex;
 
   .mainPage {
-    width: 100vw;
+    width: size(w-100);
     display: flex;
     justify-content: center;
-    padding: 2rem 2rem;
+    padding: size(s-2) size(s-2);
 
     .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 900px;
-      width: 100%;
-      gap: 2rem;
+      @include flexBoxCenter(column);
+      max-width: size(s-64);
+      width: size(p-100);
+      gap: size(s-2);
       .header{
-        color: white;
-        font-size: 3rem;
+        color: clr(w);
+        font-size: fSize(xl);
       }
       .Picture {
-        width: 100%;
-        max-width: 700px;
+        width: size(p-100);
+        max-width: size(s-38);
         height: auto;
-        border-radius: 20px;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        border-radius: round(lg);
+        box-shadow: $box-shadow;
       }
 
       .story {
-        color: white;
-        font-size: 1.1rem;
+        color: clr(w);
+        font-size: fSize(sm);
         line-height: 1.7;
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
-        padding: 0 1rem;
+        padding: 0 size(s-1);
 
         h2 {
-          font-size: 2rem;
+          font-size: fSize(md);
           margin-bottom: 1rem;
-          color: #ffcc00;
+          color: clr(ora-200);
         }
 
         blockquote {
-          margin: 1rem 0;
-          padding-left: 1rem;
-          border-left: 4px solid #888;
+          margin: size(s-1) 0;
+          padding-left: size(s-1);
+          border-left: 4px solid clr(gra-200);
           font-style: italic;
-          color: #ccc;
         }
-
-        strong {
-          color: #ffffff;
-        }
-
         em {
-          color: #bbbbbb;
+          color: clr(gra-200);
         }
       }
     }
