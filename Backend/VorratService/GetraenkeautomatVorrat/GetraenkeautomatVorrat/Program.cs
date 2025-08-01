@@ -43,6 +43,7 @@ app.UseSwaggerUI(c =>
 {
     c.RoutePrefix = "api/Vorrat";
     c.SwaggerEndpoint("/api/Vorrat/v1/swagger.json", "User API V1");
+    c.SupportedSubmitMethods();
 });
 
 
