@@ -57,15 +57,15 @@
           width: size(s-8);
           border-width: size(s-0-75);
           border-radius: 1.5rem;
-          font-size: 4rem;
+          font-size: size(s-4);
         }
 
         @include for-big-desktop-up {
           height: size(s-14);
           width: size(s-14);
           border-width: size(s-1);
-          border-radius: 2rem;
-          font-size: 10rem;
+          border-radius: round(lg);
+          font-size: size(s-8);
         }
       }
     }
