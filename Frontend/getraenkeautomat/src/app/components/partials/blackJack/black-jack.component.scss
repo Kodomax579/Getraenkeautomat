@@ -26,10 +26,10 @@
       border-radius: round(md);
       box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
       overflow-x: auto;
+      overflow-y: clip;
 
       .buttons {
         display: flex;
-        position: absolute;
         bottom: size(s-2);
         gap: size(s-2);
 
@@ -47,7 +47,6 @@
             background-color: clr(blu-600);
           }
         }
-
       }
     }
 
