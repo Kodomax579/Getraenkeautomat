@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using User.DTO;
 using User.Models;
 using User.Services;
@@ -14,11 +15,9 @@ namespace User.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private ILogger<UserController> _logger;
         private Service _userService;
-        public UserController(ILogger<UserController> logger, Service userService)
+        public UserController(Service userService)
         {
-            this._logger = logger;
             this._userService = userService;
         }
 
@@ -27,12 +26,12 @@ namespace User.Controllers
         {
             if (string.IsNullOrEmpty(uName))
             {
-                _logger.LogError("Username is required");
+                Log.Error("Username is required");
                 return BadRequest("Username is required");
             }
             if (string.IsNullOrEmpty(uPassword))
             {
-                _logger.LogError("Password is required");
+                Log.Error("Password is required");
                 return BadRequest("Password is required");
             }
 
@@ -40,9 +39,10 @@ namespace User.Controllers
 
             if (user == null)
             {
+                Log.Error("username or password wrong");
                 return Unauthorized("Benutzername oder Passwort ist falsch.");
             }
-
+            Log.Information("Response succesfull: user:{@user}", user);
             return Ok(user);
 
         }
@@ -52,7 +52,7 @@ namespace User.Controllers
         {
             if (userDto == null)
             {
-                _logger.LogError("Request without body");
+                Log.Error("Request without body");
                 return BadRequest("Request without body");
             }
             int response = await _userService.CreateUser(userDto);
@@ -60,28 +60,28 @@ namespace User.Controllers
             switch (response)
             {
                 case -1:
-                    _logger.LogError("User already exist");
+                    Log.Error("User already exist");
                     return BadRequest("User already exist");
                 case -2:
-                    _logger.LogError("Body without name");
+                    Log.Error("Body without name");
                     return BadRequest("Body without name");
                 case -3:
-                    _logger.LogError("Create bankaccount error");
+                    Log.Error("Create bankaccount error");
                     return BadRequest("Create bankaccount error");
                 default:
                     if (string.IsNullOrEmpty(userDto.name))
                     {
-                        _logger.LogError("Request without username");
+                        Log.Error("Request without username");
                         return BadRequest("Request without username");
                     }
                     if (string.IsNullOrEmpty(userDto.password))
                     {
-                        _logger.LogError("Request without password");
+                        Log.Error("Request without password");
                         return BadRequest("Request without password");
                     }
                     var user = this._userService.GetUser(userDto.name, userDto.password);
 
-                    _logger.LogInformation("Response user:{user}", user);
+                    Log.Information("Response user:{@user}", user);
 
                     return Ok(user);
             }
@@ -92,18 +92,18 @@ namespace User.Controllers
         {
             if (userDto == null)
             {
-                _logger.LogError("Request without body");
+                Log.Error("Request without body");
                 return BadRequest("Request without body");
             }
 
             var updatedUser = this._userService.UpdateUser(userDto);
             if (updatedUser == null)
             {
-                _logger.LogError("User not found");
+                Log.Error("User not found");
                 return BadRequest("User not found");
             }
 
-            _logger.LogInformation("Response updatedUser:{updatedUser}", updatedUser);
+            Log.Information("Response updatedUser:{@updatedUser}", updatedUser);
             return Ok(updatedUser);
         }
     }
