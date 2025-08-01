@@ -1,57 +1,57 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
 .start-page {
   display: flex;
 
-  .content{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    padding: 2rem 2rem;
+  .content {
+    @include flexBoxCenter(none);
+    width: size(w-100);
+    padding: size(s-2) size(s-2);
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include flexBoxCenter(column);
       text-align: center;
-      max-width: 900px;
-      width: 100%;
-      gap: 2rem;
+      max-width: size(s-64);
+      width: size(p-100);
+      gap: size(s-2);
 
       .hero-image {
-        width: 100%;
-        max-width: 700px;
-        border-radius: 20px;
+        width: calc(size(p-100) - size(s-8));
+        max-width: size(s-64);
+        border-radius: round(md);
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
       }
-  
+
       .hero-text {
-        max-width: 700px;
-        color: white;
-  
+        max-width: size(s-64);
+        color: clr(w);
+
         h1 {
-          font-size: 2.5rem;
-          color: #ffcc00;
-          margin-bottom: 1rem;
+          font-size: fSize(lg);
+          color: clr(yel-300);
+          margin-bottom: size(s-1);
         }
-  
+
         p {
-          font-size: 1.2rem;
+          font-size: fSize(sm);
           line-height: 1.7;
-          margin-bottom: 2rem;
+          margin-bottom: size(s-2);
         }
-  
+
         .cta-button {
-          background-color: #ff9900;
+          background-color: clr(ora-400);
           color: #000;
-          font-weight: bold;
+          font-weight: fWeight(md);
           border: none;
-          border-radius: 10px;
-          padding: 0.8rem 2rem;
-          font-size: 1.1rem;
+          border-radius: round(xs);
+          padding: size(s-1) size(s-2);
+          font-size: fSize(sm);
           cursor: pointer;
           transition: background-color 0.3s ease;
-  
+
           &:hover {
-            background-color: #ffaa33;
+            background-color: clr(ora-400);
           }
         }
       }
@@ -59,28 +59,28 @@
   }
 
   .features {
-    margin-top: 4rem;
-      max-width: 900px;
-      width: 100%;
+    margin-top: size(s-4);
+    max-width: size(s-64);
+    width: size(p-100);
 
     h2 {
       text-align: center;
-      font-size: 2rem;
-      color: #ffcc00;
-      margin-bottom: 2rem;
+      font-size: fSize(lg);
+      color: clr(yel-300);
+      margin-bottom: size(s-2);
     }
 
     .feature-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      gap: size(s-2);
 
       .feature {
-        background-color: #1a1f2e;
-        padding: 1.5rem;
-        border-radius: 15px;
-        width: 250px;
+        background-color: clr(sla-950);
+        padding: size(s-1) size(s-2);
+        border-radius: round(xs);
+        width: size(s-16);
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
         transition: transform 0.3s;
 
@@ -89,38 +89,38 @@
         }
 
         h3 {
-          color: #ff9900;
-          margin-bottom: 0.5rem;
+          color: clr(ora-400);
+          margin-bottom: size(s-0-5);
         }
 
         p {
-          font-size: 1rem;
-          color: #ccc;
+          font-size: fSize(xs);
+          color: clr(gra-100);
         }
       }
     }
   }
 
   .quote {
-    margin-top: 4rem;
+    margin-top: size(s-4);
     text-align: center;
 
     blockquote {
       font-style: italic;
-      color: #cccccc;
-      border-left: 4px solid #888;
-      padding-left: 1rem;
-      max-width: 600px;
+      color: clr(gra-100);
+      border-left: 4px solid clr(gra-100);
+      padding-left: size(s-1);
+      max-width: size(s-38);
       margin: auto;
 
       strong {
-        color: #ffffff;
+        color: clr(w);
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: size(s-0-5);
       }
 
       em {
-        color: #bbbbbb;
+        color: clr(gra-100);
       }
     }
   }

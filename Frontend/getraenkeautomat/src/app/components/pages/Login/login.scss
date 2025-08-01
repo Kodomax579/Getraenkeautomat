@@ -1,6 +1,7 @@
+@use '../../../../styles/variables' as *;
 @use '../../../../styles/mixins' as *;
 
 .signIn {
   @include flexBoxCenter(none);
-  height: 100vh;
+  height: size(h-100);
 }
